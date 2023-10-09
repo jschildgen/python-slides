@@ -1,0 +1,707 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Programmieren 2 - Kapitel 1 - Grundlagen</title>
+
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+
+        <link rel="stylesheet" href="src/slides.css">
+        <link rel="stylesheet" href="src/style.css">
+
+		<link rel="stylesheet" href="src/layout.css">
+        <link rel="stylesheet" href="lib/joint.min.css" />
+        <link rel="stylesheet" href="src/erd.css" />
+        <link rel="stylesheet" href="src/poll.css" />
+
+		<!-- Theme used for syntax highlighting of code -->
+		<script>
+			if(window.location.search.match( /print-pdf/gi )) {
+				document.getElementsByTagName( "head" )[0].innerHTML += '<link rel="stylesheet" href="src/routeros.css">';
+			} else {
+				document.getElementsByTagName( "head" )[0].innerHTML += '<link rel="stylesheet" href="src/rainbow.css">';
+			}
+			</script>
+
+        <!--<script defer src="lib/fontawesome.all.min.js"/>-->
+        <link href="lib/fontawesome.all.min.css" rel="stylesheet">
+        <style> .reveal i.fa { font-family:FontAwesome; font-style: normal; } </style>
+	</head>
+	<body>
+		<div class="reveal">
+            <div id="header"></div>
+            <div id="footer"></div>
+			<div class="slides">
+                <section>
+                    <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
+                    <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
+                    <h1 style="font-size: 200%; margin-top: 1.5cm;">Programmieren 2 (Python)</h1>
+                    <h3>Kapitel 1: Grundlagen</h3>
+                    <h4 style="text-align:center">&nbsp;</h4>
+                    <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-225px;">
+                    <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-225px; box-shadow:none">
+                </section>
+                <section>
+                <h2>Vorlesung / Übung</h2>
+                <h4>Seminaristischer Unterricht</h4>
+                <ul>
+                    <li>Start: 16.10.2023</li>
+                    <li>Mo + Di, 11:45 Uhr in K223</li>
+                    <li>Livestream und Aufzeichnung auf YouTube</li>
+                    <li>Vorlesung mit integrierten Übungen</li>
+                </ul>
+                <br/>
+                
+                <div style="position: absolute; top: 100px; right:50px; font-size:160px"><i class="fa-solid fa-person-chalkboard python"></i></div>
+                <div style="position: absolute; top: 350px; right:50px; font-size:160px"><i class="fa-solid fa-laptop-code python"></i></div>
+                </section>
+                <section>
+									<h2>Übung</h2>
+                <ul style="width: 92%;">
+                    <li>In der Vorlesung erscheinen Übungsaufgaben</li>
+                    <li>Sie lösen die Aufgaben am CIP-Pool-Rechner<br>oder eigenem Laptop</li>
+										<li>Bei Fragen einfach fragen</li>
+                    <li>Leichte Aufgaben zum Einstieg ins Thema
+                  <br>+ komplexe Aufgaben</li>
+                    <li>Countdown zum Lösen in der Präsenzveranstaltung, die restlichen Aufgaben lösen Sie zu Hause</li>
+                    <li>Jede Woche: Quiz im ELO zum Punktesammeln</li>
+                    <li>Abgabe-Deadline: darauffolgender Montag 11:45 Uhr</li>
+								</ul>
+								</section>
+
+
+                <section>
+                <h2>Klausur</h2>
+                <ul>
+                    <li><b>Zulassungsvorraussetzung:<br>mind. 100 Punkte in der Übung</b></li>
+                    <li>Schriftliche Klausur</li>
+                    <li>90 Minuten Zeit</li>
+                    <li>Hilfsmittel: Handschriftlich<br>doppelseitig beschriebenes DIN-A4-Blatt</li>
+                </ul>
+                <div style="position: absolute; top: 120px; right:50px; font-size:220px"><i class="fas fa-edit python"></i><div>
+                </section>
+                <section>
+                <h2>Literatur</h2>
+								<div class="trackinfo"><i class="fas fa-book"></i> 1</div>
+                <div class="columns">
+                  <div>
+                    <ul style="font-size:26pt">
+                      <!--<li><em>J. Schildgen</em><br>Sprachkurs Python<br>Das Programmier-Hörbuch<br>&nbsp;</li>-->
+                      <li><em>M. Kofler</em> <br>Python - Der Grundkurs</li>
+                  </ul>
+                  </div>
+                  <div>
+                    <!--<img src="img/1/sprachkurs_python.png" class="noborder" style="width:225px;border:0;"><br>-->
+                
+                  <img src="img/1/kofler_python.jpg" class="noborder" style="width:225px;border:0;">
+                
+                  </div>
+                </div>
+                
+								<aside class="notes">
+								Die Primärliteratur zu dieser Vorlesung ist <!-- zum einen das Hörbuch Sprachkurs Python und zum anderen -->das Python-Buch von Michael Kofler. Das Buch-Symbole rechts oben auf Folien verweist auf die jeweiligen Kapitel im Buch.
+								</aside>
+                </section>
+
+                
+                <section>
+                  <h2>Aufbau der Vorlesung</h2>
+                  <ol>
+                      <li>Python-Grundlagen
+                        <ul class="small">
+                          <li class="fragment">Datentypen, if/while/for/...</li>
+                          <li class="fragment">Visual Studio Code, Jupyter Notebook</li>
+                        </ul>
+                      </li>
+                  </ol>
+                  <img src="img/1/vscode.png" alt="Visual Studio Code" class="fragment noborder" style="width:90%;margin-top: -1mm; margin-left: 4cm;">
+                </section>
+
+
+                <section>
+                  <h2>Aufbau der Vorlesung</h2>
+                  <ol>
+                    <li>Python-Grundlagen
+                      <ul class="small">
+                        <li>Datentypen, if/while/for/...</li>
+                        <li>Visual Studio Code, Jupyter Notebook</li>
+                      </ul>
+                    </li>
+
+                    <li>Datenstrukturen
+                      <ul class="small">
+                        <li>Listen, Tupel, Mengen, Dictionaries</li>
+                      </ul>
+                    </li>
+                  </ol>
+
+                  <pre class="fragment"><code class="python" data-trim data-sample-indent="keep" contenteditable data-sample='code/1/example_listdict.py'></code></pre>
+                </section>
+
+
+                <section>
+                  <h2>Aufbau der Vorlesung</h2>
+                  <ol>
+                    <li>Python-Grundlagen
+                      <ul class="small">
+                        <li>Datentypen, if/while/for/...</li>
+                        <li>Visual Studio Code, Jupyter Notebook</li>
+                      </ul>
+                    </li>
+
+                    <li>Datenstrukturen
+                      <ul class="small">
+                        <li>Listen, Tupel, Mengen, Dictionaries</li>
+                        <li>Lambda-Ausdrücke</li>
+                      </ul>
+                    </li>
+                      
+                      <li>Exceptions</li>
+                      
+                  </ol>
+
+                  <pre class="fragment"><code class="python" data-trim data-sample-indent="keep" contenteditable data-sample='code/1/example_exception.py'></code></pre>
+                </section>
+
+                <section>
+                  <h2>Aufbau der Vorlesung</h2>
+                  <ol>
+                    <li>Python-Grundlagen
+                      <ul class="small">
+                        <li>Datentypen, if/while/for/...</li>
+                        <li>Visual Studio Code, Jupyter Notebook</li>
+                      </ul>
+                    </li>
+
+                    <li>Datenstrukturen
+                      <ul class="small">
+                        <li>Listen, Tupel, Mengen, Dictionaries</li>
+                        <li>Lambda-Ausdrücke</li>
+                      </ul>
+                    </li>
+                      
+                      <li>Exceptions</li>
+
+                      <li>Objekt-orientierte Programmierung
+                        <ul class="small">
+                          <li>Klassen, Interfaces, Objekte</li>
+                      </ul></li>
+                      
+                  </ol>
+
+                  <pre class="fragment" style="margin-top: 1mm;"><code class="python" data-trim data-sample-indent="keep" contenteditable data-sample='code/1/example_oo.py'></code></pre>
+                </section>
+
+                <section>
+                  <h2>Aufbau der Vorlesung</h2>
+                  <ol>
+                    <li>Python-Grundlagen
+                      <ul class="small">
+                        <li>Datentypen, if/while/for/...</li>
+                        <li>Visual Studio Code, Jupyter Notebook</li>
+                      </ul>
+                    </li>
+
+                    <li>Datenstrukturen
+                      <ul class="small">
+                        <li>Listen, Tupel, Mengen, Dictionaries</li>
+                        <li>Lambda-Ausdrücke</li>
+                      </ul>
+                    </li>
+                      
+                      <li>Exceptions</li>
+
+                      <li>Objekt-orientierte Programmierung
+                        <ul class="small">
+                          <li>Klassen, Interfaces, Objekte</li>
+                      </ul></li>
+                      
+                      <li>GUI-Programmierung</li>
+                  </ol>
+                  <!-- div pos absolute down right -->
+                  <div class="fragment" style="position: absolute; bottom: -60mm; right:0px; font-size:160px"><img src="img/1/example_qt.png" class="noborder"></div>
+                </section>
+                
+                
+                
+      <section>
+        <h2>Warum Python?</h2>
+        <iframe class="stretch" src="https://www.youtube.com/embed/1ASALqLJeBs" frameborder="0" data-autoplay allowfullscreen></iframe>
+        <aside class="notes"><a href="https://www.youtube.com/shorts/1ASALqLJeBs" target="_blank">https://www.youtube.com/shorts/1ASALqLJeBs</a></aside>
+      </section>
+
+      <section>
+        <h2>Warum Python?</h2>
+        <ul>
+          <li>Einfache Syntax</li>
+          <li>Plattformunabhängig</li>
+          <li>Kostenlos und Open Source</li>
+          <li>Vielseitig einsetzbar:
+            <ul>
+              <li>Konsolenprogramme</li>
+              <li>Grafische Benutzeroberflächen</li>
+              <li>Web-Anwendungen</li>
+              <li>Datenanalyse</li>
+              <li>KI / Machine Learning</li>
+              <li>Scripting und Automatisierung</li>
+              <li>...</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Python-Interpreter</h3>
+        <p class="small">Python-Programme werden von einem Interpreter ausgeführt.</p>
+        <h4>Interaktiver Interpreter</h4>
+        <pre style="width:100%"><code class="bash">$ python3
+Python 3.10.10 (main, Mar 21 2023, 18:45:11) [GCC 11.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 5+3
+8</code></pre>
+
+        <h4>Script-Interpreter</h4>
+        <pre style="width:100%"><code class="bash">$ python3 meinprogramm.py</code></pre>
+
+        <aside class="notes">Python-Programme werden nicht compiliert, sondern zur Laufzeit interpretiert. Um schnell etwas mit Python herumzuspielen, kann man interaktiv direkt auf der Shell Kommandos eingeben. Wie das Kommando <code>5+3</code> zeigt, muss man in der Python-Shell nicht zwangsweise den <code>print</code>-Befehl verwenden. Jede Rückgabe, die ein Kommando liefert wird ausgegeben. Die Python-Shell bietet auch eine Autovervollständigung (Tab-Taste). Mit Strg+D (MacOS: ^D) kann die Python-Shell beendet werden.</aside>
+      </section>
+
+      <section>
+        <h3>Beispiel-Programm</h3>
+        <p class="small">meinprogramm.py</p>
+        <pre><code class="python" data-sample="code/1/meinprogramm.py"></code></pre>
+        <aside class="notes">Die Funktion <code>print</code> gibt etwas auf der Konsole aus. Das hier dargestellte Programm lässt sich mittels <code>python3 meinprogramm.py</code> starten. Es gibt auf der Konsole Hallo! aus und in der nächsten Zeile die Zahl 8.</aside>
+      </section>
+
+      
+        
+      </section>
+
+      <section>
+        <h2>IDE</h2>
+        <p><b>Integrated Development Enviroments</b><br>PyCharm, Thonny, Visual Studio Code, ...</p>
+        <ul>
+          <li>Kann viiiiel mehr als ein Texteditor</li>
+          <li>Autovervollständigung</li>
+          <li>Code-Generierung</li>
+          <li>Versionsverwaltung</li>
+          <li>Zeigt Warnungen und Fehler an</li>
+          <li>Ausführung und Debugging des Programms</li>
+          <li>...</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Visual Studio Code</h2>
+        <img src="img/1/vscode.png" class="noborder stretch" style="margin-top: 0mm;">
+        <aside class="notes">Links: Der Projekt-Explorer mit allen Dateien und Ordnern, die zu einem Python-Projekt gehören. Rechts: Der Code-Editor mit Syntax-Highlighting. Unten: Ein Terminal, in dem u.a. das lauffähige Programm ausprobiert werden kann.</aside>
+      </section>
+
+      <section>
+        <h2>Visual Studio Code</h2>
+        <p>Nützliche Funktionen:</p>
+        <img src="img/1/autocomplete.png" alt="Autovervollständigung" class="fragment noborder" data-fragment-index="1" style="position: absolute; width:12cm; margin-top: -2cm; margin-left: 3cm;">
+        <ul>
+          <li class="fragment" data-fragment-index="1">Autovervollständigung beim Tippen</li>
+          <li class="fragment" data-fragment-index="2">Rechtsklick &rightarrow; Format Document</li>
+          <li class="fragment" data-fragment-index="3">Sauberes umbenennen:<br>Rechtsklick auf etwas &rightarrow; Rename Symbol</li>
+          <li class="fragment" data-fragment-index="4">Oben rechts: Play Button zum direkten Ausführen &#9655;</li>
+          <li class="fragment" data-fragment-index="5">Eingebauter Debugger, Git-Integration, Unterstützung für Jupyter Notebooks, ...</li>       
+          
+        </ul>
+      </section>
+
+      <section>
+        <h2>Python-Dokumentation</h2>
+        <p><a href="https://docs.python.org" target="_blank">https://docs.python.org</a></p>
+
+        <p>Viele Beispiele, Beschreibungen von Bibliotheken, Funktionen, uvm.</p>
+
+        <img src="img/1/doku.png" alt="Python-Dokumentation" class="stretch noborder">
+      </section>
+
+      <section>
+        <h2>Sprachelemente</h2>
+        <table style="font-size: 64.5%;">
+          <thead>
+            <tr><th>Bezeichnung</th><th>Beschreibung</th><th>Beispiel</th><th>Namenskonvention</th></tr>
+          </thead>
+          <tbody>
+            <tr class="fragment"><td>Kommentar</td><td>wird ignoriert</td><td><code># Einzeiler</code><br><code>"""</code><br><code>oder so</code><br><code>"""</code></td><td>-</td></tr>
+            <tr class="fragment"><td>Variable &amp; Attribut</td><td>speichert Wert oder Objektref.</td><td><code>x</code>, <code>name</code>,  <code>aktuelleKarte</code></td><td>Beginnt mit Kleinbuchstaben</td></tr>
+            <tr class="fragment"><td>Klasse</td><td>&quot;Bauplan&quot; für Objekte</td><td><code>Person</code>, <code>QPushButton</code></td><td>Beginnt mit Großbuchstaben</td></tr>
+            <tr class="fragment"><td>Funktion</td><td>beschreibt Verhalten, kann Wert liefern</td><td><code>print</code>, <code>setText</code></td><td>Beginnt mit Kleinbuchstaben</td></tr>
+            <tr class="fragment"><td>Konstanten</td><td>unveränderlich</td><td>SPRACHE</td><td>Alles groß</td></tr>
+            <tr class="fragment"><td>Enums</td><td>zulässige Werte</td><td>ROT, SCHWARZ</td><td>Alles groß</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Variablen</h2>
+        <p class="small" style="margin-top: -3mm; margin-bottom: -3mm;">Variablen speichern einen Wert eines (eingebauten) Datentypen.</p>
+
+        <pre><code class="python" contenteditable data-sample='code/1/variablen.py'></code></pre>
+
+        <p class="small" style="margin-top: -3mm;">Sie können aber auch noch vieles mehr speichern: die Referenz auf ein Objekt (Instanz einer benutzerdefinierten Klasse), eine Funktion, ein Modul, None, ...</p>
+
+<div class="poll fragment" style="bottom:000px">
+  <h1>An welchen Stellen ist hier Groß-/Kleinschreibung egal?</h1>
+    <ul>
+      <li>PRINT</li>
+      <li data-poll="correct">ZAHLEN</li>
+      <li>true</li>
+      <li>Job</li>
+      <li>none</li>
+    </ul>
+  <h2>https://fraage.de</h2>
+ </div>
+
+      <aside class="notes">In Python kann man einfach Variablen direkt Werte eines beliebigen Typs zuweisen. Man darf der gleichen Variable später auch einen Wert eines anderen Typs zuweisen. Dies nennt man <em>dynamische Typisierung</em>.</aside>
+
+      </section>
+
+      <section>
+        <h2>Übung 1.1</h2>
+        <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="360" autostart="no" /></div>
+        <ol class="small">
+          <li>Installieren und öffnen Sie Visual Studio Code, legen Sie einen Ordner <code>uebung1</code> an, in dem Sie Ihre Python-Programme speichern werden.</li>
+          <li>Schreiben Sie ein Python-Programm, in dem Sie zwei Variablen verwenden: <code>laenge</code> und <code>breite</code>. Dies sind die Eigenschaften eines Rechtecks.<br>Schreiben Sie den Umfang und den Flächeninhalt jeweils zunächst in Variablen und geben Sie die Werte dann aus.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Konstanten</h2>
+        <p class="small">In anderen Programmiersprachen gibt es Konstanten, also Variablen, die nach ihrer Initialisierung nicht mehr verändert werden können.</p>
+        <p class="small">In Python gibt es keine Konstanten!</p>
+        <pre><code class="python" contenteditable data-sample='code/1/konstanten.py'></code></pre>
+
+        <p class="small"><strike>ANZAHL_SPIELER = 3;</strike> &leftarrow; den Wert sollte man nicht mehr verändern.</p>
+
+        <div class="poll fragment" style="bottom:-280px">
+          <h1>Was passiert, wenn man jetzt trotzdem ANZAHL_SPIELER = 3 macht?</h1>
+            <ul>
+              <li>Kommt ein Fehler</li>
+              <li>Der Wert bleibt trotzdem 2</li>
+              <li data-poll="correct">Der Wert wird auf 3 geändert</li>
+              <li>Der Wert wird auf None gesetzt</li>
+            </ul>
+          <h2>https://fraage.de</h2>
+         </div>
+
+        <aside class="notes">Python kennt nur Variablen. Deren Wert ist also variabel, er lässt sich beliebig verändern. Manchmal hat man aber auch mit Konstanten zu tun, also quasi eine Variable, deren Wert, nachdem er einmal gesetzt ist, sich nicht mehr ändert. Das kann man zwar in Python nicht erzwingen, aber es hat sich als Konvention etabliert, dass man den Namen einer Konstante einfach komplett in Großbuchstaben schreibt. Daran sieht man, dass es sich um eine Konstante handelt. Normale Variablennamen schreibt man dagegen klein. Das ist guter Code-Stil.</aside>
+      </section>
+
+      <section>
+        <h2>Code-Einrückungen</h2>
+        <p class="small">Den Code einzurücken ist in Python wichtiger als in jeder anderen Programmiersprache! Einrückungen sind Teil der Syntax!</p>
+        
+        <pre><code class="python" data-sample-indent="keep" data-sample='code/1/einrueckungen.py'></code></pre>
+
+        <ul class="small">
+          <li>Python verwendet Einrückungen, um Blöcke zu definieren.</li>
+          <li>Tab oder beliebig viele Leerzeichen verwenden</li>
+          <li>Empfehlung: 4 Leerzeichen, keine Tabs</li>
+          <li>Blöcke bestimmen in Python nicht den Gültigkeitsbereich von Variablen. Variablen sind im gesamten Funktions- oder Modulbereich gültig, in dem sie definiert sind.</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>if / elif / else</h2>
+        <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/ifelse.py#if'></code></pre>
+
+        <p class="small">Folgt nur ein Kommando, darf man das direkt in der gleichen Zeile direkt nach dem Doppelpunkt hinschreiben:</p>
+        <pre style="margin-top:-3mm"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/ifelse.py#einzeiler'></code></pre>
+
+        <aside class="notes">Hinter dem Doppelpunkt beginnt man eine neue Zeile, die eine Stufe weiter eingerückt ist, als die vorherige Zeile. Dort beginnt dann der Code-Block, also beim <code>if</code> das, was gemacht wird, wenn die Bedingung erfüllt ist. Der Code-Block ist dort beendet, wo die Einrückung wieder auf dem Level zurück links ist, wie das <code>if</code> selbst. Das untere Beispiel - der Einzeiler - ist zwar gültig. Aber es ist schönerer Stil, wenn man auch bei solchen Einzelnern nach dem Doppelpunkt einen Zeilenumbruch macht und das Statement eingerückt in die nächste Zeile schreibt. Das macht den Code leserlicher, erleichtert die Wartung und es ist erweiterbarer. Wer weiß, ob man in Zukunft noch weitere Kommandos hinzufügen will.</aside>
+      </section>
+
+      <section>
+        <h3>Conditional Expression</h3>
+        <p class="small"><code>dann_wert if bedingung else sonst_wert</code></p>
+        <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/conditional_expression.py#cond'></code></pre>
+        
+        <div class="fragment">
+        <p class="small">Die zweite Zeile des Beispiels entspricht dem Folgenden:</p>
+        <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/conditional_expression.py#if'></code></pre>
+        </div>
+
+        <div class="poll fragment" style="bottom:-220px">
+          <h1>Was ist <code>1 if 2 > 3 else 4</code>?</h1>
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li data-poll="correct">4</li>
+            </ul>
+          <h2>https://fraage.de</h2>
+         </div>
+
+        <aside class="notes">Die Auswertung einer Conditional Expression erfolgt wie folgt: Ist die Bedingung, die hinter dem <code>if</code> steht, wahr, wird der vor dem <code>if</code> stehende Wert genommen, ansonsten derjenige, der hinter <code>else</code> steht.</aside>
+      </section>
+
+      <section>
+        <h3>Schleifen: <code>while</code> / <code>for</code></h3>
+        <pre class="fragment"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#while'></code></pre>
+        <pre class="fragment"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#whiletrue'></code></pre>
+        <pre class="fragment"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#for'></code></pre>
+        <p class="small fragment"><code>range(n)</code> liefert Sequenz von Zahlen von $0$ bis $n-1$</p>
+        <aside class="notes">Das zweite Beispiel entspricht einer Do-While- oder Repeat-Until-Schleife aus anderen Programmiersprachen: Etwas wird so lange gemacht, bis die Abbruchbedingung erfüllt ist.</aside>
+      </section>
+
+      <section>
+        <h3><code>break</code> und <code>continue</code></h3>
+        <p class="small"><code>break</code> bricht die Schleife sofort ab und springt hinaus.</p>
+        <p class="small"><code>continue</code> überspringt den verbleibenden Teil der Schleife und prüft direkt wieder, ob noch eine Iteration gemacht werden soll.</p>
+        <div class="columns" style="margin-top: -8mm;">
+          <div style="width:10cm">
+            <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#break'></code></pre>
+            <p class="small">0<br>1<br>2<br>3<br>4</p>
+          </div>
+          <div style="width:10cm">
+            <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#continue'></code></pre>
+            <p class="small">0<br>1<br>2<br>3<br>4<br>6<br>7<br>8<br>9</p>
+          </div>
+        </div>        
+      </section>
+
+      <section>
+        <h2>Übung 1.2</h2>
+        <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="480" autostart="no" /></div>
+        <p class="small">Geben Sie alle ganzen Zahlen von 1 bis 100 wie folgt aus:</p>
+        <pre><code class="plaintext">1
+2
+3
+4
+... ist teilbar durch 2
+5
+6
+... ist teilbar durch 2
+... ist teilbar durch 3
+7
+8
+... ist teilbar durch 2
+... ist teilbar durch 4
+usw.</code></pre>
+<p class="small">Tipp: <code>%</code> ist der Modulo-Operator in Python: <code>10 % 2 = 0</code> (Rest bei Division)</p>
+      </section>
+
+      <section>
+        <h2>Datentypen</h2>
+        <table class="small">
+          <tbody>
+            <tr><td><code>bool</code></td><td><code>True</code> oder <code>False</code></td></tr>
+            <tr><td><code>int</code></td><td>Ganze Zahl (positiv oder negativ, beliebig groß oder klein)</td></tr>
+            <tr><td><code>float</code></td><td>Fließkommazahl (64 Bit) $\pm 1.8 \cdot 10^{308}$, <code>float('inf')</code>&wedgeq;&infin;</td></tr>
+            <tr><td><code>complex</code></td><td>Komplexe Zahl, z. B. <code>1+2j</code></td></tr>
+            <tr><td><code>str</code></td><td>Zeichenkette, z. B. <code>'hallo'</code> oder <code>"hi"</code></td></tr>
+            <tr><td><code>list</code></td><td>Liste von Werten, z. B. <code>["Mo", "Di", "Mi"]</code></td></tr>
+            <tr><td><code>tuple</code></td><td>Tupel, unveränderlich, z. B. <code>(49.003674, 12.095089)</code></td></tr>
+            <tr><td><code>dict</code></td><td>Dictionary (Menge v. Schlüssel/Wert-Paaren), z. B. <code>{"a":1}</code></td></tr>
+            <tr><td><code>set</code></td><td>Menge, ungeordnet, duplikatfrei, z. B. <code>{7, 12, 15}</code></td></tr>
+            <tr><td><code>NoneType</code></td><td>Nicht existierender Wert: <code>None</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Strings</h2>
+        <p class="small">Strings stehen in einfachen oder doppelten Anführungszeichen<br>
+        oder in Dreifach-Anführungszeichen (dann mehrzeilig möglich):</p>
+
+        <pre><code class="python" data-sample-indent="keep" data-sample='code/1/str.py#str'></code></pre>
+
+        <p class="small">Strings können mit <code>+</code> konkateniert (aneinandergehangen) werden:</p>
+        <pre><code class="python" data-sample-indent="keep" data-sample='code/1/str.py#concat'></code></pre>
+
+        <aside class="notes">Wenn Strings in <code>'</code> oder <code>"</code> stehen, darf kein Zeilenumbruch darin vorkommen. Dies ist nur in der <code>'''</code>- und <code>"""</code>-Notation möglich. Was aber immer geht, sind Zeilenumbrüche mittels <code>\n</code>, z. B. <code>"Gruß,\nJochen"</code></aside>
+      </section>
+
+      <section>
+        <h2>Strings</h2>
+        <p class="small">Strings sind <em>immutable</em> (unveränderlich). Sie lassen sich nicht an Ort und Stelle verändern, jede Operation erzeugt stattdessen einen neuen String.</p>
+
+        <pre style="height: 11.5cm;"><code class="python" data-sample-indent="keep" data-sample='code/1/str2.py'></code></pre>
+
+        <div class="poll fragment" style="bottom:-20px">
+          <h1>Wie komme ich an das Wort "ist"?</h1>
+            <ul>
+              <li>s[6:8]</li>
+              <li>s[6:3]</li>
+              <li>s[5:7]</li>
+              <li data-poll="correct">s[5:8]</li>
+            </ul>
+          <h2>https://fraage.de</h2>
+         </div>
+
+        <aside class="notes">Diese Methoden verändern den String nicht, sie liefern eine modifizierte Version des Strings zurück.</aside>
+      </section>
+
+      <section>
+        <h3>Module / <code>import</code></h3>
+        <p class="small">Pakete sind Sammlungen von Modulen (Funktionen, Klassen, Variablen, ...), sie können von Drittanbietern stammen oder selbst erstellt werden.</p>
+        <h4>Importieren von Modulen</h4>
+
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/import.py'></code></pre>
+
+        <p class="small">Viele Pakete sind in Python schon integriert. Weitere lassen sich z. B. mit dem Paketmanager <code>pip</code> installieren: (auf der Konsole eingeben)</p>
+
+        <pre><code class="bash">$ pip3 install numpy</code></pre>
+      </section>
+
+      <section>
+        <h3>Konsolenausgabe: <code>print</code></h3>
+        <ul class="small">
+          <li><code>print</code> nimmt beliebig viele Argumente und gibt deren Werte auf der Konsole aus (Separator mit Parameter <code>sep</code> einstellbar; Standard: <code>sep=' '</code>).</li>
+          <li>Standardmäßig macht Python nach jeder Ausgabe einen Zeilenumbruch (<code>end="\n"</code>), lässt sich mit dem Parameter <code>end=""</code> ausstellen.</li>
+        </ul>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/print.py'></code></pre>
+      </section>
+
+      <section>
+        <h3>Ausgabe formatieren</h3>
+        <p class="small">Es gibt mehrere Möglichkeiten, Strings mittels Platzhalter zu formatieren:</p>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/format.py#format'></code></pre>
+
+        <p class="small"><code>print</code> kann natürlich auch direkt formatierte Strings ausgeben:</p>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/format.py#print'></code></pre>
+
+        <p class="small"><b>Platzhalter:</b></p>
+        <ul class="small">
+          <li><code>{0}, {1}, ...</code>: über die Position</li>
+          <li><code>%s</code> (String), <code>%d</code> (Zahl), <code>%.2f</code> (Zahl gerundet auf 2 Nachkommastellen), ...</li>
+          <li><code>{name}, {alter}</code>: über den Variablennamen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Texteingabe: <code>input</code></h3>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/input.py'></code></pre>
+
+        <pre><code class="plaintext">Wie heißt du? Anna
+Hallo Anna!</code></pre>
+      <aside class="notes">Übergibt man der <code>input</code>-Funktion einen String, wird dieser String auf der Konsole ausgegeben, danach wird aber kein Zeilenumbruch gemacht. In der gleichen Zeile kann dann also der Anwender etwas eingeben. Nachdem diese Eingabe mit Enter abgeschickt wurde, liefert die <code>input</code>-Funktion den String zurück, der eingegeben wurde.</aside>
+      </section>
+
+      <section>
+        <h2>Übung 1.3</h2>
+        <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
+        <p class="small">Entwickeln Sie das folgende Spiel &quot;Blackjack&quot;:</p>
+        <ol class="small">
+          <li>Es wird eine zufällige Karte gezogen (Wert zwischen 2 und 11)</li>
+          <li>Der Spieler muss entscheiden, ob er noch eine Karte ziehen möchte oder nicht.</li>
+          <li>Wenn er/sie noch eine Karte ziehen möchte, wird eine weitere Karte gezogen und die Summe der Kartenwerte ausgegeben.</li>
+          <li>Wenn er/sie keine Karte mehr ziehen möchte, wird die Summe der Kartenwerte ausgegeben.</li>
+          <li>Wenn die Summe der Kartenwerte größer als 21 ist, hat der Spieler verloren.</li>
+          <li>Wenn die Summe der Kartenwerte genau 21 ist, hat der Spieler gewonnen.</li>
+          <li>Danach zieht der Computergegner seine Karten. Er zieht so lange noch eine Karte, wie die Summe kleiner als 17 ist.</li>
+          <li>Wenn der Summe der Kartenwerte des Computergegners größer als 21 ist oder kleiner als die Kartenwerte des Spielers, hat der Spieler gewonnen. Bei Gleichstand gewinnt der Computergegner.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Funktionen: <code>def f(x):</code></h3>
+        <ul class="small">
+          <li>Funktionen haben einen Namen und beliebig viele Parameter.</li>
+          <li>Funktionen können mit <code>return</code> einen Wert zurückliefern.</li>
+          <li>Zuerst muss die Funktion definiert werden, dann kann man sie aufrufen.</li>
+        </ul>
+        <pre style="height: 12.3cm;"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/funktionen.py'></code></pre>
+
+        <div class="poll fragment" style="bottom:20px">
+          <h1>Was wird bei hallo(quadrat(fuenf())) ausgegeben?</h1>
+            <ul>
+              <li>Hallo 5!</li>
+              <li data-poll="correct">Hallo 25!</li>
+              <li>Hallo fuenfundzwanzig()!</li>
+              <li>das geht nicht</li>
+            </ul>
+          <h2>https://fraage.de</h2>
+         </div>
+      </section>
+
+      <section>
+        <h3 style="font-size: 150%;"><code>if __name__ == "__main__":</code></h3>
+        <p class="small">Es ist guter Programmierstil, wenn man die Haupt-Programmlogik in eine Funktion <code>main()</code> schreibt und diese am Ende des Scriptes nach Überprüfung von<br><code>if __name__ == "__main__":</code> aufruft:</p>
+
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/main.py'></code></pre>
+
+        <ul class="small">
+          <li>(+) <em>Modularität</em>: Das Script kann in anderen Python-Scripten importiert werden. In dem Fall wird <code>main()</code> nicht aufgerufen.</li>
+          <li>(+) <em>Wiederverwendbarkeit</em>: Funktionen aus dem Script lassen sich in anderen Scripten wiederverwenden.</li>
+          <li>(+) <em>Testbarkeit</em>: Ein separates Script, welches einen Unit-Test macht, kann Funktionen aus diesem Script aufrufen und prüfen, ob sie das korrekte tun.</li>
+          <li>(+) <em>Lesbarkeit</em>: Man sieht direkt, was beim Aufruf des Scripts gemacht wird.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><code>import</code></h3>
+        <p class="small">Mit <code>import</code> lassen sich auch eigene Scripte importieren und deren Funktionen aufrufen. Das zu importierende Script muss sich im gleichen Ordner befinden.</p>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/meine_mathe_library.py'></code></pre>
+        
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/import2.py'></code></pre>
+      </section>
+
+      <section>
+        <h2>Übung 1.4</h2>
+        <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="660" autostart="no" /></div>
+        <p class="small">Entwickeln Sie Funktionen:</p>
+        <ol class="small">
+          <li>Eine Funktion <code>stars(password)</code>, die ein Passwort entgegennimmt und einen String der gleichen Länge, aber mit Sternchen ausgibt.<br>
+            Beispielaufruf: <code>stars("Hallo")</code> liefert <code>*****</code><br>
+            Tipp: Die Funktion <code>len(s)</code> gibt die Länge eines Strings <code>s</code> zurück.<br>&nbsp;</li>
+          <li>Eine Funktion <code>zinsen(anfangskapital, jahre, zinssatz)</code>, die das Endkapital nach der angegebenen Anzahl von Jahren berechnet.<br>
+            Beispielaufruf: <code>zinsen(500, 8, 3.75)</code> liefert <code>671.24</code></li>
+        </ol>
+
+      </section>
+
+			<section>
+							<h2>Kapitelzusammenfassung</h2>
+							<ul>
+                <li>Die Programmiersprache Python</li>
+                <li>Visual Studio Code</li>
+                <li>Python-Dokumentation</li>
+                <li>Variablen</li>
+                <li>if, elif, else, while, for, break, continue</li>
+                <li>Datentypen, Strings</li>
+                <li>import</li>
+                <li>Textausgabe und Texteingabe</li>
+                <li>Funktionen</li>
+                <li><code>if __name__ == "__main__":</code></li>
+							</ul>
+			</section>
+
+
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="reveal.js/plugin/math/math.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/search/search.js"></script>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/lodash.js"></script>
+        <script src="lib/backbone.js"></script>
+        <script src="lib/joint.min.js"></script>
+				<script src="lib/deflate.js"></script>
+
+		<script src="src/init_reveal.js"></script>
+
+        <script>
+        if(window.location.search.match( /print-pdf/gi )) {
+                document.getElementById('header').style="display:none";
+                document.getElementById('footer').style="display:none";
+        }
+        </script>
+
+
+	</body>
+</html>
