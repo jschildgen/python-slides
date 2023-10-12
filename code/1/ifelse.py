@@ -12,3 +12,11 @@ else:
 # sample(einzeiler)
 if x == 0: print("x ist 0")
 # end-sample
+
+# sample(pass)
+if x == None:
+    # TODO: darum kümmere ich mich später
+    pass
+else:
+    print(x)
+# end-sample

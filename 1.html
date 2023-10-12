@@ -67,7 +67,7 @@
                     <li>Leichte Aufgaben zum Einstieg ins Thema
                   <br>+ komplexe Aufgaben</li>
                     <li>Countdown zum Lösen in der Präsenzveranstaltung, die restlichen Aufgaben lösen Sie zu Hause</li>
-                    <li>Jede Woche: Quiz im ELO zum Punktesammeln</li>
+                    <li>Jede Woche: Abgabe im ELO zum Punktesammeln</li>
                     <li>Abgabe-Deadline: darauffolgender Montag 11:45 Uhr</li>
 								</ul>
 								</section>
@@ -76,7 +76,7 @@
                 <section>
                 <h2>Klausur</h2>
                 <ul>
-                    <li><b>Zulassungsvorraussetzung:<br>mind. 100 Punkte in der Übung</b></li>
+                    <li><b>Zulassungsvorraussetzung:<br>mind. 100 Punkte in der Übung</b><br>(es gibt 12 Abgaben mit<br>jeweils mind. 10 Punkten)</li>
                     <li>Schriftliche Klausur</li>
                     <li>90 Minuten Zeit</li>
                     <li>Hilfsmittel: Handschriftlich<br>doppelseitig beschriebenes DIN-A4-Blatt</li>
@@ -235,6 +235,7 @@
 
       <section>
         <h2>Warum Python?</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> Vorwort</div>
         <ul>
           <li>Einfache Syntax</li>
           <li>Plattformunabhängig</li>
@@ -255,6 +256,7 @@
 
       <section>
         <h3>Python-Interpreter</h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.2, 1.3</div>
         <p class="small">Python-Programme werden von einem Interpreter ausgeführt.</p>
         <h4>Interaktiver Interpreter</h4>
         <pre style="width:100%"><code class="bash">$ python3
@@ -271,8 +273,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h3>Beispiel-Programm</h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.3</div>
         <p class="small">meinprogramm.py</p>
         <pre><code class="python" data-sample="code/1/meinprogramm.py"></code></pre>
+
+        <p class="small">Starten:</p>
+        <pre><code class="bash">$ python3 meinprogramm.py</code></pre>
+
+        <p class="small">Ausgabe:</p>
+        <pre><code class="plaintext">Hallo!
+8</code></pre>
+        
         <aside class="notes">Die Funktion <code>print</code> gibt etwas auf der Konsole aus. Das hier dargestellte Programm lässt sich mittels <code>python3 meinprogramm.py</code> starten. Es gibt auf der Konsole Hallo! aus und in der nächsten Zeile die Zahl 8.</aside>
       </section>
 
@@ -282,6 +293,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h2>IDE</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.3</div>
         <p><b>Integrated Development Enviroments</b><br>PyCharm, Thonny, Visual Studio Code, ...</p>
         <ul>
           <li>Kann viiiiel mehr als ein Texteditor</li>
@@ -296,6 +308,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h2>Visual Studio Code</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.3</div>
         <img src="img/1/vscode.png" class="noborder stretch" style="margin-top: 0mm;">
         <aside class="notes">Links: Der Projekt-Explorer mit allen Dateien und Ordnern, die zu einem Python-Projekt gehören. Rechts: Der Code-Editor mit Syntax-Highlighting. Unten: Ein Terminal, in dem u.a. das lauffähige Programm ausprobiert werden kann.</aside>
       </section>
@@ -325,6 +338,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h2>Sprachelemente</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.5</div>
         <table style="font-size: 64.5%;">
           <thead>
             <tr><th>Bezeichnung</th><th>Beschreibung</th><th>Beispiel</th><th>Namenskonvention</th></tr>
@@ -335,13 +349,13 @@ Type "help", "copyright", "credits" or "license" for more information.
             <tr class="fragment"><td>Klasse</td><td>&quot;Bauplan&quot; für Objekte</td><td><code>Person</code>, <code>QPushButton</code></td><td>Beginnt mit Großbuchstaben</td></tr>
             <tr class="fragment"><td>Funktion</td><td>beschreibt Verhalten, kann Wert liefern</td><td><code>print</code>, <code>setText</code></td><td>Beginnt mit Kleinbuchstaben</td></tr>
             <tr class="fragment"><td>Konstanten</td><td>unveränderlich</td><td>SPRACHE</td><td>Alles groß</td></tr>
-            <tr class="fragment"><td>Enums</td><td>zulässige Werte</td><td>ROT, SCHWARZ</td><td>Alles groß</td></tr>
           </tbody>
         </table>
       </section>
 
       <section>
         <h2>Variablen</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 2</div>
         <p class="small" style="margin-top: -3mm; margin-bottom: -3mm;">Variablen speichern einen Wert eines (eingebauten) Datentypen.</p>
 
         <pre><code class="python" contenteditable data-sample='code/1/variablen.py'></code></pre>
@@ -375,6 +389,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h2>Konstanten</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 2.1</div>
         <p class="small">In anderen Programmiersprachen gibt es Konstanten, also Variablen, die nach ihrer Initialisierung nicht mehr verändert werden können.</p>
         <p class="small">In Python gibt es keine Konstanten!</p>
         <pre><code class="python" contenteditable data-sample='code/1/konstanten.py'></code></pre>
@@ -397,6 +412,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h2>Code-Einrückungen</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.5</div>
         <p class="small">Den Code einzurücken ist in Python wichtiger als in jeder anderen Programmiersprache! Einrückungen sind Teil der Syntax!</p>
         
         <pre><code class="python" data-sample-indent="keep" data-sample='code/1/einrueckungen.py'></code></pre>
@@ -412,12 +428,31 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h2>if / elif / else</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 8.1</div>
         <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/ifelse.py#if'></code></pre>
 
         <p class="small">Folgt nur ein Kommando, darf man das direkt in der gleichen Zeile direkt nach dem Doppelpunkt hinschreiben:</p>
         <pre style="margin-top:-3mm"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/ifelse.py#einzeiler'></code></pre>
 
         <aside class="notes">Hinter dem Doppelpunkt beginnt man eine neue Zeile, die eine Stufe weiter eingerückt ist, als die vorherige Zeile. Dort beginnt dann der Code-Block, also beim <code>if</code> das, was gemacht wird, wenn die Bedingung erfüllt ist. Der Code-Block ist dort beendet, wo die Einrückung wieder auf dem Level zurück links ist, wie das <code>if</code> selbst. Das untere Beispiel - der Einzeiler - ist zwar gültig. Aber es ist schönerer Stil, wenn man auch bei solchen Einzelnern nach dem Doppelpunkt einen Zeilenumbruch macht und das Statement eingerückt in die nächste Zeile schreibt. Das macht den Code leserlicher, erleichtert die Wartung und es ist erweiterbarer. Wer weiß, ob man in Zukunft noch weitere Kommandos hinzufügen will.</aside>
+      </section>
+
+      <section>
+        <h3><code>pass</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 8.1</div>
+        <p class="small"><code>pass</code> macht gar nichts.<br>Man braucht es, wenn man in einem Code-Block nichts ausführen will.</p>
+        <pre><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/ifelse.py#pass'></code></pre>
+        <p class="fragment small">Ohne das <code>pass</code> käme ein Fehler, weil nach <code>if</code> usw. ein Codeblock mit mindestens einem Statement erwartet wird.</p>
+      </section>
+
+      <section>
+        <h3>Operatoren</h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 3</div>
+        <h4>Vergleichsoperatoren <code>&gt; &gt;= &lt; &lt;= == !=</code></h4>
+        <pre style="margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/1/operatoren.py#vergleich'></code></pre>
+        <h4>Logische Operatoren <code>not</code> / <code>and</code> / <code>or</code></h4>
+        <pre style="margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/1/operatoren.py#notandor'></code></pre>
+        <aside class="notes">Ein Vergleichsoperator vergleicht zwei Werte und liefert einen Boolean. Logische Operatoren nehmen einen (<code>not</code>) bzw. zwei (<code>and, or</code>) boolesche Werte und liefern wieder einen booleschen Wert.</aside>
       </section>
 
       <section>
@@ -446,6 +481,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h3>Schleifen: <code>while</code> / <code>for</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 8.4, 8.3, 8.5</div>
         <pre class="fragment"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#while'></code></pre>
         <pre class="fragment"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#whiletrue'></code></pre>
         <pre class="fragment"><code class="python" data-sample-indent="keep" contenteditable data-sample='code/1/schleifen.py#for'></code></pre>
@@ -455,6 +491,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
       <section>
         <h3><code>break</code> und <code>continue</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 8.3</div>
         <p class="small"><code>break</code> bricht die Schleife sofort ab und springt hinaus.</p>
         <p class="small"><code>continue</code> überspringt den verbleibenden Teil der Schleife und prüft direkt wieder, ob noch eine Iteration gemacht werden soll.</p>
         <div class="columns" style="margin-top: -8mm;">
@@ -492,6 +529,7 @@ usw.</code></pre>
 
       <section>
         <h2>Datentypen</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 2.2</div>
         <table class="small">
           <tbody>
             <tr><td><code>bool</code></td><td><code>True</code> oder <code>False</code></td></tr>
@@ -510,6 +548,7 @@ usw.</code></pre>
 
       <section>
         <h2>Strings</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 5</div>
         <p class="small">Strings stehen in einfachen oder doppelten Anführungszeichen<br>
         oder in Dreifach-Anführungszeichen (dann mehrzeilig möglich):</p>
 
@@ -523,6 +562,7 @@ usw.</code></pre>
 
       <section>
         <h2>Strings</h2>
+        <div class="trackinfo"><i class="fas fa-book"></i> 5.2</div>
         <p class="small">Strings sind <em>immutable</em> (unveränderlich). Sie lassen sich nicht an Ort und Stelle verändern, jede Operation erzeugt stattdessen einen neuen String.</p>
 
         <pre style="height: 11.5cm;"><code class="python" data-sample-indent="keep" data-sample='code/1/str2.py'></code></pre>
@@ -543,6 +583,7 @@ usw.</code></pre>
 
       <section>
         <h3>Module / <code>import</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.5</div>
         <p class="small">Pakete sind Sammlungen von Modulen (Funktionen, Klassen, Variablen, ...), sie können von Drittanbietern stammen oder selbst erstellt werden.</p>
         <h4>Importieren von Modulen</h4>
 
@@ -555,6 +596,7 @@ usw.</code></pre>
 
       <section>
         <h3>Konsolenausgabe: <code>print</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.5</div>
         <ul class="small">
           <li><code>print</code> nimmt beliebig viele Argumente und gibt deren Werte auf der Konsole aus (Separator mit Parameter <code>sep</code> einstellbar; Standard: <code>sep=' '</code>).</li>
           <li>Standardmäßig macht Python nach jeder Ausgabe einen Zeilenumbruch (<code>end="\n"</code>), lässt sich mit dem Parameter <code>end=""</code> ausstellen.</li>
@@ -564,6 +606,7 @@ usw.</code></pre>
 
       <section>
         <h3>Ausgabe formatieren</h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 5.4</div>
         <p class="small">Es gibt mehrere Möglichkeiten, Strings mittels Platzhalter zu formatieren:</p>
         <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/format.py#format'></code></pre>
 
@@ -580,11 +623,26 @@ usw.</code></pre>
 
       <section>
         <h3>Texteingabe: <code>input</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 1.5</div>
         <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/input.py'></code></pre>
 
         <pre><code class="plaintext">Wie heißt du? Anna
 Hallo Anna!</code></pre>
       <aside class="notes">Übergibt man der <code>input</code>-Funktion einen String, wird dieser String auf der Konsole ausgegeben, danach wird aber kein Zeilenumbruch gemacht. In der gleichen Zeile kann dann also der Anwender etwas eingeben. Nachdem diese Eingabe mit Enter abgeschickt wurde, liefert die <code>input</code>-Funktion den String zurück, der eingegeben wurde.</aside>
+      </section>
+
+      <section>
+        <h2>Typumwandlungen</h2>
+        <p class="small">Wenn man eine Zahl braucht, aber ein String vorliegt (oder andersum), müssen wir eine Typumwandlung vornehmen:</p>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/typumwandlung.py'></code></pre>
+        <p class="small">Übergibt man <code>int(...)</code> oder <code>float(...)</code> keine Zahl, kommt ein Fehler:
+        <span style="color:red">ValueError: invalid literal for int() with base 10: 'hallo'</span></p>
+      </section>
+
+      <section>
+        <h3>Typermittlung: <code>type(...)</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 2.2</div>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/type.py'></code></pre>
       </section>
 
       <section>
@@ -605,6 +663,7 @@ Hallo Anna!</code></pre>
 
       <section>
         <h3>Funktionen: <code>def f(x):</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 9</div>
         <ul class="small">
           <li>Funktionen haben einen Namen und beliebig viele Parameter.</li>
           <li>Funktionen können mit <code>return</code> einen Wert zurückliefern.</li>
@@ -625,6 +684,13 @@ Hallo Anna!</code></pre>
       </section>
 
       <section>
+        <h3>Lokale und globale Variablen</h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 9.2</div>
+        <p class="small">Variablen, die innerhalb einer Funktion definiert werden, sind nur innerhalb der Funktion sichtbar. Sie heißen <em>lokale Variablen</em>.</p>
+        <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/localglobalvar.py'></code></pre>
+      </section>
+
+      <section>
         <h3 style="font-size: 150%;"><code>if __name__ == "__main__":</code></h3>
         <p class="small">Es ist guter Programmierstil, wenn man die Haupt-Programmlogik in eine Funktion <code>main()</code> schreibt und diese am Ende des Scriptes nach Überprüfung von<br><code>if __name__ == "__main__":</code> aufruft:</p>
 
@@ -640,6 +706,7 @@ Hallo Anna!</code></pre>
 
       <section>
         <h3><code>import</code></h3>
+        <div class="trackinfo"><i class="fas fa-book"></i> 12</div>
         <p class="small">Mit <code>import</code> lassen sich auch eigene Scripte importieren und deren Funktionen aufrufen. Das zu importierende Script muss sich im gleichen Ordner befinden.</p>
         <pre><code class="python" contenteditable data-sample-indent="keep" data-sample='code/1/meine_mathe_library.py'></code></pre>
         
@@ -648,14 +715,16 @@ Hallo Anna!</code></pre>
 
       <section>
         <h2>Übung 1.4</h2>
-        <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="660" autostart="no" /></div>
+        <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
         <p class="small">Entwickeln Sie Funktionen:</p>
         <ol class="small">
           <li>Eine Funktion <code>stars(password)</code>, die ein Passwort entgegennimmt und einen String der gleichen Länge, aber mit Sternchen ausgibt.<br>
             Beispielaufruf: <code>stars("Hallo")</code> liefert <code>*****</code><br>
             Tipp: Die Funktion <code>len(s)</code> gibt die Länge eines Strings <code>s</code> zurück.<br>&nbsp;</li>
           <li>Eine Funktion <code>zinsen(anfangskapital, jahre, zinssatz)</code>, die das Endkapital nach der angegebenen Anzahl von Jahren berechnet.<br>
-            Beispielaufruf: <code>zinsen(500, 8, 3.75)</code> liefert <code>671.24</code></li>
+            Beispielaufruf: <code>zinsen(500, 8, 3.75)</code> liefert <code>671.24</code><br>&nbsp;</li>
+          <li>In Python kann man einen String mit einer Zahl multiplizieren:<br><code>"hu"*2</code> liefert <code>huhu</code>. Entwickeln Sie mit diesem Wissen die <code>stars</code>-Funktion erneut. Nennen Sie sie <code>stars2</code><br>&nbsp;</li>
+
         </ol>
 
       </section>
