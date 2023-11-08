@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Programmieren 2 - Kapitel 2 - Objektorientierung</title>
+		<title>Programmieren 2 - Kapitel 2 - Komplexe Datenstrukturen</title>
 
 		<link rel="stylesheet" href="reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
@@ -38,548 +38,345 @@
                 <section>
                     <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
                     <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
-                    <h1 style="font-size: 240%;">Programmieren 2 (Java)</h1>
-                    <h3>Kapitel 2: Objektorientierung</h3>
+                    <h1 style="font-size: 200%; margin-top: 1.5cm;">Programmieren 2 (Python)</h1>
+                    <h3>Kapitel 2: Komplexe Datenstrukturen</h3>
+                    <h3 style="font-size: 120%;">Listen, Tupel, Sets und Dictionaries</h3>
                     <h4 style="text-align:center">&nbsp;</h4>
-                    <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-225px;">
-                    <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-225px; box-shadow:none">
+                    <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-180px;">
+                    <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-180px; box-shadow:none">
                 </section>
                 
+                
+                
 
-      <section>
-        <h2>Klassen und Objekte</h2>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 25 <i class="fas fa-book"></i> 11</div>
-        <pre><code class="java" data-trim contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#32-36'></code></pre>  
-        <h4>Klasse</h4>
-        <p class="small" style="margin-top: -5mm;">Vorlage für Objekte, besteht aus <em>Attributen</em> (<em>Member-<br>Variablen</em>) und <em>Methoden</em>.</p>
-        <h4>Objekt</h4>
-        <p class="small" style="margin-top: -5mm;">Instanz einer Klasse. Hat eine <em>Objekt-Identität</em> (Speicher-<br>adresse) und einen <em>Zustand</em> (Werte seiner Attribute).</p>
+                <section>
+                  <h2>Komplexe Datenstrukturen</h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7</div>
+                  <p class="small">Mit diesen Datenstrukturen lässt sich eine Sammlung vieler Werte speichern:</p>
+                  <ul class="small">
+                    <li><code>list</code> (Liste): ListeSortiert, Zugriff über Positions-Index (0, 1, 2, ...)</li>
+                    <li class="fragment"><code>tuple</code> (Tupel): simple unveränderliche Liste</li>
+                    <li class="fragment"><code>set</code> (Menge): Ungeordnet, keine Duplikate</li>
+                    <li class="fragment"><code>dict</code> (Dictionary): Menge von Schlüssel-Wert-Paaren;<br>Schlüssel-basierter Zugriff</li>
+                  </ul>
+
+                  <pre><code class="python" contenteditable data-sample='code/2/overview.py'></code></pre>
+
+                  <aside class="notes">Listen haben eine Ordnung, d. h. es gibt ein nulltes Element, ein erstes und so weiter. In Listen darf ein Element auch doppelt vorkommen. Mengen (Sets) sind dagegen ungeordnet und frei von Duplikaten. Fügt man ein Element in eine Menge ein, welches schon vorhanden ist, passiert nichts.<br>
+                                       Dictionaries heißen in anderen Programmiersprachen Maps oder assoziative Arrays. Sie sind eine ungeordnete Menge von Schlüssel-Wert-Paaren. Man greift auf einen Wert zu, indem man den Schlüssel angibt.</aside>
+                </section>
+
+                <section>
+                  <h2>Listen</h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.1</div>
+                  <ul class="small">
+                    <li>Eckige Klammern: <code>[]</code></li>
+                    <li>Geordnet (jedes Element hat seine Position, beginnend mit 0),</li>
+                    <li>Duplikate (doppelte Werte) sind möglich.</li>
+                  </ul>
+
+                  <pre><code class="python" contenteditable data-sample='code/2/list.py'></code></pre>
+                  <aside class="notes">Eine Liste wird erzeugt mit eckigen Klammern (<code>[]</code> ist eine leere Liste), in der ihre Elemente Komma-getrennt aufgezählt werden. Über eckige Klammern greift man lesend und überschreibend auf die einzelnen Elemente zu. <code>len</code> liefert die Anzahl der Elemente.</aside>
+                </section>
+
+                <section>
+                  <h3>Listen manipulieren</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.2</div>
+                  <p class="small">Elemente ändern, hinzufügen, löschen, ...</p>
+                  <pre><code class="python" contenteditable data-sample='code/2/list2.py'></code></pre>
+
+                  <div class="poll fragment" style="bottom:-185px">
+                    <h1>Nach diesen ganzen Manipulationen an der Liste: Was würde uns nun wochentage[2] zurückgeben?</h1>
+                      <ul>
+                        <li>Mo</li>
+                        <li>Di</li>
+                        <li>Do</li>
+                        <li data-poll="correct">Fr</li>
+                      </ul>
+                    <h2>https://fraage.de</h2>
+                   </div>
+
+                  <aside class="notes">Die hier stehenden Kommandos ändern die Liste an Ort und Stelle. Die Liste hat sich nach diesen Aufrufen verändert: neue Elemente wurden hinzugefügt, etwas wurde ersetzt, gelöscht, umsortiert, usw.</aside>
+                </section>
+
+                <section>
+                  <h3>Noch mehr Listen</h3>
+                  <pre><code class="python" contenteditable data-sample='code/2/list3.py'></code></pre>
+                  <aside class="notes">Die oberen Kommandos zeigen, wie auf die Elemente mit dem kleinsten bzw. größten Wert zugegriffen und wie die Summe aller Werte gebildet werden kann. Letzteres funktioniert natürlich nur, wenn die Werte nummerisch sind. Mit <code>+</code> lassen sich zwei Listen aneinanderreihen. Das Ergebnis ist eine neue Liste mit allen Elementen der ersten Liste und danach kommen alle Elemente der zweiten Liste. An dem Beispiel sieht man auch, dass Listen Duplikate beinhalten können. Die Zahl 3 ist zweimal in der Liste.</aside>
+                </section>
+
+                <section>
+                  <h3>Mit <code>for</code>-Schleife über Liste iterieren</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 8.3</div>
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/list_for.py'></code></pre>
+                </section>
+
+                <section>
+                  <h2>Übung 2.1</h2>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
+                  <ol class="small">
+                    <li>Schreiben Sie ein Python-Programm, welches den Benutzer in einer Dauerschleife fragt, welchen Artikel er oder sie zur Einkaufsliste hinzufügen möchte. Wenn der Benutzer dann einmal gar nichts eingibt, wird die Anzahl der Elemente auf der Liste ausgeben, dann jedes einzelne Element und dann beendet sich das Programm.<br>&nbsp;</li>
+                    <li>Entwickeln Sie eine Funktion <code>len_vec(v)</code>, der eine Liste entgegennimmt, die einem Vektor entspricht, und die Länge des Vektors ausgeben soll.<br>Beispielaufruf: <code>print(len_vec([1,2,3]))</code> soll 3.741... ausgeben: $\sqrt{1^2+2^2+3^2} = \sqrt{14} = 3.741\dots$</li>
+                    
+                  </ol>
+                </section>
+
+                <section>
+                  <h3>List Comprehension</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.1, 8.3</div>
+                  
+                  <p class="small"><code>neue_liste = [<span style="color:red; font-weight: bold;">...</span> <span style="color:darkgreen; font-weight: bold;">for ...</span> <span style="color:blue; font-weight: bold;">in ...</span> <span style="color:gray; font-weight: bold;">if ...</span>]</code></p>
+                  <ul class="small">
+                    <li>Der <span style="color:red;  font-weight: bold;">Ausdruck</span> wird auf jedes Element angewendet.</li>
+                    <li>Hinter <code style="color:darkgreen; font-weight: bold;">for</code> gibt man dem <span style="color:darkgreen; font-weight: bold;">Element</span> einen Namen.</li>
+                    <li>Nach <code style="color:blue;font-weight: bold;">in</code> steht ein <span style="color:blue;  font-weight: bold;">Iterable</span> (z. B. eine Liste, Menge, Tupel, Dictionary, ...)</li>
+                    <li>Danach kann optional noch ein <code style="color:gray;font-weight: bold;">if</code> und eine <span style="color:gray;  font-weight: bold;">Filter-Bedingung</span> stehen.</li>
+                  </ul>
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/list_comprehension.py'></code></pre>
+                  <div class="poll fragment" style="bottom:-95px">
+                    <h1>Welche Elemente sind in der Liste res?</h1>
+                      <ul>
+                        <li>[50, 90]</li>
+                        <li data-poll="correct">[70, 90]</li>
+                        <li>[70, 30, 50, 90]</li>
+                        <li>[]</li>
+                      </ul>
+                    <h2>https://fraage.de</h2>
+                   </div>
+
+                   <aside class="notes">List Comprehension ist eine elegante und effiziente Technik in Python, um Listen zu erstellen, transformieren oder filtern.</aside>
+                </section>
+
+                <section>
+                  <h2><code>sys.argv</code></h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 8.5</div>
+
+                  <p class="small">Der Argumente-Vektor enthält alle Konsolenparameter, mit denen das Programm aufgerufen wurde. <code>sys.argv[0]</code> ist der Name des Python-Scripts selbst.</p>
+
+                  <pre><code class="plaintext">$ python3 meinprogramm.py test 8 Hallo</code></pre>
+
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/argv.py'></code></pre>
+                </section>
+
+                <section>
+                  <h2>Tupel / Sequenzen</h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.3</div>
+                  <ul class="small">
+                    <li>Runde Klammern: <code>()</code> (wenn's eindeutig ist, darf man sie sogar weglassen)</li>
+                    <li>Wie Liste (geordnet, Duplikate möglich), lässt sich aber nicht mehr verändern</li>
+                  </ul>
+                  <pre><code style="min-height: 12.5cm;" class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/tuple.py'></code></pre>
+                </section>
+
+                <section>
+                  <h3>Tupel als Rückgabe von Funktionen</h3>
+                  <p class="small">Wenn eine Funktion mehrere Rückgabewerte zurückliefern soll, kann ein Tupel mit den entsprechenden Werten zurückgegeben werden.</p>
+
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/tuple_function.py'></code></pre>
+
+                  <div class="poll fragment" style="bottom:-280px">
+                    <h1>Dürfte man die Klammern in der Zeile mit dem return hier auch weglassen?</h1>
+                      <ul>
+                        <li data-poll="correct">Ja</li>
+                        <li>Nein</li>
+                      </ul>
+                    <h2>https://fraage.de</h2>
+                   </div>
+
+                   <aside class="notes">Die Klammern bei <code>datum, uhrzeit</code> wurden hier weggelassen. Mit Klammern sähe es so aus: <code>(datum, uhrzeit)</code>. Unser Code sieht so aus, als ob die Funktion zwei Rückgabewerte zurückliefert. Genau genommen ist es aber ein Tupel mit zwei Elementen.</aside>
+                </section>
+
+                <section>
+                  <h3><code>*</code>-Prefix zum Packen und Entpacken</h3>
+                  <p class="small">Schreibt man <code>*</code> vor eine Liste, ein Tupel, etc., wird es entpackt in seine einzelnen Elemente, als ob die jeweils einzeln an dieser Stelle stünden.</p>
+
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/asterisk.py#entpacken'></code></pre>
+
+                  <p class="small">Analog lassen sich auch Werte in eine Liste packen:</p>
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/asterisk.py#packen'></code></pre>
+                </section>
+
+                <section>
+                  <h2>Mengen / Sets</h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.4</div>
+                  <ul class="small">
+                    <li>Geschweifte Klammern: <code>{}</code></li>
+                    <li>Ungeordnet (Reihenfolge irrelevant)</li>
+                    <li>Keine Duplikate möglich.</li>
+                  </ul>
+
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/set.py'></code></pre>
+
+                  <div class="poll fragment" style="bottom:-45px">
+                    <h1>In welcher Reihenfolge gibt die for-Schleife die Elemente der Menge aus?</h1>
+                      <ul>
+                        <li>Zuerst die 7 (sie war ja als erstes schon drin)</li>
+                        <li>Zuerst die 3 (sie ist die kleinste Zahl)</li>
+                        <li>Zuerst die 4 (sie kam als neustes hinzu)</li>
+                        <li data-poll="correct">Weiß ich nicht</li>
+                      </ul>
+                    <h2>https://fraage.de</h2>
+                   </div>
+                </section>
+
+                <section>
+                  <h3>Mengenoperationen</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.4</div>
+                  <ul class="small">
+                    <li><code>a | b</code> <b>Vereinigung</b> (die Elemente aus <code>a</code> und die Elemente aus <code>b</code>)</li>
+                    <li><code>a & b</code> <b>Schnittmenge</b> (die Elemente, die sowohl in <code>a</code> als auch in <code>b</code> sind)</li>
+                    <li><code>a - b</code> <b>Differenz</b> (die Elemente, die in <code>a</code>, aber nicht in <code>b</code> sind)</li>
+                  </ul>
+
+                  <pre><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/set_operations.py'></code></pre>
+
+                  
+                  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="50" stroke="black" stroke-width="2" fill="none" />
+                    <text x="90" y="42" font-family="Arial" font-size="24" fill="black">a</text>
+                    <circle cx="150" cy="100" r="50" stroke="black" stroke-width="2" fill="none" />
+                    <text x="145" y="42" font-family="Arial" font-size="24" fill="black">b</text>
+                </svg>                
+                </section>
+
+                <section>
+                  <h2>Übung 2.2</h2>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="900" autostart="no" /></div>
+                  <p class="small">Entwickeln Sie das folgende Spiel &quot;Länder nennen&quot;:</p>
+                  <ol class="small">
+                    <li>Der Spieler / die Spielerin soll ein Land eingeben, dann noch eins, usw.</li>
+                    <li>Wenn ein Land vorher schon einmal genannt wurde, hat man verloren.</li>
+                    <li>Zum Ende des Spiels wird die Anzahl der genannten Länder ausgegeben.</li>
+                  </ol>
+
+                  <p class="small">Erweitern Sie das Spiel:</p>
+                  <ol class="small" start="4">
+                    <li>Zwei Spieler: Zuerst werden beide Spieler nach ihrem Namen gefragt. Danach sollen die Spieler abwechselnd ein Land nennen. Wer ein bereits (von sich selbst oder dem anderen Spieler) genanntes Land nennt, hat verloren. Am Ende soll dann nicht nur die Anzahl der Länder stehen sondern auch der Name des Gewinners.</li>
+                    <li>Zusätzliche Ausgabe am Ende:<br>Das Land ... wurde vor ... Runden von ... bereits genannt.</li>
+                  </ol>                  
+                </section>
+
+                <section>
+                  <h2>Dictionaries</h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 7.5</div>
+                  <ul class="small">
+                    <li>Geschweifte Klammern und Doppelpunkt: <code>{key:value, ...}</code></li>
+                    <li>Key-Set &Rightarrow; keine Ordnung, keine doppelten Schlüssel</li>
+                  </ul>
+
+                  <pre style="width: 92%;"><code style="min-height: 10.9cm;" class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/dict.py'></code></pre>
+
+                  <div class="poll fragment" style="bottom:-50px">
+                    <h1>Was wäre ganz unten das Endergebnis, wenn wir in Zeile 4 die Vorwahl von Deutschland nicht auf 49 geändert hätten?</h1>
+                      <ul>
+                        <li>Der Schlüssel DE wäre 2x drin (einmal 49, einmal 490)</li>
+                        <li>Den Schlüssel DE würde es nicht geben</li>
+                        <li>Der Schlüssel DE hätte im Resultat den Wert 490</li>
+                        <li>Es käme ein Fehler bei der Vereinigung</li>
+                        <li data-poll="correct">Das Resultat wäre das Gleiche</li>
+                      </ul>
+                    <h2>https://fraage.de</h2>
+                   </div>
+                   <aside class="notes">Das hier dargestellt Dictionary verwendet String-Schlüssel, denen Werte vom Typ int zugewiesen werden. Man greift über den Schlüssel auf die dazugehörigen Werte zu.</aside>
+                </section>
+
+                <section>
+                  <h3>Iteration über Dictionaries</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 8.3</div>
+                  <pre style="width: 92%;"><code class="python" data-sample-indent="keep"  contenteditable data-sample='code/2/dict2.py'></code></pre>
+                </section>
+
+                <section>
+                  <h2>Übung 2.3</h2>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="960" autostart="no" /></div>
+                  <ol class="small">
+                    <li>Entwickeln Sie für das Spiel &quot;Scrabble&quot; eine Funktion <code>scrabble(wort)</code>, die ein Wort entgegennimmt und die Anzahl der Punkte zurückliefert, die man für das Wort bei Scrabble bekommt. Die Groß-/Kleinschreibung des Wortes soll ignoriert werden. Speichern Sie dazu in einem Dictionary die Punktewerte für die einzelnen Buchstaben:</li>
+                  </ol>      
+                  
+                  <table border="1" style="font-size: 60%; margin-left: -8mm;">
+                    <tr>
+                        <th>A</th>
+                        <th>B</th>
+                        <th>C</th>
+                        <th>D</th>
+                        <th>E</th>
+                        <th>F</th>
+                        <th>G</th>
+                        <th>H</th>
+                        <th>I</th>
+                        <th>J</th>
+                        <th>K</th>
+                        <th>L</th>
+                        <th>M</th>
+                        <th>N</th>
+                        <th>O</th>
+                        <th>P</th>
+                        <th>Q</th>
+                        <th>R</th>
+                        <th>S</th>
+                        <th>T</th>
+                        <th>U</th>
+                        <th>V</th>
+                        <th>W</th>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>Z</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>10</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+                <p class="small">Beispielaufruf: <code>scrabble("Hallo")</code> liefert $2+1+2+2+2=9$. Sie kön-nen mit <code>for b in wort:</code> über die einzelnen Zeichen in einem String iterieren.</p>
+                
+                <ol class="small" start="2">
+                  <li>Erweitern Sie das Spiel, sodass es zwei Spieler spielen. Erst gibt jeder den Namen ein, dann jeder nach und nach ein Wort. Nach jedem Wort wird ausgegeben, wie viel Punkte das Wort gab sowie die Gesamtpunkte des jeweiligen Spielers. Das Spiel ist beendet, wenn jeder drei Worte genannt hat. Dann erscheint die Meldung, wer gewonnen hat.</li>
+                </ol>
+
+                </section>
+
+                <section>
+                  <h3>Zusammenfassung</h3>
+                  <ul class="small">
+                    <li>Listen: <code>[]</code>, <code>len</code>, <code>append</code>, <code>sum</code>, ...</li>
+                    <li>List Comprehension: <code>[... for ... in ... if ...]</code></li>
+                    <li>Tupel: <code>()</code></li>
+                    <li>Packen und Entpacken: <code>*</code></li>
+                    <li>Mengen: <code>{}</code>, <code>add</code>, <code>x in s</code>, <code>&</code>, <code>|</code>, <code>-</code>, ...</li>
+                    <li>Dictionaries: <code>{k:v}</code></li>
+                    <li><code>for e in liste|tupel|set|dict: ...</code></li>
+
+                  </ul>
+                </section>
+
+              </div>
+            </div>
         
-        <img style="position: absolute; right:0cm; top:8cm; width:30%" uml="class Person {
-          -name : String
-          -alter : int
-          +Person(name : String)
-          +setName(name : String)
-          +getName() : String
-          +setAlter(alter : int)
-          +getAlter() : int
-          +erhoeheAlter()
-        }        
-        "/>
-        <aside class="notes">Im gezeigten Code-Beispiel gibt es die Klasse <code>Person</code>. Das UML-Diagramm rechts zeigt an, dass diese Klasse die beiden Attribute <code>name</code> und <code>alter</code> sowie fünf Methoden besitzt. Die Variable <code>p</code> speichert ein Personen-Objekt, also eine Instanz der Klasse <code>Person</code>.</aside>
-      </section>
-
-      <section>
-        <h3>Objektorientierung nach Alan Kay</h3>
-        <ol class="small">
-          <li>Alles ist ein Objekt</li>
-          <li class="fragment">Objekte kommunizieren miteinander durch den Austausch von Nachrichten</li>
-          <li class="fragment">Objekte haben ihren eigenen Speicher (speichern Objekte)</li>
-          <li class="fragment">Ein Objekt ist Instanz einer Klasse (Klasse ist auch ein Objekt)</li>
-          <li class="fragment">Eine Klasse definiert das gemeinsame Verhalten ihrer Instanzen</li>
-          <li class="fragment">Man startet ein Programm, indem man einer Klasse die Kontrolle übergibt</li>
-        </ol>
-        
-        <aside class="notes">Der Austausch von Nachrichten ist ein wesentliches Merkmal objektorientierter Programmierung. Im Code-Beispiel auf der vorherigen Folie wurde die Methode <code>p.setAlter(20)</code> aufgerufen. Das heißt, eine Nachricht mit dem Inhalt <code>20</code> wurde an das Objekt geschickt. Andere Methoden liefern ein Ergebnis zurück, es kommt also eine Nachricht zurück.<br>
-        Klassen sind Objekte der Klasse <code>Class</code>. So kann man beispielsweise überprüfen, ob zwei Objekte Instanzen der gleichen Klasse sind oder abfragen, welche Methoden die Klasse bietet.</aside>
-      </section>
-
-      <section>
-        <h3>Objektorientierung: Vorteile</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 26</div> 
-        <div style="position: absolute; top: 100px; right:0px; font-size:200px"><i class="fas fa-cubes red"></i></div>
-        <h4>Modularisierung</h4>
-        <ul>
-          <li>Modul: Logische Code-Einheit<br>(z. B. eine oder mehrere Klassen)</li>
-          <li>(+) flexibel und leicht erweiterbar</li>
-          <li>(+) wiederverwendbar</li>
-          <li>(+) Teamwork-freundlich</li>
-          <li>(+) jedes Modul individuell testbar</li>
-        </ul>
-        <aside class="notes">Nicht nur weil Menschen ohnehin in Objekten denken, bietet die objektorientierte Programmierung viele Vorteile. Dadurch, dass immer wieder benötigte zusammengehörige Code-Elemente in Klassen gebündelt werden, werden Redundanz und Fehler vermieden. Wird eine Klasse nachträglich durch die Entwicklung neuer Methoden erweitert oder eine Subklasse erstellt, hat dies meist keine großen Auswirkungen auf den existierenden Programmcode, in dem die Klasse verwendet wird.</aside>
-      </section>
-
-      <section>
-        <h3>Beispiel: Mensaplan-App für Android</h3>
-        <p class="small">Klassen:</p>
-        <ul class="small">
-          <li class="fragment"><code>MensaActivity</code>: Startseite der App<br><code>onCreate</code>-Methode implementiert, was dargestellt wird</li>
-          <li class="fragment"><code>Meal</code>: Repräsentiert ein Essen<br>Attribute <code>description</code>, <code>price</code>, <code>image</code>, etc.</li>
-          <li class="fragment"><code>MensaDatastore</code>: Kommunikation mit dem Server<br>Methoden: <code>public Meal[] loadMeals()</code>, etc.</li>
-          <li class="fragment">...</li>
-        </ul>
-        <img class="noborder" src="img/1/android.png" alt="Android App" style="width:5cm; position:absolute; right:5mm; top:3cm">
-        <aside class="notes">Die <code>MensaActivity</code>-Klasse wird beim App-Start einmal instanziiert und die darin befindliche <code>onCreate</code>-Methode aufgerufen. In dieser Methode wird ein <code>MensaDataStore</code>-Objekt erzeugt, welches zur Kommunikation mit dem Webserver, auf dem der Mensaplan abgerufen kann, dient. <code>loadMeals</code> liefert einen Array mit <code>Meal</code>-Objekten zurück. In der <code>MensaActivity</code>-Klasse wird ebendiese Methode aufgerufen und in einer Schleife jedes einzelne Essen in der App dargestellt.</aside>
-      </section>
-
-      <section>
-        <h3>Member-Variablen (Attribute)</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 27</div> 
-        <p class="small"><code>&lt;Sichtbarkeit&gt; &lt;Datentyp&gt; &lt;Attributsname&gt;;</code></p>
-        <pre style="margin-left:0px; width:12cm" ><code class="java" data-sample-indent="keep" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#1-5,50'></code></pre>  
-        <img style="position: absolute; right:0cm; top:3cm; width:30%; z-index: -5;" uml="
-        package de.othr.personen {
-          class Person {
-          -name : String
-          -alter : int
-        }        
-        "/>
-        <h4>Sichtbarkeiten</h4>
-        <ul class="small">
-          <li><code>public</code>: Sichtbar von überall</li>
-          <li><code>private</code>: Nur in der Klasse selbst sichtbar (Empfehlung!)</li>
-          <li><code>protected</code>: In Subklassen und in Klassen im gleichen Paket sichtbar</li>
-          <li>package-private (nichts hinschreiben): In Klassen im gleichen Paket sichtbar</li>
-        </ul>
-        <aside class="notes">Member-Variablen werden auf Klassenebene definiert. Sie speichern den Zustand eines Objekts der jeweiligen Klasse. Über die Sichtbarkeiten wird festgelegt, von wo aus direkt auf die Attribute zugegriffen werden kann.</aside>
-      
-        <div class="poll fragment" style="bottom:-100px">
-          <h1>Welche Klassen haben Zugriff auf die Member-Variable &quot;alter&quot;?</h1>
-            <ul>
-              <li data-poll="correct">de.othr.personen.Person</li>
-              <li>de.othr.personen.*</li>
-              <li>Subklassen von de.othr.personen.Person</li>
-              <li>Alle Klassen</li>
-            </ul>
-          <h2>https://frage.space</h2>
-         </div>
-      
-      </section>
-
-      <!--<section>
-        <h2>Poll Plugin</h2>
-        <ol>
-          <li>Put the <code>poll</code> folder in your reveal.js slides<br>and on a PHP-enabled web server</li>
-          <li>Include the CSS in your slides:<br>
-          <pre><code class="html"><link rel="stylesheet" href="poll/poll.css" /></code></pre></li>
-          <li>Initialize reveal.js with the following dependency:<br>
-            <pre><code class="javascript">{ src: 'poll/poll.js', async: true }</code></pre></li>
-          <li>Add polls to your slides:<br>
-            <pre><code class="html" contenteditable><div class="poll fragment">
-<h1>Question?</h1><ul><li>Wrong answer</li>
-<li data-poll="correct">Correct answer</li></ul>
-<h2>https://url-to-server</h2></div></code></pre></li>
-        </ol>
-        <div class="poll fragment" style="bottom:50px">
-            <h1>Question?</h1><ul><li>Wrong answer</li>
-            <li data-poll="correct">Correct answer</li></ul>
-<h2>https://url-to-server</h2></div>
-      </section>-->
-
-      <section>
-        <h3>Getter / Setter</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 28-29</div>
-        <pre><code class="java">p.name = "Peter";
-System.out.println(p.name);</code></pre>
-        <p class="small">... funktioniert nur innerhalb der Klasse <code>de.othr.personen.Person</code></p>
-
-        <pre style="margin-left:47px; width:15cm" ><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#11-17'></code></pre> 
-
-        <pre style="margin-left:47px; width:15cm" ><code class="java">p.setName("Peter");
-System.out.println(p.getName());</code></pre>
-        <p class="small">... funktioniert überall!</p>
-        <img style="position: absolute; right:0cm; top:6cm; width:30%" uml="class Person {
-          -name : String
-          -alter : int
-          +Person(name : String)
-          +setName(name : String)
-          +getName() : String
-          +setAlter(alter : int)
-          +getAlter() : int
-          +erhoeheAlter()
-        }        
-        "/>
-        <aside class="notes">Es wird empfohlen, Member-Variablen auf <code>private</code> zu stellen und Getter und Setter zu implementieren (IntelliJ kann den Code dafür automatisch erzeugen). Der Zugriff auf Attribute erfolgt somit also ausschließlich über Getter und Setter. Nur so lässt sich beispielsweise ein Attribut spezifizieren, auf das nur lesend zugegriffen werden kann, oder welches nur bestimmte Werte zulässt.</aside>
-      </section>
-
-      <section>
-        <h2>Datenkapselung</h2>
-        <div style="position: absolute; top: 100px; right:0px; font-size:120px"><i class="fas fa-eye-slash red"></i></div>
-        <h4>Information Hiding</h4>
-        <p>Verstecken von Daten und internen Details vor dem Zugriff von außen.</p>
-        <p class="fragment small" data-fragment-index="1">Vorteile:</p>
-        <ul class="fragment small" data-fragment-index="1">
-          <li>Nur das &quot;Was&quot; und nicht das &quot;Wie&quot; sind nach außen sichtbar</li>
-          <li>Implementierung (das &quot;Wie&quot;) kann ohne große Auswirkungen einfach geändert werden</li>
-          <li>Modularisierung; dadurch besser testbar und anpassbar</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3><code>this</code></h3>
-        <p class="small">Jede Klasse besitzt automatisch das Attribut <code>this</code>, welches auf das Objekt selbst verweist, um das es gerade geht.</p>
-        <pre><code class="java" contenteditable>public String getName() {
-    return name; // oder: return this.name;
-}
-
-public void setName(String name) {
-    this.name = name;
-}</code></pre>
-      <aside class="notes">Wie man am Beispiel <code>return name;</code> sehen kann, kann auf Klassenattribute auch direkt zugriffen werden, ohne <code>this.</code> davorzuschreiben. Gibt es jedoch bereits eine Variable, die den gleichen Namen hat wie die Member-Variable, ist das Objekt <code>this</code> nötig, da ansonsten die Variable gemeint ist. Im gezeigten Beispiel ist dies im Setter bei <code>name</code> der Fall. Mit <code>name</code> ist der Methodenparameter gemeint, mit <code>this.name</code> das Attribut der Klasse.</aside>   
-    </section>
-
-      <section>
-        <h3>Konstruktoren</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 30</div>
-        <div style="position: absolute; top: 50px; right:50px; font-size:100px"><i class="fas fa-star red"></i></div>
-        <p class="small">Konstruktoren erzeugen neue Objekte der Klasse. <br>
-          Sie sind immer <code>public</code> und werden mit <code>new</code> aufgerufen.</p> 
-        
-        <h4>Default-Konstruktor</h4>
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#39-40'></code></pre>  
-        <pre><code class="java">Person p = new Person();</code></pre>
-
-        <h4 class="fragment" data-fragment-index="1">Benutzerdefinierte Konstruktoren</h4>
-        <pre class="fragment" data-fragment-index="1"><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#7-9'></code></pre>  
-        <pre class="fragment" data-fragment-index="1"><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#32'></code></pre>  
-        <aside class="notes">Wenn man in einer Klasse keinen Konstruktor definiert, hat diese standardmäßig den hier gezeigten Default-Konstruktor ohne Parameter.</aside>
-      </section>
-
-      <section>
-      <h3>Konstruktoren: <code>this(...)</code></h3>
-      <p class="small">Konstruktoren können verkettet werden, indem sie andere Konstruktoren aufrufen.</p>
-      <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#42-45'></code></pre>  
-      <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#47-49'></code></pre> 
-      <ul class="fragment small">
-        <li>Es darf nur max. 1 anderer Konstruktor aufgerufen werden</li>
-        <li>Der <code>this(...)</code>-Aufruf muss die erste Anweisung im Konstruktor sein</li>
-      </ul>
-    </section>
-
-      <section>
-        <h3>Methoden: <code>void</code></h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 31 <i class="fas fa-book"></i> 9</div>
-        <div style="position: absolute; top: 50px; right:50px; font-size:100px"><i class="fas fa-meh-blank red"></i></div>
-        <p class="small"><code>&lt;Sichtbarkeit&gt; &lt;Rückgabetyp&gt;  &lt;Methodenname&gt;(<br>&lt;Parametertyp&gt; &lt;Parametername&gt;, ...) { ... }</code></p>
-      
-        <h4><code>void</code> (keine Rückgabe)</h4>
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#27-29'></code></pre>  
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personen/Person.java#34'></code></pre>  
-      </section>
-
-      <section>
-        <h3>Methoden: <code>return</code></h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 9.3</div>
-        <div style="position: absolute; top: 50px; right:50px; font-size:100px"><i class="fas fa-surprise red"></i></div>
-        <p class="small"><code>&lt;Sichtbarkeit&gt; &lt;Rückgabetyp&gt;  &lt;Methodenname&gt;(<br>&lt;Parametertyp&gt; &lt;Parametername&gt;, ...) { ... }</code></p>
-
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#28-31'></code></pre>  
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#62-66'></code></pre>  
-      
-        <aside class="notes">Wird für die Methode ein Rückgabetyp spezifiziert, muss in jedem Falle ein <code>return</code>-Statement aufgerufen werden, in dem das Ergebnis der Methode zurückgegeben wird. In der Regel wird beim Aufruf der Methode deren Ergebnis in eine entsprechend getypte Variable geschrieben. Ist man jedoch nicht am Ergebnis sondern lediglich an der Ausführung interessiert, kann man die Methode auch einfach so ohne eine Variablenzuweisung aufrufen.</aside>
-      </section>
-
-      <section>
-        <h3>Methoden: Parameter</h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 9.2</div>
-
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#33-36'></code></pre>  
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#44-46'></code></pre>  
-    
-        <aside class="notes">Methodenparameter werden Komma-getrennt in die Klammern hinter den Methodennamen geschrieben. Jeder Parameter hat einen Datentypen und einen lokalen Variablennamen. Die beiden hier gezeigten Methoden <em>überladen</em> die existierenden Methoden <code>erhoeheAlter()</code> und <code>setName(String)</code> (Overloading; siehe nächste Folie).</aside>
-      </section>
-      
-      <section>
-        <h3>Overloading</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 32</div>
-        <p class="small">Eine Klasse kann mehrere Methoden mit dem <em>gleichen Namen</em>, aber <em>unterschiedlichen Parametern</em> besitzen.</p>
-        <pre style="width:92%"><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#33-42'></code></pre>  
-        <pre style="width:92%"><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#86-88'></code></pre>  
-        <aside class="notes">Zur Compile-Zeit wird ermittelt, welche Methode tatsächlich aufgerufen werden soll. Es wird diejenige gewählt, die die richtige Anzahl an Parametern hat und kompatible Parametertypen besitzt. Gibt es mehrere Möglichkeiten, wird diejenige mit dem speziellsten Typ gewählt. Gibt es mehrere Kandidaten, in einer passt der eine Parameter besser, ein anderer aber schlechter, wird ein Compile-Fehler auftreten.</aside>
-      
-        <div class="poll fragment" style="bottom:0px">
-          <h1>Dürfte es in der Personen-Klasse zusätzlich zu den hier gezeigten Methoden auch noch eine erhoeheAlter()-Methode ohne Parameter geben?</h1>
-            <ul>
-              <li data-poll="correct">Ja</li>
-              <li>Nein</li>
-            </ul>
-          <h2>https://frage.space</h2>
-         </div>
-      </section>
-
-      <section>
-        <h3><code>static</code>: Statische Attribute</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 33 <i class="fas fa-book"></i> 11.1</div>
-        <p class="small">Mit <code>static</code> gekennzeichnete Attribute existieren nur einmal (nicht pro Objekt).</p>
-        <pre style="width:19.5cm; margin-left: 0px;"><code style="max-height: 1000px" class="java" contenteditable data-sample-indent="keep" data-sample='code/Programmieren2/src/de/othr/personen/Haustier.java#3-18'></code></pre>  
-        <img style="position: absolute; right:0cm; top:4.5cm; width:5.5cm" uml="class Haustier {
-          {static}+TIERART : String = &quot;Hund&quot;
-          {static}+farbe : String
-          -name : String
-          +Haustier(name : String)
-          {static}+main(args : String[])
-        }        
-        "/>
-        <aside class="notes">Ein typischer Einsatzzweck für statische Attribute sind Konstanten (hier: <code>TIERART</code>). Was hier mit dem statischen Attribut <code>farbe</code> gemacht wurde, ist jedoch eher unüblich. Jedes Objekt hat stets den gleichen Wert in diesem Attribut. Auf statische Attribute kann man auch mit <code>Klassenname.attribut</code> zugreifen.</aside>
-      </section>
-
-      <section>
-        <h3><code>static</code>: Statische Methoden</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 34</div> 
-        <p class="small">Statische Methoden...</p>
-        <ul class="small" style="margin-top: -5mm;">
-          <li>... haben keinen Bezug zu einem Objekt (kein <code>this</code>),</li>
-          <li>... werden mittels <code>Klassenname.methode(...)</code> aufgerufen,</li>
-          <li>... haben keinen Zugriff auf nicht-statische Attribute,</li>
-          <li>... können keine nicht-statischen Methoden aufrufen.</li>
-        </ul>
-        <pre><code style="max-height: 1000px" class="java" contenteditable data-sample-indent="keep" data-sample='code/Programmieren2/src/de/othr/rechnen/Geld.java#3-9,14-19'></code></pre>  
-        
-        <img style="position: absolute; right:0cm; top:1.8cm; width:7.5cm; z-index: 1;" uml="class Geld {
-          {static}+WAEHRUNG : String = &quot;EUR&quot;
-          {static}+addieren(a : double, b : double) : double
-          {static}+main(args : String[])
-        }        
-        "/>
-        
-        <aside class="notes">In der statischen Methode <code>main</code> kann die andere statische Methode <code>addieren</code> aufgerufen werden. Da sie sich hier in der gleichen Klasse befindet, müsste man auch nicht <code>Geld.</code> vor die Methode schreiben.</aside>
-      </section>
-
-      <section>
-        <h3><code>import static</code></h3>
-        <p class="small">Erlaubt das direkte Verwenden importierter statischer Attribute und Methoden aus anderen Klassen ohne die Angabe des Klassennamens.</p>
-        <pre><code style="max-height: 1000px" class="java" contenteditable data-sample-indent="keep" data-sample='code/Programmieren2/src/de/othr/rechnen/GeldRechner.java#3-10'></code></pre>  
-        <aside class="notes">Ohne die Verwendung von <code>import static</code> hätte man in diesem Beispiel <code>Geld.addieren</code> bzw. <code>Geld.WAEHRUNG</code> schreiben müssen, um auf die statischen Methoden und Attribute zuzugreifen.<br>Der statische Import kann für einzelne Attribute oder Methoden erfolgen (z. B. <code>import static de.othr.rechnen.Geld.addieren</code>) oder für alle auf einmal (z. B. <code>import static de.othr.rechnen.Geld.*</code>).<br>Die Ausgabe von diesem Programm lautet: 9,20 EUR</aside>
-      </section>
-
-      <section>
-        <h3>Methoden: varargs</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 35 <i class="fas fa-book"></i> 9.2</div>
-        <ul class="small">
-          <li>Der letzte (oder einzige) Methodenparameter darf variadisch sein</li>
-          <li>Der variadische Parameter erscheint in der Methode als Array</li>
-        </ul>
-        <pre><code style="max-height: 1000px" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/varargs/Geld.java#6-10'></code></pre>
-        <ul class="small">
-          <li>Methodenaufruf mit einer beliebigen Anzahl von Parametern möglich</li>
-        </ul>
-        <pre><code style="max-height: 1000px" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/varargs/Geld.java#16-19'></code></pre>  
-        <div class="poll fragment" style="bottom:-80px">
-          <h1>Was liefert Geld.addieren() zurück?</h1>
-            <ul>
-              <li data-poll="correct">0</li>
-              <li>null</li>
-              <li>ein leeres Array</li>
-              <li>einen Fehler</li>
-            </ul>
-          <h2>https://frage.space</h2>
-         </div>
-        <aside class="notes">Würde man die Methode als <code>addieren(double[] args)</code> definieren, sähe ihre Implementierung nicht anders aus, allerdings müsste man die Methode dann tatsächlich mit einem Double-Array aufrufen als einzigen Parameter aufrufen. Die Varargs-Schreibweise <code>(double...)</code> ermöglicht es, die Methode mit einer beliebigen Anzahl von Parametern aufzurufen. Auch der Aufruf <code>Geld.addieren()</code> wäre möglich und würde 0 zurückgeben. Im unteren Beispiel ist zu sehen, dass sogar die <code>main</code>-Methode variadisch definiert sein kann. Dies hat jedoch gegenüber <code>String[] args</code> keine Vorteile.</aside>
-      </section>
-
-      <section>
-        <h2>UML</h2>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 60</div>
-        <h4>Unified Modelling Language</h4>
-        <p class="small" style="width:18cm;">Standardisierte grafische Sprache, die 14 Diagrammtypen zur Modellierung von Software-Systemen bietet:</p>
-
-        <ul class="small">
-          <li>Klassendiagramm (Beispiel: Klasse <code>Person</code>) &UpperRightArrow;</li>
-          <li>Objektdiagramm (Beispiel: Objekt <code>p</code>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &LowerRightArrow;</li>
-          <li>Sequenzdiagramm</li>
-          <li>...</li>
-        </ul>
-
-        <img style="position: absolute; right:0cm; top:4cm; width:30%" uml='
-        class Person {
-          -name : String
-          -alter : int
-          +setName(name : String)
-          +getName() : String
-          +setAlter(alter : int)
-          +getAlter() : int
-          +erhoeheAlter()
-        }     
-        
-        object "p:Person" as p {
-          name = "Peter"
-          alter = 20
-          }
-         Person -[hidden]-> p
-        '/>
-      </section>
-
-      <section>
-        <h3>UML-Klassendiagramm</h3>
-
-        <p class="small" style="margin-left:-3mm; margin-right: -1cm;">
-          <code>+|-|#|~ &lt;Attribut&gt; : &lt;Typ&gt; </code><br>
-          <code>+|-|#|~ &lt;Methode&gt;(&lt;Parameter&gt; : &lt;Typ&gt;, ...) : &lt;Rückgabetyp&gt; </code>
-        </p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <h4>Sichtbarkeiten</h4>
-        <ul class="small">
-          <li><code>+ public</code>: Sichtbar von überall</li>
-          <li><code>- private</code>: Nur in der Klasse selbst sichtbar</li>
-          <li><code># protected</code>: In Subklassen und in Klassen im gleichen Paket sichtbar</li>
-          <li><code>~</code> package-private: In Klassen im gleichen Paket sichtbar</li>
-        </ul>
-
-        <img style="position: absolute; right:0cm; top:5cm; width:30%" uml="class Person {
-          -name : String
-          -alter : int
-          +Person(name : String)
-          +setName(name : String)
-          +getName() : String
-          +setAlter(alter : int)
-          +getAlter() : int
-          +erhoeheAlter()
-        }        
-        "/>
-
-        <aside class="notes">In Klassendiagrammen werden Klassen und Schnittstellen samt ihrer Attribute und Methoden dargestellt sowie die Beziehungen zwischen ihnen.</aside>
-      </section>
-
-      <section>
-        <h3>Objektreferenzen</h3>
-        <img style="width:80%" uml="class Person {
-          -name : String
-          -alter : int
-          -adresse : Adresse
-          +setName(name : String)
-          +getName() : String
-          +setAlter(alter : int)
-          +getAlter() : int
-          +erhoeheAlter()
-          +setAdresse(adresse : Adresse)
-          +getAdresse() : Adresse
-        }
-
-        class Adresse {
-          -strasse : String
-          -hausnummer : int
-          -plz : String
-          -ort : String
-          +getStrasse() : String
-          +setStrasse(strasse : String)
-          +getHausnummer() : int
-          +setHausnummer(hausnummer : int)
-          +getPlz() : String
-          +setPlz(plz : String)
-          +getOrt() : String
-          +setOrt(ort : String)
-        }
-        Person &quot;*&quot; ---r &quot;1&quot; Adresse : \t
-        "/>
-
-        <pre><code class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#57,68,70'></code></pre>  
-        <aside class="notes">Die Member-Variable <code>adresse</code> der Klasse <code>Person</code> hat die Klasse <code>Adresse</code>, das heißt, sie referenziert ein Objekt ebendieser <code>Adresse</code>-Klasse. Die letzten beiden Zeilen des Code-Beispiels lassen sich auch vereinfachen: <code>p.setAdresse(new Adresse("Badstr.", 3, "12345", "Teststadt"));</code></aside>
-      </section>
-
-      <section>
-        <h3>Objektidentität</h3>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 39</div>
-        <div class="red" style="position: absolute; top: 20px; right:50px; font-size:100px"><code>==</code></div>
-        <p class="small"><code>==</code> überprüft, ob zwei Variablen <em>dasselbe</em> Objekt referenzieren.</p>
-        <pre><code style="max-height: 1000px" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/Person.java#57-59,68-80'></code></pre>  
-        <aside class="notes">Hier wird &quot;Peter und Ute haben dieselbe Adresse." ausgegeben, da sie beide dasselbe <code>Adresse</code>-Objekt referenzieren. Das zweite <code>println</code> gibt &quot;Ute wohnt in der Hausnummer 5&quot; aus, da sich Peters Adressänderung auch auf Ute auswirkt. Es handelt sich ja um dasselbe <code>Adresse</code>-Objekt.</aside>
-      </section>
-
-      <section>
-        <h3>Gleichheit: <code>equals</code></h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 12.2</div>
-        <div style="position: absolute; top: 30px; right:0px; font-size:70px"><i class="fas fa-home red"></i><i class="fas fa-home red"></i></div>
-        <p class="small"><code>equals</code> soll überprüfen, ob zwei Objekte als gleich behandelt werden.<br>Diese Methode muss man für eigene Klassen selbst entwickeln.</p>
-        <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample-indent="keep" data-sample='code/Programmieren2/src/de/othr/personenadresse/Adresse.java#3,55-70'></code></pre>  
-        <aside class="notes">Diese Methode gibt <code>true</code> aus, wenn zwei Adressen dieselbe Straße, Hausnummer, PLZ und Ort haben. Details zur <code>@Override</code>-Annotation und zur <code>instanceof</code>-Überprüfung folgen im nächsten Kapitel. </aside>
-      </section>
-
-      <section>
-        <h3>Gleichheit: <code>equals</code></h3>
-        <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/EqualsBeispiel.java#5-21'></code></pre>  
-        <div class="poll fragment" style="bottom:-80px">
-          <h1>Peters und Utes Adressen sind...?</h1>
-            <ul>
-              <li>dieselbe und die gleiche</li>
-              <li>dieselbe, aber nicht die gleiche</li>
-              <li data-poll="correct">nicht dieselbe, aber die gleiche</li>
-              <li>nicht die selbe und nicht die gleiche</li>
-            </ul>
-          <h2>https://frage.space</h2>
-         </div>
-      </section>
-
-      <section>
-        <h3>UML-Objektdiagramm</h3>
-        <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/EqualsBeispiel.java#8-9'></code></pre>  
-        <img style="width:45%" uml='object "<u>p:Person</u>" as p {
-          name = "Peter"
-          alter = 20
-          }
-          
-          object "<u>q:Person</u>" as q {
-            name = "Ute"
-            alter = 0
-            }
-            
-          object "<u>:Adresse</u>" as a {
-            strasse = "Badstr."
-            hausnummer = 3
-            plz = "12345"
-            ort = "Teststadt"
-            }
-
-            object "<u>:Adresse</u>" as b {
-              strasse = "Badstr."
-              hausnummer = 3
-              plz = "12345"
-              ort = "Teststadt"
-              }
-              
-            p--a : adresse
-            q--b : adresse
-              '>
-        <aside class="notes">Während UML-Klassendiagramme dazu geeignet sind, das Schema der Daten zu beschreiben, wird in Objektdiagrammen eine Momentaufnahme von konkreten Instanzen von Klassen - also Objekten - dargestellt. In Objektdiagrammen wird der Bezeichner unterstrichen. Es ist optional, dem Objekt einen Namen zu geben (z. B. <code>p</code>).</aside>
-      
-        
-      </section>
-
-      <section>
-        <h3>UML-Objektdiagramm</h3>
-        <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/personenadresse/EqualsBeispiel.java#23-25'></code></pre>
-        <img style="width:45%" uml='object "<u>p:Person</u>" as p {
-          name = "Peter"
-          alter = 20
-          }
-          
-          object "<u>q:Person</u>" as q {
-            name = "Ute"
-            alter = 0
-            }
-            
-          object "<u>a:Adresse</u>" as a {
-            strasse = "Badstr."
-            hausnummer = 3
-            plz = "12345"
-            ort = "Teststadt"
-            }
-              
-            p--a : adresse
-            q--a : adresse
-              '>
-        <aside class="notes">Im nun gezeigen Beispiel haben Peter und Ute dieselbe Adresse. Es existiert - anders als im Beispiel auf der vorherigen Folie - nur ein einziges <code>Adresse</code>-Objekt.</aside>
-      </section>
-
-
-			<section>
-							<h2>Kapitelzusammenfassung</h2>
-							<ul>
-                <li>Klassen und Objekte</li>
-                <li>Member-Variablen</li>
-                <li>Konstruktoren, Methoden, Getter, Setter</li>
-                <li><code>this</code></li>
-                <li>Overloading</li>
-                <li>Statische Attribute und Methoden</li>
-                <li>UML: Klassendiagramme und Objektdiagramme</li>
-                <li>Objektidentität, <code>equals</code></li>
-							</ul>
-      </section>
-
-			</div>
-		</div>
-
-		<script src="reveal.js/dist/reveal.js"></script>
+            <script src="reveal.js/dist/reveal.js"></script>
 		<script src="reveal.js/plugin/markdown/markdown.js"></script>
 		<script src="reveal.js/plugin/highlight/highlight.js"></script>
 		<script src="reveal.js/plugin/zoom/zoom.js"></script>
@@ -601,7 +398,8 @@ public void setName(String name) {
         }
         </script>
 
-
-
-	</body>
-</html>
+        
+        
+          </body>
+        </html>
+        

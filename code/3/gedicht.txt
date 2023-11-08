@@ -1,0 +1,4 @@
+Rosen sind rot
+Python ist fein,
+Mit open()
+lies Daten ein.
