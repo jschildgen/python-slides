@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Programmieren 2 - Kapitel 6 - JavaFX</title>
+		<title>Programmieren 2 - Kapitel 6 - GUI-Entwicklung</title>
 
 		<link rel="stylesheet" href="reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
@@ -35,115 +35,241 @@
             <div id="header"></div>
             <div id="footer"></div>
 			<div class="slides">
-                <section>
-                    <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
-                    <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
-                    <h1 style="font-size: 240%;">Programmieren 2 (Java)</h1>
-                    <h3>Kapitel 6: JavaFX</h3>
-                    <h4 style="text-align:center">&nbsp;</h4>
-                    <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-180px;">
-                    <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-180px; box-shadow:none">
-                </section>
+        <section>
+          <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
+          <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
+          <h1 style="font-size: 200%; margin-top: 1.5cm;">Programmieren 2 (Python)</h1>
+          <h3>Kapitel 6: GUI-Entwicklung</h3>
+          <h4 style="text-align:center">&nbsp;</h4>
+          <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-225px;">
+          <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-225px; box-shadow:none">
+      </section>
+
+                
 
                 <section>
-                  <h2>Bibliotheken</h2>
-                  <div class="trackinfo"><i class="fas fa-headphones"></i> 86 <i class="fas fa-book"></i> 19.3</div>
-                  <p class="small">Fremdbibliotheken (jar-Archive) zum Java-Classpath hinzufügen:</p>
-                  <pre><code data-trim class="bash">
-                    $ javac -cp json-simple-1.1.1.jar MeinProgramm.java
-                    $ java -cp json-simple-1.1.1.jar:. MeinProgramm
-                    Hallo!
-                  </code></pre>
-                  <div class="fragment">
-                    <h4>In IntelliJ:</h4>
-                    <p class="small">File &rightarrow; Project Structure &rightarrow; Libraries &rightarrow; +, <br>
-                    dann einzelne JARs hinzufügen<br>oder ganze Ordner mit JARs.</p>
-                    <img src="img/6/intellij_libraries.png" class="noborder" style="position: absolute; right:-5mm; top: 7cm; max-width: 14cm;">
-                  </div>
-                    <aside class="notes">Beim manuellen Kompilieren und Ausführen von Java-Programmen, in welchen Fremdbibliotheken verwendet werden, müssen die JARs dieser Bibliotheken zum Classpath hinzugefügt werden. Mehrere jars trennt man dabei mit einem Doppelpunkt. Beim Ausführen muss auch das aktuelle Verzeichnis (<code>:.</code>) im Classpath sein.</code></aside>
-                </section>
-
-                <section>
-                  <h3>Beispiel: <code>json-simple</code></h3>
-                  <p class="small">Bibliothek zum Erstellen und Verarbeiten von JSON-Dokumenten<br>
-                    <a href="http://code.google.com/p/json-simple/">http://code.google.com/p/json-simple/</a></p>
-                  <pre><code style="max-height: 25cm;" data-sample-indent="keep" class="java" contenteditable data-sample='code/JSON/src/de/othr/MeinProgramm.java#3-21'></code></pre>
-                  <div class="poll fragment" style="bottom:30px">
-                    <h1>Hätte man json-simple-1.1.1.jar nicht zum Classpath hinzugefügt, würde ... nicht funktionieren?</h1>
-                      <ul>
-                        <li data-poll="correct">import org.json.simple.JSONObject;</li>
-                        <li>new JSONParser();</li>
-                        <li>parser.parse(json)</li>
-                        <li>Eine ParseException würde auftreten</li>
-                      </ul>
-                    <h2>https://frage.space</h2>
-                   </div>
-                  <aside class="notes">Die hier importierten Klassen befinden sich in der json-simple-1.1.1.jar</aside>
-                </section>
-
-                <section>
-                  <h3>GUI-Programmierung in Java</h3>
+                  <h3>GUI-Programmierung in Python</h3>
                   <div class="trackinfo"><i class="fas fa-headphones"></i> 91 <i class="fas fa-book"></i> 17</div>
                   <ul class="small">
                     <li>GUI: Graphical User Interface</li>
-                    <li>Java-Frameworks zur Entwicklung plattformübergreifender GUIs:
+                    <li>Python-Bibliotheken zur Entwicklung plattformübergreifender GUIs:
                       <ul>
-                        <li>AWT (Abstract Window Toolkit) - Java 1 (1995)</li>
-                        <li>Swing - Java 1.2 (1998)</li>
-                        <li>SWT (Standard Widget Toolkit) - Eclipse (2001)</li>
-                        <li>JavaFX (2008) - aktuelle Version: JavaFX 14 (2020)</li>
+                        <li><b>Tkinter</b> (+) In Python integriert (-) veraltetes Aussehen</li>
+                        <li><b>PyQt</b> (+) Modernes Aussehen (-) kommerzielle Lizenz kostenpflichtig</li>
+                        <li><b>PyGTK</b> (-) Eher für Linux-Anwendungen</li>
+                        <li><b>wxPython</b> (-) etwas umständlicher und weniger Widgets</li>
+                        <li><b>Kivy</b> (+) Besonders für mobile Anwendungen (-) schwerer anpassbar</li>
+                        <li><b>PySide</b> (+) Ähnlich PyQt, aber kostenlos (-) schlechter dokumentiert</li>
                       </ul>
                     </li>
                   </ul>
-                  <img src="img/6/awt.jpg" class="noborder" style="position: absolute; right:5mm; top: 5cm">
-                  <aside class="notes">Java wurde seit Beginn auch für die Entwicklung von GUI-Anwendungen eingesetzt. Dabei wurde stets angestrebt, dass diese Anwendungen zum Erscheinungsbild des verwendeten Betriebssystems passen. Läuft ein Java-Programm also auf MacOS, sieht beispielsweise ein Button anders aus als unter Windows. SWT ist nicht offiziell von Java, sondern wurde von Eclipse entwickelt. Das Programm Eclipse selbst läuft unter SWT. AWT und Swing sind mittlerweile veraltet. JavaFX ist deren moderner Nachfolger.<br>
-                    <b>Wichtig</b>: Achten Sie beim Import von <code>javafx</code>-Klassen darauf, dass sie die richtigen importieren! In AWT-Paketen gibt es oft Klassen mit gleichem Namen.</aside>
+                  <img src="img/6/pyqt.png" class="noborder">
+                  <aside class="notes">Da Python-Anwendungen plattformübergreifend sind, wurde stets angestrebt, dass GUI-Anwendungen zum Erscheinungsbild des verwendeten Betriebssystems passen. Läuft ein Programm also auf MacOS, sieht beispielsweise ein Button anders aus als unter Windows.</aside>
                 </section>
 
                 <section>
-                  <h3>JavaFX in IntelliJ</h3>
-                  <div class="trackinfo"><i class="fas fa-headphones"></i> 91 <i class="fas fa-book"></i> 17.1, 17.2</div>
-                  <img src="img/6/intellij_new_javafx.png" class="noborder" style="position: absolute; right:5mm; top: 2cm; max-height:11cm">
-                  <p class="small">In Java 7 bis 10 war JavaFX enthalten;<br>nun muss es separat installiert werden.</p>
-                  <p class="small"><a href="https://gluonhq.com/products/javafx/">https://gluonhq.com/products/javafx/</a></p>
-                  <p class="small"><b>In IntelliJ:</b></p>
+                  <h3>PyQT</h3>
+                  <p class="small">Installation von PyQT:</p>
+                  <pre><code class="bash">pip install pyqt6       # Windows
+pip3 install pyqt6      # MacOS, Linux</code></pre>
+
+                  <p class="small">PyQT-Klassen:</p>
                   <ul class="small">
-                    <li class="fragment">SDK herunterladen und entpacken</li>
-                    <li class="fragment">Plugin JavaFX installieren<br>(File &rightarrow; Settings &rightarrow; Plugins)</li>
-                    <li class="fragment">JavaFX-Projekt anlegen<br>(File &rightarrow; New &rightarrow; Project &rightarrow; JavaFX)</li>
-                    <li class="fragment">JavaFX-Bibliothek hinzufügen<br>(File &rightarrow; Project Structure &rightarrow; Libraries &rightarrow; + &rightarrow; javafx-sdk-11.0.2/lib)</li>
-                    <li class="fragment">Run &rightarrow; Edit Configurations &rightarrow; VM options: <code>-p D:\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml</code></li>
+                    <li><code>QApplication</code> - Repräsentiert die GUI-Anwendung</li>
+                    <li><code>QWidget</code> - Fenster oder Anwendungskomponente</li>
+                    <li><code>QLabel</code> - Text, der angezeigt werden soll</li>
+                    <li><code>QLineEdit</code> - Text-Eingabefeld</li>
+                    <li><code>QPushButton</code> - Button, den man klicken kann</li>
+                    <li>...</li>
                   </ul>
+
+                  <img style="position: absolute; left:3cm; top: 12.8cm; width:15cm; z-index: -1;" uml="@startuml
+                  class QWidget {
+                    + show()
+                  }
+
+                  class QLabel {
+                    + setText(text: str)
+                    + text() : str
+                  }
+
+                  class QLineEdit {
+                    + setText(text: str)
+                    + text() : str
+                  }
+
+                  class QPushButton {
+                    + clicked.connect(slot: callable)
+                  }
+
+                  QLabel -u-|> QWidget
+                  QLineEdit -u-|> QWidget
+                  QPushButton -u-|> QWidget
+                  @enduml                  
+                  "/>
                 </section>
                 
                 <section>
-                  <h3>JavaFX-Application</h3>
-                  <img src="img/6/javafx_hallo.png" class="noborder" style="position: absolute; right:-5mm; top: 8mm; z-index: 999; background: none;">
-                  <img style="position: absolute; right:-0.5cm; max-height: 9cm; top:6cm; z-index: 1" uml="
-                  hide empty members
-                  class Stage
-                  class StackPane
-                  class Button
+                  <h3>QApplication und QWidget</h3>
+                  <pre style="width: 18.5cm; left: -2cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/6/qwidget.py' data-sample-indent="keep"></code></pre>
+                  <img style="position: absolute; right:1cm; top:2cm; width:4cm; z-index: 1;" uml="@startuml
+                  class QWidget {
+                    + show()
+                  }
 
-                  Stage -- StackPane
-                  StackPane -- Button
-                  ">
-                  <pre style="width:21.5cm; margin-left:5mm"><code style="max-height: 25cm;" data-sample-indent="keep" class="java" contenteditable data-sample='code/JavaFX/src/de/othr/Hallo.java#3-4,10-26'></code></pre>
-                  <div class="poll fragment" style="bottom:-30px; z-index:999;">
-                    <h1>&quot;Button&quot; wird in IntelliJ rot dargestellt, wie lösen wir das?</h1>
+                  class Hauptfenster {
+                  }
+
+                  Hauptfenster -u-|> QWidget
+                  @enduml                  
+                  "/>
+                  <img style="position: absolute; top:8.5cm; right:1.5cm" src="img/6/QWidget.png" class="noborder">
+                  <aside class="notes">Im Hauptteil des Programms (unten) wird eine <code>QApplication</code> angelegt und mit <code>exec</code> gestartet. Man übergibt ihr üblicherweise die Konsolenparameter (<code>sys.argv</code>) und wenn sich die Applikation beendet, liefert sie einen Errorcode zurück (0 kein Fehler, >0 Fehler), den man dann an <code>sys.exit</code> weitergibt. Für das Programmfenster legen wir eine Klasse <code>Hauptfenster</code> an, die von <code>QWidget</code> erbt. Im Konstruktor wird der Konstruktor der Superklasse <code>QWidget</code> aufgerufen und der Titel, die Größe, das Aussehen und der Inhalt des Fensters festgelegt. Ein Aufruf der <code>show</code>-Methode zeigt das Fenster an.</aside>
+                </section>
+
+                <section>
+                  <h3>Layouts</h3>
+                  <p class="small">Layouts legen fest, wie die Widgets angeordnet werden sollen.</p>
+
+                  <img style="" uml="@startuml
+
+class QLayout {
+  +addItem(item: QLayoutItem)
+  +addWidget(widget: QWidget)
+}
+
+class QBoxLayout {
+}
+
+class QHBoxLayout {
+}
+
+class QVBoxLayout {
+}
+
+class QFormLayout {
+  +addRow(label: QLabel, field: QLayoutItem)
+  +addRow(labelText: QString, field: QLayoutItem)
+}
+
+class QGridLayout {
+  +addWidget(widget: QWidget, row: int, column: int)
+}
+
+class QStackedLayout {}
+
+QLayout <|-- QBoxLayout
+QLayout <|-- QFormLayout
+QLayout <|-- QGridLayout
+QLayout <|-- QStackedLayout
+
+QBoxLayout <|-- QHBoxLayout
+QBoxLayout <|-- QVBoxLayout
+
+                  @enduml                  
+                  "/>
+                  <p style="font-size: 50%; position: absolute; right:1cm; top:10cm">(UML-Diagramm nicht vollständig)</p>
+
+                  <div class="poll fragment fade-in-then-out" style="bottom:-30px; z-index:999;">
+                    <h1>Wofür könnte HBox und VBox stehen?</h1>
                       <ul>
-                        <li>Klasse Button erstellen</li>
-                        <li>import java.awt.Button;</li>
-                        <li data-poll="correct">import javafx.scene.control.Button;</li>
-                        <li>Da kann man nichts machen.</li>
+                        <li>Hardware und Virtuell</li>
+                        <li>Haptisch und Visuell</li>
+                        <li>Hidden und Visible</li>
+                        <li data-poll="correct">Horizontal und Vertikal</li>
                       </ul>
                     <h2>https://frage.space</h2>
                    </div>
-                  <aside class="notes">Die hier importierten Klassen befinden sich in der json-simple-1.1.1.jar</aside>
-                </section>
-                  <aside class="notes">JavaFX-Anwendungen erben von der abstrakten Klasse <code>Application</code> und müssen deren <code>start</code>-Methode implementieren. In der <code>main</code> wird <code>launch</code> aufgerufen, welches intern die in der <code>start</code>-Methode stehenden Aktionen ausführt. Diese Anwendung erstellt ein kleines Fenster mit einem Button.</aside>
+
+                  <ul class="small fragment">
+                    <li><code>QHBoxLayout</code> / <code>QVBoxLayout</code>: Horizontale / vertikale Anordnung</li>
+                    <li><code>QFormLayout</code>: je Zeile ein Label und ein Formelement</li>
+                    <li><code>QGridLayout</code>: jedes Element hat Spalten- und Zeilennummer</li>
+                    <li><code>QStackedLayout</code>: nur ein Element aktiv, andere versteckt</li>
+                  </ul>
                 </section>
 
+                
+                <section>
+                  <h3><code>QHBoxLayout</code> / <code>QVBoxLayout</code></h3>
+                  <div class="columns">
+                    <div>
+                      <img src="img/6/hbox.png" class="noborder">
+                    </div>
+                    <div>
+                      <img src="img/6/vbox.png" class="noborder">
+                    </div>
+                  </div>
+
+                  <pre style="width: 98%; margin-top: -1.5cm;"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#vbox'></code></pre>
+                </section>
+
+                <section>
+                  <h3><code>QFormLayout</code> / <code>QGridLayout</code></h3>
+                  <div class="columns">
+                    <div>
+                      <img src="img/6/form.png" class="noborder">
+                      <pre style="width: 13cm; position: absolute; top:8cm; left:0cm"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#form'></code></pre>
+                    </div>
+                    <div>
+                      <img src="img/6/grid.png" class="noborder">
+                      <pre style="width: 14.5cm; position: absolute; top:11cm; right:0cm"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#grid'></code></pre>
+                    </div>
+                  </div>
+                </section>
+
+                <section>
+                  <h3>QStackedLayout</h3>
+                  <p class="small"><code>layout.setCurrentIndex(i)</code> macht Widget i sichtbar.</p>
+                  <img style="position: absolute; top:1cm; right:5mm; width: 7cm; max-height: 7cm;" src="img/6/stacked.png" class="noborder">
+                  <pre style="width: 98%; margin-top: 2.5cm"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#stacked'></code></pre>
+                </section>
+
+                <section>
+                  <h3 style="font-size: 140%;"><code>QLabel</code> / <code>QLineEdit</code> / <code>QPushButton</code></h3>
+                  <img style="position: absolute; left:5mm; width:15cm; margin-top: -5mm; max-height: 10cm" uml="@startuml
+                  class QWidget {
+                    + show()
+                  }
+
+                  class QLabel {
+                    + setText(text: str)
+                    + text() : str
+                  }
+
+                  class QLineEdit {
+                    + setText(text: str)
+                    + text() : str
+                  }
+
+                  class QPushButton {
+                    + clicked.connect(slot: callable)
+                  }
+
+                  QLabel -u-|> QWidget
+                  QLineEdit -u-|> QWidget
+                  QPushButton -u-|> QWidget
+                  @enduml                  
+                  "/>
+                  <img style="position: absolute; right:5mm; max-height: 10cm; top:1.5cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
+
+                  <pre style="width: 98%; margin-top: 6cm"><code class="python" data-sample-indent="keep" data-sample='code/6/name_eingeben.py#name_eingeben'></code></pre>
+                </section>
+
+                <section>
+                  <h3>Listener-Methoden</h3>
+                  <img style="position: absolute; right:-5mm; max-height: 10cm; top:0.3cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
+                  <p class="small" style="width:18cm">In einer Listener-Methode definieren wir, was bei einem bestimmten Event (z. B. Buttonklick) passieren soll.</p>
+                  <pre style="width: 98%;"><code class="python">class HauptFenster(QWidget):
+    def __init__(self):
+        # ...
+        self.button.clicked.connect(self.on_button_click)
+        # ...
+  </code></pre>
+                  <pre style="width: 98%; margin-top: -1cm;"><code class="python" data-sample-indent="keep" data-sample='code/6/name_eingeben.py#button_click'></code></pre>
+                </section>
+
+<!--
                 <section>
                   <h3>Scene Graph</h3>
                   <div class="trackinfo"><i class="fas fa-book"></i> 17.3</div>
@@ -326,7 +452,7 @@
                   <li>MVC-Konzept</li>
                   <li>JavaDoc</li>
                 </ul>
-              </section>
+              </section>-->
 
               </div>
             </div>

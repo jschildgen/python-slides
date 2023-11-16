@@ -19,7 +19,6 @@ Reveal.initialize({
  },
  plugins: [ RevealMarkdown, RevealHighlight, RevealZoom, RevealMath, RevealNotes, RevealSearch ],
  dependencies: [
-    { src: 'src/sql.js', async: true },
     { src: 'src/clone.js', async: true },
     { src: 'src/calendar.js', async: true },
     { src: 'src/erd.js' },
@@ -27,7 +26,7 @@ Reveal.initialize({
     { src: 'plugins/plantuml.js' },
     { src: 'plugins/jump.js', async: true },
     { src: 'plugins/badges.js' },
-    { src: 'plugins/sampler.js' },
+    { src: 'plugins/sampler.js', async: true },
     { src: 'plugins/countdown.js' },
     { src: 'poll/poll.js', async: true }
 ],

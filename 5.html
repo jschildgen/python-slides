@@ -70,8 +70,8 @@
             
                   <section>
                     <h2>Vererbung</h2>
-                    <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
-                    <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/studierender.py#print'></code></pre>  
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#print'></code></pre>  
                     
                     <aside class="notes">Die Variable <code>s</code> ist sowohl vom Typ <code>Studierender</code> als auch vom Typ <code>Person</code>, daher kann auf die Attribute <code>s.name</code> und <code>s.matrikelnr</code> zugegriffen werden. Wäre <code>s</code> gar kein <code>Studierender</code>, würde ein Fehler zur Laufzeit auftreten.</aside>
                   </section>
@@ -79,11 +79,11 @@
                   <section>
                     <h2>Polymorphie</h2>
                     <p class="small">Polymorphie (Vielgestaltigkeit) bedeutet, dass ein und die selbe Variable zur Laufzeit von unterschiedlichen Datentypen sein kann.</p>
-                    <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
                     <div class="fragment">
                     <h4><code>isinstance(x, C)</code></h4>
                     <p class="small">Ist wahr, wenn <code>x</code> von der Klasse <code>C</code> oder einer (auch indirekten) Subklasse von <code>C</code> ist.</p>
-                    <pre><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/studierender.py#isinstance'></code></pre>
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#isinstance'></code></pre>
                     </div>
 
                     <div class="poll fragment" style="bottom:-50px">
@@ -108,17 +108,17 @@
                     class B { }
                     A <|-- B
                     "/>
-                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/studierender.py#wer_ist_aelter' data-sample-indent="keep"></code></pre>
+                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#wer_ist_aelter' data-sample-indent="keep"></code></pre>
                     <aside class="notes">Die hier gezeigte Funktion <code>wer_ist_aelter</code> erwartet zwei Objekte der Klasse <code>Person</code>, jedoch ist <code>s</code> von der Klasse <code>Studierender</code>. Da <code>Studierender</code> eine Subklasse von <code>Person</code> ist und damit alles von ihr erbt, kann die gezeigte Funktion erfolgreich mit <code>s</code> aufgerufen werden.</aside>
                   </section>
             
                   <section>
                     <h2>Method Overriding</h2>
                     <p class="small">Neuimplementieren einer Methode einer Superklasse</p>
-                    <p class="small"><code class="java">Person</code></p>
-                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/overriding.py#pers_details'></code></pre>
-                    <p class="fragment small" data-fragment-index="1"><code class="java">Studierender extends Person</code></p>
-                    <pre class="fragment" data-fragment-index="1" style="left:-1cm;"><code style="max-height: 1000px;" class="java" contenteditable data-sample='code/5/overriding.py#stud_details'></code></pre>
+                    <p class="small"><code class="python">Person</code></p>
+                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#pers_details'></code></pre>
+                    <p class="fragment small" data-fragment-index="1"><code class="python">Studierender extends Person</code></p>
+                    <pre class="fragment" data-fragment-index="1" style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#stud_details'></code></pre>
                     
                     <div class="poll fragment" style="bottom:50px; right:-1cm">
                       <h1>Wie sieht der Rückgabewert von s.details() aus?</h1>
@@ -141,7 +141,7 @@
                         <li><code>super()</code> referenziert das Objekt der Superklasse</li>
                       </ul>
                       <div class="fragment">
-                      <p class="small"><code class="java">class Studierender(Person)</code></p>
+                      <p class="small"><code class="python">class Studierender(Person)</code></p>
                       <pre><code class="python" contenteditable data-sample='code/5/overriding.py#super_beispiel'></code></pre>
                       </div>
                       <aside class="notes">Wenn Attribute oder Methoden der Superklasse überschrieben wurden, lässt sich mit <code>super</code> immer noch auf diese zugreifen.</aside>
@@ -209,6 +209,28 @@
                     "/>
 
                     <aside class="notes">Wenn wir in unseren Klassen die Methoden <code>__init__</code>, <code>__eq__</code> usw. erstellen, überschreiben wir damit die entsprechenden Methoden in der Superklasse <code>object</code>.</aside>
+                  </section>
+
+                  <section>
+                    <h3>Abstrakte Klassen und Methoden</h3>
+                    <div class="trackinfo"><i class="fas fa-headphones"></i> 52-53</div>
+                    <h4>Abstrakte Klassen</h4>
+                    <p class="small" style="margin-top: -20px;">... können nicht instanziiert werden und sind nur zum Vererben da.</p>
+                    <pre style="width: 14cm; margin-left: 1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_class' data-sample-indent="keep"></code></pre>
+                    
+                    <p style="position: absolute; top:4.5cm; right:5mm" class="small"><del><code>p = Lebewesen();</code></del></p>
+
+                    <div class="fragment">
+                      <h4>Abstrakte Methoden</h4>
+                      <p class="small" style="margin-top: -20px;">...gibt es nur in abstrakten Klassen und sind unimplementiert.</p>
+                      <pre style="margin-top: -5px; margin-left: 1cm; width: 14cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_method'></code></pre>
+                      <p class="small" style="margin-top: -5px;">Jede (nicht abstrakte) Subklasse muss diese abstrakte Methode überschreiben.</p>
+                    </div>
+
+                    <img style="position: absolute; right:-0.5cm; max-height: 3cm; top:6cm" uml="abstract class Lebewesen { 
+                      {abstract}+getDetails() : str  
+                    } "/>
+                    <aside class="notes">Um abstrakte Klassen in Python zu erstellen, wird das Paket abc benötigt (Abstract Base Class) und von ABC geerbt. Von abstrakten Klassen lassen sich keine direkten Objekte erzeugen. Eine nicht abstrakte Subklasse kann von der abstrakten Klasse erben und ist dann instanziierbar. Diese Subklasse muss alle abstrakten Methoden überschreiben. Es darf in der abstrakten Klasse auch nicht-abstrakte Methoden geben. Im UML-Diagramm werden Namen von abstrakten Klassen und Methoden <em>kursiv</em>  geschrieben.</aside>
                   </section>
 
                   <section>

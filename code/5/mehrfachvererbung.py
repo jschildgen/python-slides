@@ -26,3 +26,7 @@ class Hausboot(Schiff, Haus):
 mein_hausboot = Hausboot("Mein Hausboot", 10, 3)
 mein_hausboot.fahre()
 # end-sample
+
+
+def jeder_zweite_buchstabe_groß(s):
+    return "".join([s[i].upper() if i % 2 == 0 else s[i] for i in range(len(s))])
