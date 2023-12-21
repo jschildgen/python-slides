@@ -375,7 +375,7 @@
       <section>
         <h2>Übung 4.3</h2>
         <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="240" autostart="no" /></div>
-        <p class="small">Passen Sie Ihre Film-Klasse so an, dass Ihre <code>genres</code>-Methode ein Setter ist, damit man einfach mit <code>objekt.genres</code> auf die Menge der Genres zugreifen kann.</p>
+        <p class="small">Passen Sie Ihre Film-Klasse so an, dass Ihre <code>genres</code>-Methode ein Getter ist, damit man einfach mit <code>objekt.genres</code> auf die Menge der Genres zugreifen kann.</p>
         <img style="width:12cm" uml="class Film {
           +titel : str
           +erscheinungsjahr : int
@@ -450,7 +450,7 @@
       <section>
         <h3>Objektreferenzen</h3>
         <img style="position: absolute; right:0cm; top:2cm; width:50%; z-index: 99;" uml="class Person {
-          +name : String
+          +name : str
           +alter : int
           +adresse : Adresse
           +erhoeheAlter()
@@ -612,7 +612,7 @@
       <section>
         <h3><code>__lt__</code></h3>
         <pre style="width:98%; margin-top: -5mm;"><code style="max-height: 1000px;" class="python" data-sample-indent="keep" data-sample='code/4/person_lt.py'></code></pre>
-        <aside class="notes">Nach Implementierung von <code>__eq__</code> können wir zwei Personen-Objekte miteinander vergleichen. Wir dürfen <code>&lt;</code> verwenden, aber auch <code>&gt;=</code> (entspricht ja <code>not &lt;</code>). Sortieren geht nun auch.</aside>
+        <aside class="notes">Nach Implementierung von <code>__lt__</code> können wir zwei Personen-Objekte miteinander vergleichen. Wir dürfen <code>&lt;</code> verwenden, aber auch <code>&gt;</code> (<code>a &gt; b</code>entspricht ja <code>b &lt; a</code>). Sortieren geht nun auch.</aside>
       </section>
 
       <section>

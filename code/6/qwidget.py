@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import QApplication, QWidget
 
 class HauptFenster(QWidget):
     def __init__(self):
@@ -11,4 +11,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = HauptFenster()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

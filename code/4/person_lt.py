@@ -11,7 +11,7 @@ person2 = Person("Ute", 25)
 person3 = Person("Katja", 35)
 
 if person1 < person2: 
-    print(f"{person1.name} ist älter als {person2.name}")
+    print(f"{person1.name} ist jünger als {person2.name}")
 
 personen_liste = [person1, person2, person3]
 personen_liste.sort()

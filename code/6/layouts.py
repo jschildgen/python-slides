@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFormLayout, QGridLayout, QStackedLayout, QLineEdit, QLabel
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QFormLayout, QGridLayout, QStackedLayout, QLineEdit, QLabel
 
 buttons = []
 
@@ -84,4 +84,4 @@ if __name__ == '__main__':
     grid.show()
     stack = Stack()
     stack.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

@@ -1,0 +1,56 @@
+datum;tag;warengruppe;name;kennz;preis;stud;bed;gast
+18.12.2023;Mo;Suppe;Grießnockerlsuppe (3,AA,C,I);V;0,80 / 1,00 / 1,50;0,80;1,00;1,50
+18.12.2023;Mo;HG1;Vegane Nudelkasserolle mit Spinat und Tomatensoße (3,AA,AD,I);VG;2,00 / 2,80 / 3,60;2,00;2,80;3,60
+18.12.2023;Mo;HG2;Falafel auf Tomatenrisotto (3,I);VG;3,10 / 3,90 / 4,60;3,10;3,90;4,60
+18.12.2023;Mo;HG3;Bayerischer Schweinebraten mit Reiberknödel (3,AA,I,L);S;4,20 / 5,20 / 5,70;4,20;5,20;5,70
+18.12.2023;Mo;B1;Paprikagemüse ungarisch (3,I);V;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+18.12.2023;Mo;B2;Gemischter Salat (3,I,L);V;1,30 / 1,50 / 2,00;1,30;1,50;2,00
+18.12.2023;Mo;B3;Reiberknödel (AA,L);VG;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+18.12.2023;Mo;B4;Schupfnudeln (AA,C,I);V;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+18.12.2023;Mo;N1;Himbeerquark (G);V;0,90 / 1,10 / 1,60;0,90;1,10;1,60
+18.12.2023;Mo;N2;Haselnusspudding - vegan (AD,G,HB);VG;1,00 / 1,20 / 1,60;1,00;1,20;1,60
+18.12.2023;Mo;N3;Schmankerlcreme (G);V,A;1,20 / 1,50 / 1,70;1,20;1,50;1,70
+19.12.2023;Di;Suppe;Leberspätzlesuppe (AA,C,I);S;0,80 / 1,00 / 1,50;0,80;1,00;1,50
+19.12.2023;Di;HG1;Scharfes Linsenragout auf Bio-Penne (3,AA,I);VG;2,00 / 2,80 / 3,60;2,00;2,80;3,60
+19.12.2023;Di;HG2;Spinat-Käseknödel, Schwarzwurzelgemüse (3,AA,AB,C,G,I);V;2,50 / 3,10 / 4,20;2,50;3,10;4,20
+19.12.2023;Di;HG3;Cannelloni al Forno (1,2,3,AA,F,G,I);R;4,20 / 5,20 / 5,70;4,20;5,20;5,70
+19.12.2023;Di;HG4;Weihnachtlicher Rinderbraten mit Kroketten (3,5,AA,G,L);R;6,00 / 7,00 / 7,50;6,00;7,00;7,50
+19.12.2023;Di;B1;Blaukraut (3,5,16,I);V,A;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+19.12.2023;Di;B2;Bio-Nudeln (AA);B,VG;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+19.12.2023;Di;B3;Gemischter Salat (3,I,L);V;1,30 / 1,50 / 2,00;1,30;1,50;2,00
+19.12.2023;Di;B4;Kroketten (AA);VG;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+19.12.2023;Di;N1;Sahnepudding (G);V;0,90 / 1,10 / 1,60;0,90;1,10;1,60
+19.12.2023;Di;N2;Sauerkirschjoghurt - vegan (AD,HA);VG;1,00 / 1,20 / 1,60;1,00;1,20;1,60
+19.12.2023;Di;N3;Cheesecake-Creme (3,8,AA,C,F,G);V;1,20 / 1,50 / 1,70;1,20;1,50;1,70
+20.12.2023;Mi;Suppe;Curry Suppe (3,G);G;0,80 / 1,00 / 1,50;0,80;1,00;1,50
+20.12.2023;Mi;HG1;Veganer Pichelsteiner mit veganer Wurst (3,F,I,J);VG;2,00 / 2,80 / 3,60;2,00;2,80;3,60
+20.12.2023;Mi;HG2;Couscous Bratlinge auf Kokos-Linsenragout (3,AA,AD,I);VG;2,80 / 3,40 / 4,40;2,80;3,40;4,40
+20.12.2023;Mi;HG3;Schweineschnitzel paniert mit Kartoffel-Gurkensalat (AA,C,J);S;4,20 / 5,20 / 5,70;4,20;5,20;5,70
+20.12.2023;Mi;B1;Blumenkohl polnisch (3,AA,I);VG;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+20.12.2023;Mi;B2;Bio-Nudeln (AA);B,VG;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+20.12.2023;Mi;B3;Gemischter Salat (3,I,L);V;1,30 / 1,50 / 2,00;1,30;1,50;2,00
+20.12.2023;Mi;B4;Country Kartoffeln (AA);VG;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+20.12.2023;Mi;B5;Kartoffel-Gurkensalat (3,5,16,I,J);VG;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+20.12.2023;Mi;N1;Brombeerjoghurt (G);V;0,90 / 1,10 / 1,60;0,90;1,10;1,60
+20.12.2023;Mi;N2;Mousse Marzipan (G,HA);V;1,20 / 1,50 / 1,70;1,20;1,50;1,70
+20.12.2023;Mi;N3;Veganer Bratapfel-Pudding (3);VG,A;1,20 / 1,50 / 1,70;1,20;1,50;1,70
+21.12.2023;Do;Suppe;Speckklösschensuppe (3,AA,C,G,I);S,R;0,80 / 1,00 / 1,50;0,80;1,00;1,50
+21.12.2023;Do;HG1;Gratinierter Spinat-Käse-Pfannkuchen (1,2,3,8,A,AA,C,G,I);V;2,00 / 2,80 / 3,60;2,00;2,80;3,60
+21.12.2023;Do;HG2;Thai-Pasta (2,3,AA,E,F,I);VG;2,50 / 3,10 / 4,20;2,50;3,10;4,20
+21.12.2023;Do;HG3;Schupfnudel-Gemüsepfanne mit Putenbruststreifen (AA,C,I);G;4,20 / 5,20 / 5,70;4,20;5,20;5,70
+21.12.2023;Do;B1;Kartoffelpüree (G);V;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+21.12.2023;Do;B2;Pariser Karotten (3,I);VG;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+21.12.2023;Do;B3;Gemischter Salat (3,I,L);V;1,30 / 1,50 / 2,00;1,30;1,50;2,00
+21.12.2023;Do;B4;Schupfnudeln (AA,C,I);V;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+21.12.2023;Do;B5;Kartoffelspätzle (AA,C);V;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+21.12.2023;Do;N1;Schwarzwälder Kirschpudding (G);V,A;0,90 / 1,10 / 1,60;0,90;1,10;1,60
+21.12.2023;Do;N2;Weihnachtliche Lebkuchencreme (AA,C,F,G,HA,HB,HC,HD);V;1,20 / 1,50 / 1,70;1,20;1,50;1,70
+22.12.2023;Fr;Suppe;Feine Kräutersuppe (3,AA,G,I);V;0,80 / 1,00 / 1,50;0,80;1,00;1,50
+22.12.2023;Fr;HG1;Quarktaler mit Zwetschgen (AA,C,G);V;2,00 / 2,80 / 3,60;2,00;2,80;3,60
+22.12.2023;Fr;HG2;Fusilli mit Tomate, Kapern und Oliven (3,6,AA);VG;2,00 / 2,80 / 3,60;2,00;2,80;3,60
+22.12.2023;Fr;HG3;Calamares mit Remoulade und Pommes frites (9,AA,B,C,D,G,J,N);F;4,20 / 5,20 / 5,70;4,20;5,20;5,70
+22.12.2023;Fr;B1;Gemüsecocktail Cordial (3,I);VG;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+22.12.2023;Fr;B2;Butterkartoffeln (3,5,G);V;1,20 / 1,40 / 1,90;1,20;1,40;1,90
+22.12.2023;Fr;B3;Gemischter Salat (3,I,L);V;1,30 / 1,50 / 2,00;1,30;1,50;2,00
+22.12.2023;Fr;B4;Pommes frites;VG;1,40 / 1,50 / 2,00;1,40;1,50;2,00
+22.12.2023;Fr;N1;Schoko-Trüffel Creme (AC,G,HB);V;1,20 / 1,50 / 1,70;1,20;1,50;1,70

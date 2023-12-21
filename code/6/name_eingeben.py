@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
 
 # sample(name_eingeben)
 class HauptFenster(QWidget):
@@ -9,7 +9,7 @@ class HauptFenster(QWidget):
         self.button = QPushButton('OK')
         self.button.clicked.connect(self.on_button_click)
         self.result_label = QLabel()
-
+        
         layout = QVBoxLayout()
         layout.addWidget(self.name_field)
         layout.addWidget(self.button)
@@ -30,4 +30,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = HauptFenster()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

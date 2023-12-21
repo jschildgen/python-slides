@@ -49,7 +49,7 @@
 
                 <section>
                   <h3>GUI-Programmierung in Python</h3>
-                  <div class="trackinfo"><i class="fas fa-headphones"></i> 91 <i class="fas fa-book"></i> 17</div>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18</div>
                   <ul class="small">
                     <li>GUI: Graphical User Interface</li>
                     <li>Python-Bibliotheken zur Entwicklung plattformübergreifender GUIs:
@@ -68,7 +68,41 @@
                 </section>
 
                 <section>
+                  <h3>Qt</h3>
+
+                  <ul class="small">
+                    <li>C++-Bibliothek zur GUI-Entwicklung (mittels PyQt auch in Python nutzbar)</li>
+                    <li>Plattformübergreifend (Windows, MacOS, Linux, Android, iOS)</li>
+                    <li>Open Source (LGPL) sowie kommerziell nutzbar (Lizenzkosten)</li>
+                  </ul>
+
+                  <img style="position: absolute; top: 6cm; left: 3cm; width:10cm; max-height: 18cm;" src="img/6/virtualbox.png" class="noborder">
+
+                  <img style="position: absolute; top: 7.5cm; left: 6cm; width:10cm; max-height: 18cm;" src="img/6/vlc.png" class="noborder">
+
+                  <img style="position: absolute; top: 9cm; left: 9cm; width:10cm; max-height: 18cm;" src="img/6/telegram.jpg" class="noborder">
+
+                  <aside class="notes">Qt kommt bei vielen grafischen Anwendungen zum Einsatz, z. B. VirtualBox, VLC Player oder der Desktop-Version des Telegram-Messengers.</aside>
+                </section>
+
+                <section>
+                  <h2>Übung 6.1</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="360" autostart="no" /></div>
+                    
+                    <p class="small">Überlegen Sie sich eine Idee für eine (simple!) grafische Anwendung, die Sie entwickeln möchten. Zeichnen Sie das Aussehen der App auf Papier.</p>
+                    <ul class="small">
+                      <li>Sie können <input value="Texteingabefelder">, <input type="button" value="Buttons"> und <b>Labels</b> verwenden.</li>
+                      <li>Beschränken Sie sich am besten auf diese drei Widget-Typen.<br>Optional können Sie aber auch <input type="checkbox" checked> Checkboxen, <input type="radio" checked> Radio-Buttons, <select><option>ComboBoxen</option></select>, <select size="2"><option>Auswahl-</option><option>listen</option></select> oder <textarea>mehrzeilige
+Textfelder</textarea> verwenden.</li>
+                      <li>Am besten besteht Ihre App nur aus einem Fenster.</li>
+                    </ul>
+
+                    <p class="small">Beispiele:<br>Taschenrechner, Zinsrechner, Wie viele Wörter/Zeichen hat ein eingegebener Text?, Quiz, Vokabeltrainer-Lernprogramm, Währungsumrechner, Einheitenumrechner, BMI-Rechner, ...</p>
+                </section>
+
+                <section>
                   <h3>PyQT</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.1</div>
                   <p class="small">Installation von PyQT:</p>
                   <pre><code class="bash">pip install pyqt6       # Windows
 pip3 install pyqt6      # MacOS, Linux</code></pre>
@@ -83,7 +117,7 @@ pip3 install pyqt6      # MacOS, Linux</code></pre>
                     <li>...</li>
                   </ul>
 
-                  <img style="position: absolute; left:3cm; top: 12.8cm; width:15cm; z-index: -1;" uml="@startuml
+                  <img style="position: absolute; left:3cm; top: 12.8cm; width:15cm; z-index: -1;" uml='@startuml
                   class QWidget {
                     + show()
                   }
@@ -102,15 +136,22 @@ pip3 install pyqt6      # MacOS, Linux</code></pre>
                     + clicked.connect(slot: callable)
                   }
 
+                  class "..." as etc {
+                    ...
+                  }
+
                   QLabel -u-|> QWidget
                   QLineEdit -u-|> QWidget
                   QPushButton -u-|> QWidget
+                  etc -u-|> QWidget
                   @enduml                  
-                  "/>
+                  '/>
+                  <img style="position: absolute; right:5mm; max-height: 10cm; top:8.5cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
                 </section>
                 
                 <section>
                   <h3>QApplication und QWidget</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.1</div>
                   <pre style="width: 18.5cm; left: -2cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/6/qwidget.py' data-sample-indent="keep"></code></pre>
                   <img style="position: absolute; right:1cm; top:2cm; width:4cm; z-index: 1;" uml="@startuml
                   class QWidget {
@@ -128,14 +169,27 @@ pip3 install pyqt6      # MacOS, Linux</code></pre>
                 </section>
 
                 <section>
+                  <h2>Übung 6.2</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="360" autostart="no" /></div>
+                    
+                    <ul class="small">
+                      <li>Installieren Sie PyQT: <code>pip install pyqt6</code> (für Mac und Linux: <code>pip3</code>)</li>
+                      <li>Schreiben Sie den folgenden Code ab und probieren Sie die App aus.</li>
+                      <li>Passen Sie den Fenstertitel und die Größe so an, damit es für Ihre Anwendung aus Übung 6.1 geeignet ist.</li>
+                    </ul>
+
+                    <pre style="width: 18.5cm; left: -2cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/6/qwidget.py' data-sample-indent="keep"></code></pre>
+                </section>
+
+                <section>
                   <h3>Layouts</h3>
                   <p class="small">Layouts legen fest, wie die Widgets angeordnet werden sollen.</p>
 
-                  <img style="" uml="@startuml
+                  <img style="width:100%" uml="@startuml
 
 class QLayout {
-  +addItem(item: QLayoutItem)
   +addWidget(widget: QWidget)
+  +addLayout(layout: QLayout)
 }
 
 class QBoxLayout {
@@ -156,7 +210,9 @@ class QGridLayout {
   +addWidget(widget: QWidget, row: int, column: int)
 }
 
-class QStackedLayout {}
+class QStackedLayout {
+  +setCurrentIndex(i: int)
+}
 
 QLayout <|-- QBoxLayout
 QLayout <|-- QFormLayout
@@ -201,19 +257,20 @@ QBoxLayout <|-- QVBoxLayout
                     </div>
                   </div>
 
-                  <pre style="width: 98%; margin-top: -1.5cm;"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#vbox'></code></pre>
+                  <pre style="width: 98%; margin-top: -1.5cm;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#vbox'></code></pre>
                 </section>
 
                 <section>
                   <h3><code>QFormLayout</code> / <code>QGridLayout</code></h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.3</div>
                   <div class="columns">
                     <div>
                       <img src="img/6/form.png" class="noborder">
-                      <pre style="width: 13cm; position: absolute; top:8cm; left:0cm"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#form'></code></pre>
+                      <pre style="width: 13cm; position: absolute; top:8cm; left:0cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#form'></code></pre>
                     </div>
                     <div>
                       <img src="img/6/grid.png" class="noborder">
-                      <pre style="width: 14.5cm; position: absolute; top:11cm; right:0cm"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#grid'></code></pre>
+                      <pre style="width: 14.5cm; position: absolute; top:11cm; right:0cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#grid'></code></pre>
                     </div>
                   </div>
                 </section>
@@ -222,12 +279,14 @@ QBoxLayout <|-- QVBoxLayout
                   <h3>QStackedLayout</h3>
                   <p class="small"><code>layout.setCurrentIndex(i)</code> macht Widget i sichtbar.</p>
                   <img style="position: absolute; top:1cm; right:5mm; width: 7cm; max-height: 7cm;" src="img/6/stacked.png" class="noborder">
-                  <pre style="width: 98%; margin-top: 2.5cm"><code class="python" data-sample-indent="" data-sample='code/6/layouts.py#stacked'></code></pre>
+                  <pre style="width: 98%; margin-top: 2.5cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#stacked'></code></pre>
+                  <aside class="notes">Ein Stacked Layout wird verwendet, um zwischen verschiedenen &quot;Seiten&quot; hin- und herzuschalten, z. B. für Tab-Wechsel oder einen Wizard (Schritt 1, Schritt 2, usw.). Über einen Klick auf Tab-Buttons bzw. einen Weiter- und einen Zurück-Button kann dann der Inhalt des Layouts entsprechend ausgewechselt werden.</aside>
                 </section>
 
                 <section>
                   <h3 style="font-size: 140%;"><code>QLabel</code> / <code>QLineEdit</code> / <code>QPushButton</code></h3>
-                  <img style="position: absolute; left:5mm; width:15cm; margin-top: -5mm; max-height: 10cm" uml="@startuml
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.2, 18.3</div>
+                  <img style="position: absolute; left:5mm; width:15cm; margin-top: -5mm; max-height: 10cm" uml='@startuml
                   class QWidget {
                     + show()
                   }
@@ -246,213 +305,210 @@ QBoxLayout <|-- QVBoxLayout
                     + clicked.connect(slot: callable)
                   }
 
+                  class "..." as etc {
+                    ...
+                  }
+
                   QLabel -u-|> QWidget
                   QLineEdit -u-|> QWidget
                   QPushButton -u-|> QWidget
+                  etc -u-|> QWidget
                   @enduml                  
-                  "/>
+                  '/>
                   <img style="position: absolute; right:5mm; max-height: 10cm; top:1.5cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
 
-                  <pre style="width: 98%; margin-top: 6cm"><code class="python" data-sample-indent="keep" data-sample='code/6/name_eingeben.py#name_eingeben'></code></pre>
+                  <pre style="width: 98%; margin-top: 5.5cm"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/6/name_eingeben.py#name_eingeben'></code></pre>
                 </section>
 
                 <section>
-                  <h3>Listener-Methoden</h3>
-                  <img style="position: absolute; right:-5mm; max-height: 10cm; top:0.3cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
+                  <h3>Layouts verschachteln</h3>
+                  <pre style="width: 14cm; left:-4cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/nesting.py#layout'></code></pre>
+                  <img style="position: absolute; right: 3mm; top: 1.75cm; width:7cm; max-height: 7cm;" src="img/6/nesting.png" class="noborder">
+                  <img style="position: absolute; right: 3mm; top: 5.25cm; width:7cm" uml="@startuml
+
+class QLayout {
+  +addWidget(widget: QWidget)
+  +addLayout(layout: QLayout)
+}
+@enduml">
+
+<img style="position: absolute; right: 3mm; top: 8cm; width:7cm" uml='
+                  hide empty members
+                  class HauptFenster
+                  class QVBoxLayout
+                  class QLineEdit
+                  class QHBoxLayout
+                  class "QPushButton" as b1
+                  class "QPushButton" as b2
+
+                  HauptFenster -d- QVBoxLayout
+                  QVBoxLayout -d- QLineEdit
+                  QVBoxLayout -d- QHBoxLayout
+                  QHBoxLayout -d- b1
+                  QHBoxLayout -d- b2                  
+                  '>
+
+                <aside class="notes">In einem Layout lassen sich nicht nur Widgets (Buttons, Textfelder, ...) hinzufügen, sondern auch weitere Layouts verschachteln. In diesem Beispiel haben wir eine VBox, die zum einen ein Textfeld enthält und darunter eine HBox in der zwei Buttons nebeneinander angeordnet sind.</aside>
+                </section>
+
+                <section>
+                  <h2>Übung 6.3</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="1800" autostart="no" /></div>
+                    
+                    <p class="small">Entwickeln Sie nun Ihre GUI-Anwendung aus den Übungen 6.1 und 6.2 weiter. Konzentrieren Sie sich nur auf das Layout, also auf die Platzierung der Widgets (Textfelder, Buttons, ...). Die eigentliche Programmlogik (Was passiert, wenn man den Button klickt? ...) kommt erst in der nächsten Übung.</p>
+                    <ul class="small">
+                      <li>Welches Layout verwenden Sie (VBox, HBox, Form, Grid, Stacked)? Eine Verschachtelung von Layouts ist möglich (z. B. HBox in einer VBox).</li>
+                      <li>Erzeugen Sie die Widgets und fügen Sie sie Ihrem Layout hinzu.</li>
+                      <li>Falls Sie Checkboxen, Radio-Buttons, mehrzeilige Textfelder einsetzen, nutzen Sie eine Suchmaschine, um herauszufinden, wie Sie sie in PyQT erstellen.</li>
+                      <li>Falls Ihre App aus mehreren Fenstern besteht, entwickeln Sie zunächst nur das Hauptfenster, dann die anderen, die sich dann einfach alle gleichzeitig bei Programmstart öffnen sollen.</li>
+                    </ul>
+                </section>
+
+                <section>
+                  <h3>Listener-Konzept</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.2</div>
+                  <img style="position: absolute; right:-5mm; max-height: 10cm; top:8mm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
                   <p class="small" style="width:18cm">In einer Listener-Methode definieren wir, was bei einem bestimmten Event (z. B. Buttonklick) passieren soll.</p>
-                  <pre style="width: 98%;"><code class="python">class HauptFenster(QWidget):
+                  <pre style="width: 98%; margin-top: 12mm;"><code class="python" contenteditable>class HauptFenster(QWidget):
     def __init__(self):
         # ...
         self.button.clicked.connect(self.on_button_click)
         # ...
   </code></pre>
-                  <pre style="width: 98%; margin-top: -1cm;"><code class="python" data-sample-indent="keep" data-sample='code/6/name_eingeben.py#button_click'></code></pre>
+                  <pre style="width: 98%; margin-top: -1cm;"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/6/name_eingeben.py#button_click'></code></pre>
+
+                  <aside class="notes">Für einzelne Widget-typische Events lassen sich Listener-Methoden verbinden. Für Buttons gibt es z. B. das Event <code>clicked</code>, welches die Methode, die wir mittels <code>connect</code> übergeben, immer dann aufruft, wenn der Button geklickt wird. Wie jede Methode in Python haben Listener-Methoden als ersten Parameter <code>self</code>. Darüber können wir auf Member-Variablen (im Beispiel: <code>self.result_label</code>) und andere Methoden zugreifen. Anderen Listener-Methoden können wir optional noch weitere Parameter geben, z. B. beim <code>textChanged</code>-Event einer <code>QLineEdit</code>: <code>def text_geaendert(self, text)</code>. Somit kommen wir direkt an den Inhalt des Textfelds als String, ohne über die <code>text()</code>-Methode darauf zugreifen zu müssen.</aside>
                 </section>
 
-<!--
                 <section>
-                  <h3>Scene Graph</h3>
-                  <div class="trackinfo"><i class="fas fa-book"></i> 17.3</div>
-                  <p class="small">Baumstruktur, die den Fensterinhalt festlegt</p>
-                  <img style="position: absolute; right:-0.5cm; max-height: 9cm; top:2cm; z-index: 888" uml="
-                  hide empty members
-                  class Stage
-                  class StackPane
-                  class Button
+                  <h3>QMessageBox</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.3, 18.4</div>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#info'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#critical'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#question'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#datei'></code></pre>
 
-                  Stage -- StackPane
-                  StackPane -- Button
-                  ">
-                  <ul class="small">
-                    <li class="fragment"><code>Stage</code>
-                    <ul>
-                      <li>Fenster; Wurzel des Scene Graphs</li>
-                      <li>Fenstertitel: <code>primaryStage.setTitle("Hallo");</code></li>
-                      <li>Fenstergröße: <code>primaryStage.setScene(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Scene(pane, 200, 100));</code></li>
-                      <li>Sichtbar machen: <code>primaryStage.show();</code></li>
-                    </ul></li>
-                    <li class="fragment"><code>Pane</code>
-                    <ul>
-                      <li>Anordnung der Elemente</li>
-                      <li><code>StackPane</code> (alle Elemente hintereinander)</li>
-                      <li><code>VBox</code>, <code>HBox</code>, <code>BorderPane</code>, <code>GridPane</code>, <code>FlowPane</code>, ...</li>
-                    </ul></li>
-                  </ul>
-                  <div class="poll fragment fade-in-then-out" style="bottom:-30px; z-index:999;">
-                    <h1>Wofür könnte VBox und HBox stehen?</h1>
-                      <ul>
-                        <li>Virtuell und Hardware</li>
-                        <li>Visuell und Haptisch</li>
-                        <li>Visible und Hidden</li>
-                        <li data-poll="correct">Vertikal und Horizontal</li>
-                      </ul>
-                    <h2>https://frage.space</h2>
-                   </div>
-                  <ul class="small">
-                    <li class="fragment">Steuerelemente
-                      <ul><li><input type="button" value="Button">, <code>Label</code>, <input type="radio" checked><code>RadioButton</code>, <input type="checkbox" checked><code>Checkbox</code>, <input type="text" value="TextField" size="5">, ...</li></ul>
-                  </ul>
-                  
+                  <img style="position: absolute; top: 10.3cm; left:-1cm; width: 8cm" src="img/6/info.png" class="noborder">
+                  <img style="position: absolute; top: 10.3cm; left:5.5cm; width: 8cm" src="img/6/fehler.png" class="noborder">
+                  <img style="position: absolute; top: 10.3cm; left:12cm; width: 8cm" src="img/6/frage.png" class="noborder">
+                  <img style="position: absolute; top: 10.3cm; left:16.5cm; width: 10cm; z-index: -1;" src="img/6/datei.png" class="noborder">
                 </section>
 
-              <section>
-              <h3><code>VBox</code> / <code>HBox</code></h3>
-              <p class="small">Elemente werden untereinander (<code>VBox</code>) bzw. nebeneinander (<code>HBox</code>) angeordnet.</p>
-              <img src="img/6/javafx_login.png" class="noborder" style="position: absolute; right:5mm; top: 2.5cm; z-index: 999; background: none;">
-              <pre style="width:21cm; margin-left:5mm"><code style="max-height: 25cm;" class="java" contenteditable data-sample='code/JavaFX/src/de/othr/Login.java#23-39'></code></pre>
-              <div class="poll fragment fade-in-then-out" style="bottom:-30px; z-index:999;">
-                <h1>Zeichnen Sie den Scene Graph (beginnend mit der Wurzel &quot;Stage&quot;). Wie viele Knoten hat er?</h1>
-                  <ul>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li data-poll="correct">9</li>
-                  </ul>
-                <h2>https://frage.space</h2>
-               </div>
-              </section>
+                <section>
+                  <h3><code>QComboBox</code> / <code>QListWidget</code></h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.5</div>
+                  <img style="position: absolute; top: 1.5cm; right:5.5cm; width: 4.7cm; max-height: 8cm; z-index: 10;" src="img/6/combobox.png" class="noborder">
+                  <img style="position: absolute; top: 1.5cm; right:0.5cm; width: 4.7cm; max-height: 8cm; z-index: 10;" src="img/6/listwidget.png" class="noborder">
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/combobox.py#combobox'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/combobox.py#combo_change'></code></pre>
 
-              <section>
-                <h3>Listener-Konzept</h3>
-                <div class="trackinfo"><i class="fas fa-book"></i> 17.3</div>
-                <p class="small">Listener-Methode wird aufgerufen, sobald ein gewisses Ereignis eintritt,<br>z. B. wenn ein Button geklickt wird:</p>
-                <pre><code contenteditable data-sample='code/JavaFX/src/de/othr/Login.java#41'></code></pre>
-                <div class="fragment">
-                  <p class="small">oder wenn eine Eingabe in einem Textfeld erfolgt:</p>
-                  <pre><code contenteditable data-sample='code/JavaFX/src/de/othr/Login.java#43-51'></code></pre>
-                  <img src="img/6/javafx_login_error.png" class="noborder" style="position: absolute; right:-20mm; top: 5cm; z-index: 999; background: none;">
+                  <img style="height:7cm; position: absolute; top: 9.6cm; left:0cm" uml="@startuml
+                  class QComboBox {
+                    --
+                    +addItem(item: str)
+                    +addItems(items: Iterable[str])
+                    +insertItem(index: int, item: str)
+                    +clear()
+                    +count(): int
+                    +currentIndex(): int
+                    +currentText(): str
+                    +itemText(index: int): str
+                    +setItemText(index: int, text: str)
+                    +currentIndexChanged.connect(method: PYQT_SLOT)
+                    +currentTextChanged.connect(method: PYQT_SLOT)
+                    ...
+                  }
+                  @enduml
+                  "/>
+
+                  <img style="height:7cm; position: absolute; top: 9.6cm; right:0cm" uml="@startuml
+                  @startuml
+                  class QListWidget {
+                    --
+                    +addItem(item: str)
+                    +addItems(items: Iterable[str])
+                    +clear()
+                    +count(): int
+                    +currentItem(): str
+                    +currentRow(): int
+                    +item(row: int): str
+                    +currentRowChanged.connect(method: PYQT_SLOT)
+                    +currentItemChanged.connect(method: PYQT_SLOT)
+                    +itemClicked.connect(method: PYQT_SLOT)
+                    +itemDoubleClicked.connect(method: PYQT_SLOT)
+                    ...
+                  }
+                  @enduml
+
+                  @enduml
+                  "/>
+                  <aside class="notes">Würde im obigen Beispiel das Event <code>currentTextChanged</code> statt <code>currentIndexChanged</code> überwacht werden, stände im zweiten Parameter der Listener-Methode (hier: <code>idx</code>) der ausgewählte Text.</aside>
+                </section>
+
+
+                <section>
+                  <h2>Übung 6.4</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="1200" autostart="no" /></div>
+                    
+                    <p class="small">Entwickeln Sie Ihre GUI-Anwendung aus Übung 6.1 zuende.</p>
+
+                    <ul class="small">
+                      <li>Entwickeln Sie Listener-Methoden und verbinden Sie sie mit Ihren Widgets.</li>
+                    </ul>
+                    
+                    <pre style="width: 98%;"><code class="python" contenteditable>class HauptFenster(QWidget):
+    def __init__(self):
+        # ...
+        self.button.clicked.connect(self.on_button_click)
+        # ...
+                    </code></pre>
+                                    <pre style="width: 98%; margin-top: -1cm;"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/6/name_eingeben.py#button_click'></code></pre>
+
+                    <ul class="small">
+                      <li>Geben Sie Ihren Methoden möglichst aussagekräftige Namen (z. B. <code>klick_berechnen</code> oder <code>eingabe_textfeld</code>).</li>
+                      <li>Je nach Widget gibt es unterschiedliche Events (<code>clicked</code>, <code>textChanged</code>, <code>stateChanged</code>, ...). Details darüber können Sie online herausfinden.</li>
+                    </ul>
+                </section>
+
+                <section>
+                  <h3><code>QTimer</code></h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 18.6</div>
+                  <img style="position: absolute; top: 1.5cm; right:0.5cm; width: 4.7cm; max-height: 8cm; z-index: 10;" src="img/6/timer.png" class="noborder">
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/timer.py#timer'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/timer.py#on_timer'></code></pre>
+
+                  <img style="height:4cm; position: absolute; top: 8.6cm; right:0cm" uml="@startuml
+                  class QTimer {
+                    --
+                    +start(msec: int)
+                    +stop()
+                    +isActive(): bool
+                    +timeout.connect(method: PYQT_SLOT)
+                    ...
+                  }
+                  @enduml
+                  "/>
+                  <div class="fragment">
+                  <h4>Übung 6.5</h4>
+                  <div style="position: absolute; top:11cm; right: 9.5cm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="1200" autostart="no" /></div>
+                  <p class="small">Sie finden den kompletten Quellcode der hier gezeigten Stoppuhr-App im ELO. Peppen Sie die App auf, sodass man die Stoppuhr pausieren, fortsetzen und zurücksetzen kann. Sie soll bei Programmstart nicht automatisch starten.</p>
                 </div>
-                <aside class="notes">Mit den <code>setOn...</code>-Methoden lässt sich (am einfachsten über einen Lambda-Ausdruck) definieren, was passieren soll, wenn eine bestimmte Aktion auf einem GUI-Element ausgeführt wird. Beim Klick auf den Abbrechen-Button wird das Fenster geschlossen und damit das Programm beendet. Und bei jeder Tastatureingabe im E-Mail-Eingabefeld wird überprüft, ob die eingegebene E-Mail-Adresse ein @-Symbol enthält. Falls nein, erhält das Feld einen roten Hintergrund und der Einloggen-Button wird deaktiviert.</aside>
-              </section>
-
-              <section>
-                <h3>FXML</h3>
-                <img src="img/6/javafx_login.png" class="noborder" style="position: absolute; right:-5mm; top: 0cm; z-index: 999; background: none;">
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" class="language-xml" contenteditable data-sample-indent="keep" data-sample='code/JavaFX/src/de/othr/login.fxml#7-16'></code></pre>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" class="java" contenteditable data-sample='code/JavaFX/src/de/othr/LoginFXML.java#13-16'></code></pre>
-                <aside class="notes">Mit FXML bietet JavaFX die Möglichkeit, das Layout einer GUI-Anwendung in Form einer XML-Datei zu gestalten. IntelliJ bietet hier eine gute Autovervollständigungen, sodass sich vieles auch ohne genaue Kenntnisse und auch ohne ein Blick in die Dokumentation schnell und leicht realisieren lässt. Die hier dargestellte FXML entspricht dem Code aus der vorherigen Folie. Durch diesen Ansatz wird die eigentliche Programmlogik vom Design der Anwendung getrennt.</aside>
-              </section>
-
-              <section>
-                <h3>Listener in FXML</h3>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" class="language-xml" contenteditable data-sample='code/JavaFX/src/de/othr/login2.fxml#7-8'></code></pre>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" class="language-xml" contenteditable data-sample='code/JavaFX/src/de/othr/login2.fxml#16'></code></pre>
-
-                <h4>Controller-Klasse</h4>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" contenteditable data-sample-indent="keep" data-sample='code/JavaFX/src/de/othr/LoginController.java#12-20,35'></code></pre>
-                <aside class="notes">In der FXML wird auf eine Controller-Klasse verwiesen. Diese enthält Listener-Methoden (hier: <code>cancel</code>). IntelliJ besitzt eine Funktion, diese automatisch erstellen zu lassen, nachdem man in die Methode in FXML referenziert (hier: <code>onAction="#cancel"</code>). Die <code>@FXML</code>-Annotation zeigt, dass es eine Verknüpfung zur FXML gibt. Über die Member-Variablen (z. B. <code>email</code>) hat man Zugriff auf die Steuerungselemente.</aside>
-              </section>
-
-              <section>
-                <h3>MVC</h3>
-                <p class="small"><b>Model-View-Controller</b>-Konzept: Trennung von Datenmodell (Model), Präsentation (View) und Programmsteuerung (Controller)</p>
-                
-                <div class="fragment">
-                  <h4>Model</h4>
-                  <p class="small" style="margin-top: -4mm">Klassen, die die in der Anwendung verwalteten Daten repräsentieren:<br><code>Person</code>, <code>Witz</code>, <code>BlogBeitrag</code>, <code>Musikstueck</code>, <code>Notiz</code>, <code>Produkt</code>,...</p>
-                </div>
-                <div class="fragment">
-                  <h4>View</h4>
-                  <p class="small" style="margin-top: -4mm">Präsentation der Daten des Modells und festlegung der Benutzerinteraktion:<br>Layout gestalten mit Panes, Textfeldern, Buttons, Labels, ... (z. B. in FXML)</p>
-                </div>
-                <div class="fragment">
-                  <h4>Controller</h4>
-                  <p class="small" style="margin-top: -4mm">Wertet Änderung in der Präsentation (z. B. Textfeld-Eingabe) aus, und nimmt Änderung an der Präsentation und den Daten im Modell vor.</p>
-                </div>
-              </section>
-
-              <section>
-                  <h3>Beispiel: Notiz-Anwendung</h3>
-                  <ul class="small">
-                    <li><b>Model</b>: Klasse <code>Notiz</code> (<code>titel</code>, <code>text</code>, Konstruktor, Getter, Setter)</li>
-                    <li><b>View</b>: <code>notizen.fxml</code></li>
-                    <li><b>Controller</b>: Klasse <code>NotizenController</code></li>
-                  </ul>
-                  <img src="img/6/javafx_notizen.png" class="stretch noborder">
-              </section>
-
-              <section>
-                <h3>Notizen.java</h3>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" contenteditable data-sample-indent="keep" data-sample='code/JavaFX/src/de/othr/Notizen.java#9-22'></code></pre>
-                <aside class="notes">Dies ist die Hauptklasse der Anwendung, die die <code>main</code>-Methode beinhaltet und gestartet wird. Hier wird die FXML geladen und der Fenstertitel und die Fenstergröße gesetzt.</aside>
-              </section>
-
-              <section>
-                <h3>Notiz.java</h3>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" contenteditable data-sample-indent="keep" data-sample='code/JavaFX/src/de/othr/Notiz.java#3-21'></code></pre>
-                <aside class="notes">Das Model besteht hier lediglich aus der einen Klasse <code>Notiz</code>. Ein <code>Notiz</code>-Objekt repräsentiert eine Notiz und speichert deren Titel und Text. Man könnte nun Klassen erstellen, die solche Notizen aus einer Datei oder einer Datenbank laden bzw. diese dort hin abspeichern. <code>toString()</code> gibt den Titel aus.</aside>
-              </section>
-
-              <section>
-                <h3>notizen.fxml</h3>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" class="language-xml" contenteditable data-sample-indent="keep" data-sample='code/JavaFX/src/de/othr/notizen.fxml#7-24'></code></pre>
-                <aside class="notes">Hier wird ein <code>BorderPane</code> verwendet. Dieser kann aus bis zu fünf Bereichen (<code>top</code>, <code>left</code>, <code>right</code>, <code>bottom</code>, <code>center</code>) bestehen. Links wollen wir eine Übersicht über alle Notizen darstellen, rechts ein großes Textfeld, um die Notiz anzuzeigen und zu bearbeiten, unten kann man den Titel einer neuen Notiz angeben und zwei Knöpfe drücken. Im <code>notiztext</code>-Feld wird jede Änderung sofort gespeichert.</aside>
-              </section>
-              
-              <section>
-                <h3>NotizenController.java (1/2)</h3>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" contenteditable data-sample-indent="keep" data-sample='code/JavaFX/src/de/othr/NotizenController.java#11-24,47'></code></pre>
-                <aside class="notes">Oben sind die referenzierten Elemente aus der FXML zu sehen. JavaFX bringt eine Schnittstelle <code>ObservableList</code> mit, die sich wie eine <code>List</code> verwenden lässt. Jede Änderung an dieser Liste wird jedoch überwacht, damit die <code>ListView uebersicht</code> immer den aktuellen Zustand der Liste darstellt.</aside>
-              </section>
-
-              <section>
-                <h3>NotizenController.java (2/2)</h3>
-                <pre style="width: 98%; margin-left: 2mm;"><code style="max-height: 25cm;" contenteditable data-sample='code/JavaFX/src/de/othr/NotizenController.java#26-46'></code></pre>
-                <aside class="notes">Diese Methoden greifen lesend und schreibend auf das Model (<code>notizen</code>-Liste) und die View zu.</aside>
-              </section>
-
-              <section>
-                <h2>JavaDoc</h2>
-                <div class="trackinfo"><i class="fas fa-headphones"></i> 85 <i class="fas fa-book"></i> 18</div>
-                <p class="small"><code>/** ... */</code>-Kommentarblöcke beschreiben Klassen, Methoden, etc.</p>
-                <pre><code style="max-height: 25cm;" class="java" contenteditable data-sample='code/Programmieren2/src/de/othr/javadoc/MeineKlasse.java#4-11,18'></code></pre>
-                <p class="small" style="z-index: 5; position: relative;">Erzeugen einer JavaDoc (HTML-Dateien) auf der Konsole:</p>
-                <pre><code>javadoc MeineKlasse.java</code></pre>
-                <p class="small">In IntelliJ: Tools &rightarrow; Generate JavaDoc...</p>
-                <img src="img/6/javadoc_nmalhallo.png" alt="JavaDoc" class="noborder" style="position: absolute; top: 10cm; right:0mm; width: 10cm; z-index: 4;">
-                <aside class="notes">Mit JavaDoc können Sie Ihre Klassen, Interfaces, Methoden, deren Parameter (<code>@params</code>), Exception-Verhalten (<code>@throws</code>), und mehr dokumentieren. IDEs wie IntelliJ zeigen JavaDoc-Infos im Code an.</aside>
-              </section>
-              
-              <section>
-                <h2>JavaDoc</h2>
-                <img src="img/6/javadoc_MeineKlasse.png" alt="JavaDoc" class="noborder" style="margin-top: -5mm; width: 98%;">
-                
-                
-              </section>
+                <aside class="notes">Der <code>QTimer</code> sorgt dafür, dass kontinuierlich in einem bestimmten Intervall (hier: jede Sekunde) eine Methode aufgerufen wird.</aside>
+                </section>
 
               <section>
                 <h3>Zusammenfassung</h3>
                 <ul class="small">
-                  <li>Bibliotheken als JARs importieren; <code>java -cp</code></li>
-                  <li>JavaFX: <code>Application</code></li>
-                  <li>Scene Graph: Stage, Pane, Steuerelemente</li>
-                  <li>FXML</li>
-                  <li>Listener-Konzept: <code>onAction</code>, ...</li>
-                  <li>Controller-Klasse</li>
-                  <li>MVC-Konzept</li>
-                  <li>JavaDoc</li>
+                  <li>PyQT</li>
+                  <li><code>QApplication</code>, <code>QWidget</code>: <code>show()</code>, <code>exec()</code></li>
+                  <li>Layouts: HBox, VBox, Form, Grid, Stacked</li>
+                  <li>Labels, Buttons, Textfelder</li>
+                  <li>Listener-Konzept: <code>widget.event.connect(...)</code></li>
+                  <li>Message-Box</li>
+                  <li>Combobox, Liste</li>
+                  <li><code>QTimer</code></li>
                 </ul>
-              </section>-->
+              </section>
 
               </div>
             </div>
