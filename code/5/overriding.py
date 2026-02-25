@@ -30,8 +30,8 @@ class Studierender(Person):
 
   def super_beispiel(self):
     # sample(super_beispiel)
-    s1 = self.details();             # 555123 / Ute (19)
-    s2 = super().details();          # Ute (19)
+    s1 = self.details()             # 555123 / Ute (19)
+    s2 = super().details()          # Ute (19)
     # end-sample
     print(s1)
     print(s2)

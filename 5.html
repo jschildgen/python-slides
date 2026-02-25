@@ -179,7 +179,7 @@
                       <ul class="small">
                         <li>Erstellen Sie eine Klasse Fahrkarte und deren Subklasse Zeitkarte.</li>
                         <li>Eine Fahrkarte hat eine Zone und einen Preis, eine Zeitkarte hat zusätzlich die Info von wann bis wann sie gültig ist.</li>
-                        <li>Der Konstruktor für Fahrkarte und Zeitkarte nimmt jeweils nur die Bezeichnung entgegen.</li>
+                        <li>Der Konstruktor für Fahrkarte und Zeitkarte nimmt jeweils nur die Zone entgegen.</li>
                         <li>Beim Erstellen eines neuen Zeitkarten-Objekts soll deren Gültigkeit immer heute beginnen und das Ende unbegrenzt (<code>None</code>) sein.</li>
                         <li>Eine Zeitkarte hat die Methode <code>kuendigen()</code>, die beim Aufruf die Gültigkeit auf den Ende des aktuellen Monats setzt.</li>
                         <li>In Fahrkarte und Zeitkarte gibt es jeweils die Methode <code>rabatt()</code>, die beim Aufruf den Preis der Karte um 25% bzw. für Zeitkarten um 10% reduziert.</li>
@@ -218,7 +218,7 @@
                     <p class="small" style="margin-top: -20px;">... können nicht instanziiert werden und sind nur zum Vererben da.</p>
                     <pre style="width: 14cm; margin-left: 1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_class' data-sample-indent="keep"></code></pre>
                     
-                    <p style="position: absolute; top:4.5cm; right:5mm" class="small"><del><code>p = Lebewesen();</code></del></p>
+                    <p style="position: absolute; top:4.5cm; right:5mm" class="small"><del><code>p = Lebewesen()</code></del></p>
 
                     <div class="fragment">
                       <h4>Abstrakte Methoden</h4>

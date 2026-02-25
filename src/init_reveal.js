@@ -23,6 +23,7 @@ Reveal.initialize({
     { src: 'src/calendar.js', async: true },
     { src: 'src/erd.js' },
     { src: 'src/hide-from.js' },
+    { src: 'src/videokeys.js', async: true },
     { src: 'plugins/plantuml.js' },
     { src: 'plugins/jump.js', async: true },
     { src: 'plugins/badges.js' },
