@@ -1,4 +1,6 @@
 try:
-  x = int(input("Bitte Zahl eingeben: "))
-except ValueError:
-  print("Das ist keine Zahl!")
+  with open("beispiel.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+  print(content)
+except FileNotFoundError:
+  print("Datei nicht gefunden!")

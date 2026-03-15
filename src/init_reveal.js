@@ -35,6 +35,12 @@ Reveal.initialize({
 });
 
 hljs = null;
-Reveal.on( 'ready', event => {
-   hljs = Reveal.getPlugin( 'highlight' ).hljs;
-} );
+Reveal.on('ready', event => {
+    setTimeout(() => {
+        const hljs = Reveal.getPlugin('highlight').hljs;
+        document.querySelectorAll('pre code').forEach((block) => {
+            delete block.dataset.highlighted;
+            hljs.highlightElement(block);
+        });
+    }, 100);
+});
