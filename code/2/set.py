@@ -1,3 +1,4 @@
+zahlen = set() # leere Menge
 zahlen = { 7, 3, 5 }
 zahlen.add(4)
 zahlen.add(3)  # schon drin => wird nicht eingefügt

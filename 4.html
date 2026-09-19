@@ -48,7 +48,7 @@
 
       <section>
         <h2>Klassen und Objekte</h2>
-        <div class="trackinfo"><i class="fas fa-headphones"></i> 23 <i class="fas fa-book"></i> 11</div>
+        <div class="trackinfo"><i class="fas fa-headphones"></i> 23</div>
         <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/4/person1.py#object'></code></pre>
         <h4>Klasse</h4>
         <p class="small" style="margin-top: -5mm;">Vorlage für Objekte, besteht aus <em>Attributen</em> (<em>Member-<br>Variablen</em>) und <em>Methoden</em>.</p>
@@ -65,6 +65,7 @@
         <aside class="notes">Im gezeigten Code-Beispiel gibt es die Klasse <code>Person</code>. Das UML-Diagramm rechts zeigt an, dass diese Klasse die beiden Attribute <code>name</code> und <code>alter</code> sowie zwei Methoden besitzt. Die Variable <code>p</code> speichert ein Personen-Objekt, also eine Instanz der Klasse <code>Person</code>.</aside>
       </section>
 
+      <!--
       <section>
         <h3>Objektorientierung nach Alan Kay</h3>
         <ol class="small">
@@ -77,7 +78,7 @@
         </ol>
         
         <aside class="notes">Der Austausch von Nachrichten ist ein wesentliches Merkmal objektorientierter Programmierung. Im Code-Beispiel auf der vorherigen Folie wurde die Methode <code>p.erhoeheAlter()</code> aufgerufen. Das heißt, eine Nachricht wurde an das Objekt geschickt. Andere Methoden liefern ein Ergebnis zurück, es kommt also eine Nachricht zurück.</aside>
-      </section>
+      </section>-->
 
       <section>
         <h3>Objektorientierung: Vorteile</h3>
@@ -95,7 +96,6 @@
 
       <section>
         <h3>Member-Variablen</h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 11.3</div>
         <p class="small">Jedes Objekt einer Klasse besitzt einen Wert in jeder Member-Variable.</p>
         <pre style="margin-left:0px; width:12cm" ><code class="python" data-sample-indent="keep" data-sample='code/4/person1.py#class'></code></pre>  
         <img style="position: absolute; right:0cm; top:3cm; width:30%; z-index: -5;" uml="
@@ -105,14 +105,14 @@
         }
         "/>
         <h4>Sichtbarkeit</h4>
-        <p class="small" style="margin-top: -1mm;">In Python sind alle Member-Variablen immer public, d. h. von innerhalb und außerhalb der Klasse können deren Werte gelesen und geändert werden.</p>
+        <p class="small" style="margin-top: -5mm;">In Python sind alle Member-Variablen immer public (+), d. h. von innerhalb und außerhalb der Klasse können deren Werte gelesen und geändert werden.</p>
         <aside class="notes">Member-Variablen werden auf Klassenebene definiert. Sie speichern den Zustand eines Objekts der jeweiligen Klasse.</aside>
         
         <h4>Konvention</h4>
-        <ul class="small" style="margin-top: -1mm;">
+        <ul class="small" style="margin-top: -5mm;">
           <li>Klassennamen beginnen mit Großbuchstaben (z. B. <code>Person</code>)</li>
           <li>Member-Variablen beginnen mit Kleinbuchstaben (z. B. <code>name</code>)</li>
-          <li>Private Variablen (nur für interne Zwecke) beginnen mit <code>__</code> und dann ein Kleinbuchstabe (z. B. __id)</li>
+          <li>Private Variablen (für interne Zwecke) beginnen mit <code>__</code>, dann ein Kleinbuchstabe (z. B. __id)</li>
         </ul>
       </section>
 
@@ -134,17 +134,34 @@
 
       <section>
         <h3>Konstruktor: <code>__init__</code></h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 11.2</div>
         <div style="position: absolute; top: 50px; right:50px; font-size:100px"><i class="fas fa-star python"></i></div>
         <p class="small">Konstruktoren erzeugen neue Objekte der Klasse. <br>
           Sie werden aufgerufen mit <code>Klassenname(...)</code></p> 
         
-          <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/4/person1.py#class'></code></pre>
-          <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/4/person1.py#object1'></code></pre>
+          <pre style="width: 15cm; margin-left: 0;"><code class="python" data-sample-indent="keep" data-sample='code/4/person1.py#class'></code></pre>
+          <pre style="width: 15cm; margin-left: 0;"><code class="python" data-sample-indent="keep" data-sample='code/4/person1.py#object1'></code></pre>
+
+          <img style="position: absolute; right:0cm; top:4cm; width:30%; z-index: -5;" uml="
+          class Person {
+          +name
+          +alter
+          +Person(name)
+        }
+        "/>
 
         <h4 class="fragment" data-fragment-index="2">Konstruktoren mit optionalen Parametern</h4>
-        <pre class="fragment" data-fragment-index="2" style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/4/person2.py#class'></code></pre>
-        <pre class="fragment" data-fragment-index="2" style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/4/person2.py#objects'></code></pre>
+        <pre class="fragment" data-fragment-index="2" style="width: 15cm; margin-left: 0;"><code class="python" data-sample-indent="keep" data-sample='code/4/person2.py#class'></code></pre>
+        <pre class="fragment" data-fragment-index="2" style="width: 15cm; margin-left: 0;"><code class="python" data-sample-indent="keep" data-sample='code/4/person2.py#objects'></code></pre>
+        
+        <img style="position: absolute; right:0cm; top:11cm; width:30%; z-index: -5;" uml="
+          class Person {
+          +name
+          +alter
+          +Person(name)
+          +Person(name, alter)
+        }
+        "/>
+
         <aside class="notes">Der Konstruktor hat als ersten Parameter das Objekt selbst (<code>self</code>), was gerade neu angelegt wurde.</aside>
       </section>
 
@@ -168,6 +185,53 @@
     </section>
 
     <section>
+      <h3>Klasse: <code>decimal.Decimal</code></h3>
+
+      <img style="position: absolute; right:0cm; top:2cm; width:13cm; min-height: 8cm;" uml='
+
+class Decimal {
+  + sign: int
+  + digits: tuple
+  + exponent: int
+  + Decimal(value)
+  + __add__(other)
+  + __sub__(other)
+  + __mul__(other)
+  + __truediv__(other)
+  + quantize(exp)
+  + sqrt()
+  + as_tuple()
+  + ...
+}
+
+class Context {
+  + prec: int
+  + rounding: Rounding
+  + traps: set
+  + flags: set
+  + Emax: int
+  + Emin: int
+  + create_decimal(value)
+  + create_decimal_from_float(f)
+}'>
+
+<img style="position: absolute; right:0cm; top:9cm; width:6cm; min-height: 5cm;" uml='
+class DecimalTuple {
+  + sign: int
+  + digits: tuple
+  + exponent: int
+  + DecimalTuple(int, digits, exponent)
+}'>
+
+    <pre style="width: 12.3cm; margin-left:0cm"><code style="max-height: 999cm;" class="python" data-sample-indent="keep" data-sample='code/4/dec.py'></code></pre>
+      
+
+      <aside class="notes">Der Konstruktor <code>Decimal</code> wird mit einem String aufgerufen. Intern erfogt die Speicherung als ganze Zahl mit Exponent, z. B. $2\cdot10^{-1}$. Anders als bei <code>float</code> passieren hier keine Rundungsfehler. Methoden wie <code>sqrt</code> erzeugen einen neuen Decimal, sie verändern den Zustand des Objekts nicht. <code>quantize</code> rundet die Zahl auf so viele Nachkommastellen wie bei der Decimal-Zahl, die der Methode übergeben wird. Über den Context lässt sich u.a. die Precision einstellen, d. h. die Anzahl der Stellen insgesamt.</aside>
+    </section>
+
+    
+
+    <section>
       <h3>Type-Hints</h3>
       <p class="small">Python erlaubt es, zu Variablen (und Member-Variablen) den Datentypen anzugeben. Das macht den Code leserlicher.</p>
 
@@ -186,7 +250,7 @@
 
     </section>
 
-    <section>
+    <section data-hide-from="2V">
       <h2>Übung 4.1</h2>
       <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="360" autostart="no" /></div>
       
@@ -208,7 +272,6 @@
 
     <section>
       <h3>Methoden</h3>
-      <div class="trackinfo"><i class="fas fa-book"></i> 11.4</div>
       <ul class="small">
         <li>Methoden sind wie Funktionen, allerdings innerhalb einer Klasse.</li>
         <li>Methoden werden auf einem Objekt aufgerufen: <code>obj.methodenname(...)</code></li>
@@ -232,7 +295,7 @@
       <aside class="notes">Wenn man bei eigenen Methoden und Funktionen Type-Hints zu Parametern und zum Ausgabetypen gibt, macht dies den Code für den Leser besser verständlich. Man sieht, mit welchen Typen die Methode aufgerufen werden soll und welcher Datentyp zurückgeliefert wird. Editoren wie Visual Studio Code zeigen beim Verwenden der Funktion die Typen in den Autocompletion-Fenstern an.</aside>
     </section>
 
-    <section>
+    <section data-hide-from="2V">
       <h2>Übung 4.2</h2>
       <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="480" autostart="no" /></div>
       
@@ -307,6 +370,48 @@
       </section>
 
       <section>
+      <h3>Klasse: <code>datetime.datetime</code></h3>
+
+      <pre style="width: 18cm; margin-left:0cm"><code style="max-height: 999cm;" class="python" data-sample-indent="keep" data-sample='code/4/datetm.py'></code></pre>
+
+
+      <div class="poll fragment fade-in-then-out" data-fragment-index="1" style="bottom:-180px">
+  <h1>Was ist in der Klasse datetime statisch?</h1>
+    <ul>
+      <li>Der Konstruktor datetime</li>
+      <li data-poll="correct">Die Methode now</li>
+      <li>Das Attribut year</li>
+      <li>Die Methode __sub__</li>
+    </ul>
+  <h2>https://fraage.de</h2>
+ </div>
+
+      <img class="fragment" data-fragment-index="2" style="position: absolute; right:0cm; top:2cm; width:5cm; min-height: 7cm;" uml='
+
+class datetime {
+  + year: int
+  + month: int
+  + day: int
+  + hour: int
+  + minute: int
+  + second: int
+  + microsecond: int
+  + tzinfo: tzinfo
+  + datetime(year, month, ...)
+  {static}+ now() : datetime
+}'>
+<img class="fragment" data-fragment-index="2" style="position: absolute; right:0cm; top:9cm; width:4cm; min-height: 3cm;" uml='
+class timedelta {
+  + days: int
+  + seconds: int
+  + microseconds: int
+}'>
+
+      <aside class="notes">Die Klasse heißt <code>datetime</code> (kleingeschrieben) und ist im Paket <code>datetime</code></aside>
+    </section>
+
+    <!--
+      <section>
         <h3>Getter und Setter</h3>
 
         <img style="position: absolute; right:0cm; top:3cm; width:6cm; z-index: 1;" uml="class Konto {
@@ -372,7 +477,7 @@
       </section>
 
       
-      <section>
+      <section data-hide-from="2V">
         <h2>Übung 4.3</h2>
         <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="240" autostart="no" /></div>
         <p class="small">Passen Sie Ihre Film-Klasse so an, dass Ihre <code>genres</code>-Methode ein Getter ist, damit man einfach mit <code>objekt.genres</code> auf die Menge der Genres zugreifen kann.</p>
@@ -388,7 +493,7 @@
           +remove_genre(genre : str)
         }        
         "/>               
-      </section>
+      </section>-->
 
 
       <section>
@@ -480,7 +585,6 @@
 
       <section>
         <h3>Gleichheit: <code>==</code></h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 11.5</div>
         <div style="position: absolute; top: 30px; right:0px; font-size:70px"><i class="fas fa-home python"></i><i class="fas fa-home python"></i></div>
         <p class="small"><code>==</code> soll überprüfen, ob zwei Objekte als gleich behandelt werden.<br>Dazu muss man die Methode <code>__eq__</code> für eigene Klassen selbst entwickeln.</p>
         <pre style="width:98%;"><code class="python" data-sample-indent="" data-sample='code/4/adresse_eq.py#__eq__'></code></pre>
@@ -562,7 +666,7 @@
         <aside class="notes">Im nun gezeigen Beispiel haben Peter und Ute dieselbe Adresse. Es existiert - anders als im Beispiel auf der vorherigen Folie - nur ein einziges <code>Adresse</code>-Objekt.</aside>
       </section>
 
-      <section>
+      <section data-hide-from="2V">
         <h2>Übung 4.4</h2>
         <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
         
@@ -593,7 +697,6 @@
 
       <section>
         <h3>Operator-Overloading</h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 11.5</div>
         
         <table class="small">
           <tr><th>Methode</th><th>Operator</th><th>Beschreibung</th></tr>
@@ -623,7 +726,6 @@
 
       <section>
         <h3>Datenklassen: <code>@dataclass</code></h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 11.6</div>
         <p class="small">Simple Datenklassen, die einfach nur Daten organisieren.
         <br><code>__init__</code>, <code>__eq__</code>, <code>__repr__</code>, <code>__str__</code> werden automatisch generiert!<br>
         <pre style="width:98%;"><code style="max-height: 1000px;" class="python" data-sample-indent="keep" data-sample='code/4/person_dataclass.py'></code></pre>
@@ -631,7 +733,6 @@
 
       <section>
         <h3><code>@dataclass(frozen=True)</code></h3>
-        <div class="trackinfo"><i class="fas fa-book"></i> 11.6</div>
         <p class="small"><code>frozen=True</code>: Die Objekte sind immutable (unveränderlich).
         <br>Hier wird zusätzlich noch <code>__hash__</code> generiert!<br>
         <pre style="width:98%;"><code style="max-height: 1000px;" class="python" data-sample-indent="keep" data-sample='code/4/person_dataclass_frozen.py'></code></pre>
@@ -649,22 +750,8 @@
          </div>
       </section>
 
-			<section>
-							<h2>Kapitelzusammenfassung</h2>
-							<ul>
-                <li>Klassen und Objekte</li>
-                <li>Member-Variablen</li>
-                <li>Konstruktoren, Methoden, Getter, Setter</li>
-                <li><code>self</code></li>
-                <li>Type-Hints</li>
-                <li>Statische Attribute und Methoden</li>
-                <li>UML: Klassendiagramme und Objektdiagramme</li>
-                <li>Objektidentität, <code>__eq__</code></li>
-                <li><code>__lt__</code>, <code>__hash__</code>, ...</li>
-							</ul>
-      </section>
 
-      <section>
+      <section data-hide-from="2V">
         <h2>Übung 4.5</h2>
         <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="3600" autostart="no" /></div>
         
@@ -680,16 +767,496 @@
              
       </section>
 
+      <section>
+                    <h2>Vererbung</h2>
+                    <p class="small">Subklasse erweitert die Superklasse und erbt alle deren Attribute und Methoden</p>
+                    <pre style="position: absolute; width:18.5cm; left:0px; font-size: 50%"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#classes' data-sample-indent="keep"></code></pre>
+                    <img style="position: absolute; right:-0.5cm; max-height: 9cm; top:4.7cm; width:7.25cm" uml="class Person {
+                      +name : str
+                      +alter : int
+                      +Person(name : str)
+                      +erhoehe_alter()
+                    }
+            
+                    class Studierender {
+                      +matrikelnr : int
+                      +Studierender(name : str, matrikelnr : int)
+                    }
+            
+            
+                    Person <|-- Studierender
+                    "/>
+                    <aside class="notes">Die Klasse <code>Person</code> ist die Superklasse (oder Basisklasse) der hier erstellten Klasse <code>Studierender</code>. Zusätzlich zu den geerbten Attributen <code>name</code> und <code>alter</code> hat ein Studierender eine <code>matrikelnr</code>. Dadurch, dass <code>matrikelnr</code> private ist und es keinen Setter gibt, kann der Wert dieser Member-Variable nur im Konstruktor gesetzt werden. Das hier gezeigte Vorgehen, eine neue speziellere Klasse einer existierenden Klasse zu entwickeln heißt <em>Spezialisierung</em>. Die Umkehrung heißt <em>Generalisierung</em>.</aside>
+                  </section>
+            
+                  <section>
+                    <h2>Vererbung</h2>
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#print'></code></pre>  
+                    
+                    <aside class="notes">Die Variable <code>s</code> ist sowohl vom Typ <code>Studierender</code> als auch vom Typ <code>Person</code>, daher kann auf die Attribute <code>s.name</code> und <code>s.matrikelnr</code> zugegriffen werden. Wäre <code>s</code> gar kein <code>Studierender</code>, würde ein Fehler zur Laufzeit auftreten.</aside>
+                  </section>
+            
+                  <section>
+                    <h2>Polymorphie</h2>
+                    <p class="small">Polymorphie (Vielgestaltigkeit) bedeutet, dass ein und die selbe Variable zur Laufzeit von unterschiedlichen Datentypen sein kann.</p>
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
+                    <div class="fragment">
+                    <h4><code>isinstance(x, C)</code></h4>
+                    <p class="small">Ist wahr, wenn <code>x</code> von der Klasse <code>C</code> oder einer (auch indirekten) Subklasse von <code>C</code> ist.</p>
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample-indent="keep" data-sample='code/5/studierender.py#isinstance'></code></pre>
+                    </div>
+
+                    <div class="poll fragment" style="bottom:-50px">
+                      <h1>Was wird hier ausgegeben?</h1>
+                        <ul>
+                          <li>Ute studiert.</li>
+                          <li>Ute lebt.</li>
+                          <li data-poll="correct">beides</li>
+                          <li>gar nichts</li>
+                        </ul>
+                      <h2>https://frage.space</h2>
+                     </div>
+
+                    <aside class="notes">Ist die Typhierarchie Lebewesen &#8702; Person &#8702; Studierender, sind beide <code>instanceof</code>-Überprüfungen auf dieser Folie wahr.</aside>
+                  </section>
+            
+                  <section>
+                    <h2>Polymorphie</h2>
+                    <p class="small">Sei B eine Subklasse von A.<br>Wo ein <code>A</code>-Objekt erwartet wird, wird auch ein <code>B</code>-Objekt akzeptiert.</p>
+                    <img style="position: absolute; right:-0.5cm; max-height: 9cm; top:4.7cm" uml="
+                    class A { }
+                    class B { }
+                    A <|-- B
+                    "/>
+                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#wer_ist_aelter' data-sample-indent="keep"></code></pre>
+                    <aside class="notes">Die hier gezeigte Funktion <code>wer_ist_aelter</code> erwartet zwei Objekte der Klasse <code>Person</code>, jedoch ist <code>s</code> von der Klasse <code>Studierender</code>. Da <code>Studierender</code> eine Subklasse von <code>Person</code> ist und damit alles von ihr erbt, kann die gezeigte Funktion erfolgreich mit <code>s</code> aufgerufen werden.</aside>
+                  </section>
+            
+                  <section>
+                    <h2>Method Overriding</h2>
+                    <p class="small">Neuimplementieren einer Methode einer Superklasse</p>
+                    <p class="small"><code class="python">Person</code></p>
+                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#pers_details'></code></pre>
+                    <p class="fragment small" data-fragment-index="1"><code class="python">Studierender(Person)</code></p>
+                    <pre class="fragment" data-fragment-index="1" style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#stud_details'></code></pre>
+                    
+                    <div class="poll fragment" style="bottom:50px; right:-1cm">
+                      <h1>Wie sieht der Rückgabewert von s.details() aus?</h1>
+                        <ul>
+                          <li>555123 Ute</li>
+                          <li>555123 / Ute / 19</li>
+                          <li>555123 Ute (19)</li>
+                          <li data-poll="correct">555123 / Ute (19)</li>
+                        </ul>
+                      <h2>https://frage.space</h2>
+                     </div>
+                    
+                    <aside class="notes">Overriding bedeutet, dass eine in einer Superklasse vorhandene Methode überschrieben wird. Die Methoden-Signatur (Name, Parameter) muss mit dem der zu überschreibenden Methode übereinstimmen.</aside>
+                  </section>
+            
+                  <section>
+                      <h2>Objektreferenz <code>super()</code></h2>
+                      <ul>
+                        <li><code>self</code> referenziert das aktuelle Objekt</li>
+                        <li><code>super()</code> referenziert das Objekt der Superklasse</li>
+                      </ul>
+                      <div class="fragment">
+                      <p class="small"><code class="python">class Studierender(Person)</code></p>
+                      <pre><code class="python" contenteditable data-sample='code/5/overriding.py#super_beispiel'></code></pre>
+                      </div>
+                      <aside class="notes">Wenn Attribute oder Methoden der Superklasse überschrieben wurden, lässt sich mit <code>super</code> immer noch auf diese zugreifen.</aside>
+                    </section>
+
+                  <section>
+                    <h3 style="font-size: 135%;">Konstruktoren-Aufruf: <code>super().__init__</code></h3>
+                    <p class="small">In einem Konstruktor lässt sich ein Konstruktor der Superklasse aufrufen.</p>
+                    <pre><code class="python" contenteditable data-sample='code/5/overriding.py#stud_init' data-sample-indent=""></code></pre>
+                    <aside class="notes">Mittels <code>super().__init__</code> lässt sich der Konstruktor der Superklasse aufrufen.</aside>
+                  </section>
+            
+                  <section>
+                    <h2>Method Overriding</h2>
+                    <p class="small">Zur Laufzeit wird die Methode von der tatsächlichen Klasse eines Objekts gewählt.</p>
+                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#objects' data-sample-indent="keep"></code></pre>
+                    <p class="fragment small" data-fragment-index="2"><code>Peter (20)<br>555123 / Ute (19)</code></p>
+
+                    <div class="poll fragment" data-fragment-index="1" style="bottom:-150px; right:-3cm">
+                      <h1>Was wird hier ausgegeben?</h1>
+                        <ul>
+                          <li>Peter (20)<br>Ute (19)</li>
+                          <li data-poll="correct">Peter (20)<br>555123 / Ute (19)</li>
+                          <li>20 / Peter (20)<br>555123 / Ute (19)</li>
+                        </ul>
+                      <h2>https://frage.space</h2>
+                     </div>
+                  </section>
+
+                  <section data-hide-from="2V">
+                    <h2>Übung 5.1</h2>
+                      <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="2700" autostart="no" /></div>
+                      
+                      <p class="small">Erstellen Sie zunächst ein UML-Diagramm und entwickeln Sie dann die Klassen und testen Sie sie, indem Sie Objekte erstellen. Suchen Sie im Internet, wie Sie am besten mit Dezimalzahlen und Datumswerten in Python arbeiten. Für den Preis brauchen Sie nämlich die Klasse <code>Decimal</code> und für das Datum <code>datetime</code>.</p>
+                      <ul class="small">
+                        <li>Erstellen Sie eine Klasse Fahrkarte und deren Subklasse Zeitkarte.</li>
+                        <li>Eine Fahrkarte hat eine Zone und einen Preis, eine Zeitkarte hat zusätzlich die Info von wann bis wann sie gültig ist.</li>
+                        <li>Der Konstruktor für Fahrkarte und Zeitkarte nimmt jeweils nur die Zone entgegen.</li>
+                        <li>Beim Erstellen eines neuen Zeitkarten-Objekts soll deren Gültigkeit immer heute beginnen und das Ende unbegrenzt (<code>None</code>) sein.</li>
+                        <li>Eine Zeitkarte hat die Methode <code>kuendigen()</code>, die beim Aufruf die Gültigkeit auf den Ende des aktuellen Monats setzt.</li>
+                        <li>In Fahrkarte und Zeitkarte gibt es jeweils die Methode <code>rabatt()</code>, die beim Aufruf den Preis der Karte um 25% bzw. für Zeitkarten um 10% reduziert.</li>
+                      </ul>  
+                  </section>
+
+                  <!--<section>
+                    <img style="position: absolute; left:1cm; max-height: 12.5cm; top:4.7cm; width:7.25cm" uml="class Fahrkarte {
+                      +zone: str
+                      +preis: decimal
+                      +Fahrkarte(zone: str)
+                      +rabatt()
+                  }
+
+                  class Zeitkarte {
+                      +gueltig_von: date
+                      +gueltig_bis: date
+                      +Zeitkarte(zone: str)
+                      +kuendigen()
+                      +rabatt()
+                  }
+            
+            
+                    Fahrkarte <|-- Zeitkarte
+                    "/>
+                  </section>-->
+
+                  <section>
+                    <h3>Die Klasse <code>object</code></h3>
+                    <p class="small">Jede Klasse ist Subklasse der Klasse <code>object</code>.</p>
+                    <img style="max-height:9cm" uml="class object {
+                      --
+                      +__init__()
+                      +__str__() : str
+                      +__eq__(other: object) : bool
+                      +__repr__(): str
+                      +__hash__(): int
+                      ...
+                    }
+            
+                    class Person {}
+                    class str {}
+                    class int {}
+            
+                    object <|-- Person
+                    object <|-- str
+                    object <|-- int
+                    "/>
+
+                    <aside class="notes">Wenn wir in unseren Klassen die Methoden <code>__init__</code>, <code>__eq__</code> usw. erstellen, überschreiben wir damit die entsprechenden Methoden in der Superklasse <code>object</code>.</aside>
+                  </section>
+
+                  <section>
+                    <h3>Abstrakte Klassen und Methoden</h3>
+                    <div class="trackinfo"><i class="fas fa-headphones"></i> 52-53</div>
+                    <h4>Abstrakte Klassen</h4>
+                    <p class="small" style="margin-top: -20px;">... können nicht instanziiert werden und sind nur zum Vererben da.</p>
+                    <pre style="width: 14cm; margin-left: 1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_class' data-sample-indent="keep"></code></pre>
+                    
+                    <p style="position: absolute; top:4.5cm; right:5mm" class="small"><del><code>p = Lebewesen()</code></del></p>
+
+                    <div class="fragment">
+                      <h4>Abstrakte Methoden</h4>
+                      <p class="small" style="margin-top: -20px;">...gibt es nur in abstrakten Klassen und sind unimplementiert.</p>
+                      <pre style="margin-top: -5px; margin-left: 1cm; width: 14cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_method'></code></pre>
+                      <p class="small" style="margin-top: -5px;">Jede (nicht abstrakte) Subklasse muss diese abstrakte Methode überschreiben.</p>
+                    </div>
+
+                    <img style="position: absolute; right:-0.5cm; max-height: 3cm; top:6cm" uml="abstract class Lebewesen { 
+                      {abstract}+getDetails() : str  
+                    } "/>
+                    <aside class="notes">Um abstrakte Klassen in Python zu erstellen, wird das Paket abc benötigt (Abstract Base Class) und von ABC geerbt. Von abstrakten Klassen lassen sich keine direkten Objekte erzeugen. Eine nicht abstrakte Subklasse kann von der abstrakten Klasse erben und ist dann instanziierbar. Diese Subklasse muss alle abstrakten Methoden überschreiben. Es darf in der abstrakten Klasse auch nicht-abstrakte Methoden geben. Im UML-Diagramm werden Namen von abstrakten Klassen und Methoden <em>kursiv</em>  geschrieben.</aside>
+                  </section>
+
+                  <!--
+                  <section>
+                    <h3>Mehrfachvererbung</h3>
+                    <p class="small">In Python ist es erlaubt, dass eine Klasse mehrere Superklassen hat.</p>
+                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung.py#classes' data-sample-indent="keep"></code></pre>
+                  </section>
+
+                  <section>
+                    <h3>Mehrfachvererbung</h3>
+                    <img style="width:70%" uml="
+                    class Schiff {
+                      + name: str
+                      + max_geschwindigkeit: int
+                      + Schiff(name: str, max_geschwindigkeit: int)
+                      + fahre()
+                    }
+                    
+                    class Haus {
+                      + anzahl_zimmer: int
+                      + Haus(anzahl_zimmer: int)
+                    }
+                    
+                    class Hausboot {
+                      + Hausboot(name: str, max_geschwindigkeit: int, anzahl_zimmer: int)
+                    }
+                    
+                    Schiff --|> Hausboot
+                    Haus --|> Hausboot
+                    "/>
+
+                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung.py#objects' data-sample-indent="keep"></code></pre>
+                    <aside class="notes">Die Klasse Hausboot erbt von Schiff die Attribute <code>name</code> und <code>max_geschwindigkeit</code> sowie die Methode <code>fahre()</code>. Von der anderen Superklasse Haus wird das Attribut <code>anzahl_zimmer</code> geerbt.</aside>
+                  </section>
+
+                  <section>
+                    <h3>Mehrfachvererbung</h3>
+                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung2.py#classes' data-sample-indent="keep"></code></pre>
+                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung2.py#objects' data-sample-indent="keep"></code></pre>
+                    <aside class="notes">Problematisch wird es, wenn es nicht mehr eindeutig ist, welche Methode ausgeführt werden soll. Python wählt in einem solchen Fall die Methode in der erstgenannten Klasse.</aside>
+                  </section>
+
+                  <section>
+                    <h3>Method Resolution Order (MRU)</h3>-->
+                    <!-- http://www.srikanthtechnologies.com/blog/python/mro.aspx -->
+                    <!--<p class="small">Welche Methode wird in einer Vererbungshierarchie gewählt?</p>
+                    <ol class="small">
+                      <li>Eine Subklasse hat immer Vorrang zu seiner Superklasse</li>
+                      <li>Bei mehreren Superklassen: Tiefensuche von links nach rechts</li>
+                      <li>Wenn sich 1. und 2. widersprechen, wird eine Exception (TypeError) geworfen.</li>
+                    </ol>
+                    <div class="columns">
+                      <div>
+                        <img style="height:7cm; margin-bottom: -5mm;" uml="
+                        class A {}
+                        class B {}
+                        class C {}
+                        
+                        C -u-|> B
+                        C -u-|> A"><br>
+                        <span class="small">C &rightarrow; A &rightarrow; B</span>
+                      </div>
+                      <div>
+                        <img style="height:7cm; margin-bottom: -5mm;" uml="
+                        class A {}
+                        class B {}
+                        class C {}
+                        class D {}
+                        
+                        C -u-|> A
+                        C -u-|> B
+                        D -u-|> C
+                        D -u-|> B"><br>
+                        <span class="small">D &rightarrow; C &rightarrow; A &rightarrow; B &rightarrow; B</span>
+                      </div>
+                      <div>
+                        <img style="height:7cm; margin-bottom: -5mm;" uml="
+                        class A {}
+                        class B {}
+                        class C {}
+                        class D {}
+                        
+                        B -u-|> A
+                        C -u-|> A
+                        D -u-|> C
+                        D -u-|> B"><br>
+                        <span class="small">D &rightarrow; B &rightarrow; <span style="position: relative;">A<span style="position: absolute; top: -6px; left: -3px; color: red; font-size: 150%;">X</span></span> &rightarrow; C &rightarrow; A</span>
+                      </div>
+                    </div>
+                    <aside class="notes">Im dritten Beispiel wurde A gestrichen, weil A eine Superklasse von C ist und daher nicht vor C kommen darf (Regel 1).</aside>
+                  </section>
+
+                  <section>
+                    <h3>Method Resolution Order (MRU)</h3>
+                    <p class="small">Welche Methode wird in einer Vererbungshierarchie gewählt?</p>
+                    <ol class="small">
+                      <li>Eine Subklasse hat immer Vorrang zu seiner Superklasse</li>
+                      <li>Bei mehreren Superklassen: Tiefensuche von links nach rechts</li>
+                      <li>Wenn sich 1. und 2. widersprechen, wird eine Exception (TypeError) geworfen.</li>
+                    </ol>
+                    <img style="height:7cm; margin-bottom: -5mm;" uml="
+                        class C {}
+                        class B {}
+                        class A {}
+                        class D {}
+                        
+                        D -[hidden]r-> B
+                        C -u-|> B
+                        C -u-|> A
+                        hide D
+                        
+                        B -u-|> A"><br>
+                        <span class="small">C &rightarrow; <span style="position: relative;">A<span style="position: absolute; top: -6px; left: -3px; color: red; font-size: 150%;">X</span></span> &rightarrow; B &rightarrow; A &#8623;</span>
+
+                        <p class="small" style="width:110%">Da aber <code>C(A,B)</code>, wäre diese Ordnung ein Widerspruch &#8623; <br>
+                        <span style="color:red;">TypeError: Cannot create a consistent method resolution order (MRO) for bases A, B</span></p>
+                  </section>
+
+                  <section>
+                    <h3>Mehrfachvererbung</h3>
+                    <pre style="margin-top: -3mm; width:15.5cm; margin-left: 1cm;"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung3.py#classes' data-sample-indent="keep"></code></pre>
+                    <img style="height:11cm; position: absolute; top:2cm; right:1mm" uml="
+                        class Kleinanzeige {
+                          +verkaufswert()
+                        }
+                        class Schiff {}
+                        class Haus {
+                          +verkaufswert()
+                        }
+                        class Hausboot {}
+                        
+                        Schiff -u-|> Kleinanzeige
+                        Schiff -[hidden]r-> Haus
+                        Haus -u-|> Kleinanzeige
+                        Hausboot -u-|> Schiff
+                        Hausboot -u-|> Haus">
+
+                        <pre style="margin-top: -3mm; width:15.5cm; margin-left: 1cm;"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung3.py#objects' data-sample-indent="keep"></code></pre>
+
+                        <div class="poll fragment" style="bottom:-50px">
+                          <h1>Welcher Verkaufswert wird für unser Hausboot ausgegeben?</h1>
+                            <ul>
+                              <li>0</li>
+                              <li>70</li>
+                              <li data-poll="correct">150000</li>
+                              <li>TypeError</li>
+                            </ul>
+                          <h2>https://frage.space</h2>
+                         </div>
+
+                         <aside class="notes">Diese Vererbungshierarchie entspricht dem Diamanten (drittes Beispiel) vor zwei Folien. Die MRO ist: Hausboot &rightarrow; Schiff &rightarrow; <del>Kleinanzeige</del> &rightarrow; Haus &rightarrow; Kleinanzeige. Da es die Methode <code>verkaufswert()</code> in Hausboot und Schiff nicht gibt, wird die in Haus befindliche Methode ausgeführt. Ausgabe: 150000</aside>
+                  </section>
+
+                  <section>
+                    <h3>Mehrfachvererbung</h3>
+                    <p class="small">Beispiel: <code>Combobox(TextBox, DropDownList)</code></p>
+                    <p class="small"><input name="land" list="land" />
+                        <datalist id="land">
+                        <option value="Deutschland"></option>
+                        <option value="Österreich"></option>
+                        <option value="Schweiz"></option>
+                        </datalist>
+                      </p>
+                      <img src="img/4/combobox.png" alt="Combobox" class="noborder" style="position: absolute; right: 1cm; top: 3cm; width:8cm">
+                      <img style="height:10cm; margin-top: -15mm;" uml="
+                        class Control {
+                          +click()
+                        }
+                        class TextBox {
+                          +value: str
+                          +onKeyRelease(key)
+                        }
+                        class DropDownList {
+                          +value: str
+                          +options: list
+                          +onKeyRelease(key)
+                        }
+                        class ComboxBox {
+                          +onKeyRelease(key)
+                        }
+                        
+                        DropDownList -u-|> Control
+                        TextBox -[hidden]r-> DropDownList
+                        TextBox -u-|> Control
+                        ComboxBox -u-|> TextBox
+                        ComboxBox -u-|> DropDownList">
+
+                        <aside class="notes">In der GUI-Entwicklung ist eine ComboBox gleichzeitig ein Textfeld, in das man etwas eingeben kann, und eine Auswahlliste. Die Methode <code>click()</code> bestimmt, was passieren soll, wenn man auf ein Element klickt, <code>onKeyReleased</code>, wenn man eine Taste auf der Tastatur gedrückt hat, <code>value</code> ist der eingegebene / ausgewählte Wert und <code>options</code> die zur Auswahl stehenden Werte. Dieses Beispiel ist konstruiert und vereinfacht und entspricht nicht der wirklichen ComboBox-Klasse in Python-GUI-Bibliotheken.</aside>
+                  </section>-->
+
+                  <!--<section data-hide-from="2V">
+                    <h2>Übung 5.2</h2>
+                      <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
+                      
+                      <p class="small">
+                        Erstellen Sie ein UML-Diagramm für ein soziales Netzwerk. Es gibt Benutzer, die einen Namen und eine E-Mail-Adresse haben. Als Subklasse von Benutzer gibt es Werbepartner, die Anzeigen schalten können. Eine Anzeige hat einen Text, die Anzahl an Einblendungen und Anzahl der Klicks. Außerdem gibt es Beiträge. Ein Beitrag hat einen Text und eine Anzahl an Likes. Ein Beitrag wird immer von genau einem Benutzer verfasst. Subklassen von Beitrag sind Bildbeitrag, Video (beide jeweils mit einer URL zum Bild bzw. Video) und die eben erwähnte Werbeanzeige. Eine Werbeanzeige soll noch ein privates Attribut beinhalten, in der die Menge der Benutzer gespeichert werden, die bereits auf die Anzeige geklickt haben. Außerdem soll es bei Werbeanzeigen eine klick-Methode geben, die einen Benutzer entgegennimmt, der auf die Werbeanzeige geklickt hat. Führen Sie auch sinnvolle Konstruktoren in Ihre Klassen ein. 
+                      </p>  
+                  </section>-->
+
+                  <!--<section>
+                    <img style="position: absolute; left:1cm; max-height: 24.5cm; top:4.7cm; width:14cm" uml='
+
+class Benutzer {
+    +name: str
+    +email: str
+    +Benutzer(name: str, email: str)
+}
+
+class Werbepartner {
+}
+
+class Beitrag {
+    -text: str
+    -likes: int
+    +Beitrag(text: str, autor: Benutzer)
+    +addLike()
+}
+
+class Bildbeitrag {
+    -url: str
+    +Bildbeitrag(text: str, autor: Benutzer, url: str)
+}
+
+class Video {
+    -url: str
+    +Video(text: str, autor: Benutzer, url: str)
+}
+
+class Werbeanzeige {
+    -text: str
+    -einblendungen: int
+    -klicks: int
+    -url: str
+    -geklickteBenutzer: Set[Benutzer]
+    +Werbeanzeige(text: str)
+    +klick(benutzer: Benutzer)
+}
+
+class Werbeanzeige {
+    
+}
+
+Benutzer <|-- Werbepartner
+Beitrag <|-- Bildbeitrag
+Beitrag <|-- Video
+Beitrag <|-- Werbeanzeige
+
+Werbepartner "1" *-- "0..*" Werbeanzeige : schaltet >
+Benutzer "1" --o "0..*" Beitrag : verfasst >
+
+                    '/>
+                  </section>-->
+
+
+
+			<section>
+							<h2>Kapitelzusammenfassung</h2>
+							<ul class="small">
+                <li>Klassen und Objekte</li>
+                <li>Member-Variablen</li>
+                <li>Konstruktoren, Methoden, Getter, Setter</li>
+                <li><code>self</code></li>
+                <li>Type-Hints</li>
+                <li>Statische Attribute und Methoden</li>
+                <li>UML: Klassendiagramme und Objektdiagramme</li>
+                <li>Objektidentität, <code>__eq__</code></li>
+                <li><code>__lt__</code>, <code>__hash__</code>, ...</li>
+                <li>Vererbung (<code>Subklasse(Superklasse)</code>)</li>
+                <li><code>isinstance</code></li>
+                <li>Method-Overriding, <code>super()</code></li>
+							</ul>
+      </section>
+
 			</div>
 		</div>
 
-		<script src="reveal.js/dist/reveal.js"></script>
-		<script src="reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="reveal.js/plugin/highlight/highlight.js"></script>
-		<script src="reveal.js/plugin/zoom/zoom.js"></script>
-		<script src="reveal.js/plugin/math/math.js"></script>
-		<script src="reveal.js/plugin/notes/notes.js"></script>
-		<script src="reveal.js/plugin/search/search.js"></script>
+     <script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/dist/plugin/markdown.js"></script>
+		<script src="reveal.js/dist/plugin/highlight.js"></script>
+		<script src="reveal.js/dist/plugin/zoom.js"></script>
+		<script src="reveal.js/dist/plugin/math.js"></script>
+		<script src="reveal.js/dist/plugin/notes.js"></script>
+		<script src="reveal.js/dist/plugin/search.js"></script>
         <script src="lib/jquery.js"></script>
         <script src="lib/lodash.js"></script>
         <script src="lib/backbone.js"></script>
@@ -705,7 +1272,8 @@
         }
         </script>
 
-
-
-	</body>
-</html>
+        
+        
+          </body>
+        </html>
+        

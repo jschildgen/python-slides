@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Programmieren 2 - Kapitel 5 - Vererbung</title>
+		<title>Programmieren 2 - Kapitel 5 - GUI-Entwicklung</title>
 
 		<link rel="stylesheet" href="reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
@@ -35,423 +35,490 @@
             <div id="header"></div>
             <div id="footer"></div>
 			<div class="slides">
-          <section>
-            <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
-            <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
-            <h1 style="font-size: 200%; margin-top: 1.5cm;">Programmieren 2 (Python)</h1>
-            <h3>Kapitel 5: Vererbung</h3>
-            <h4 style="text-align:center">&nbsp;</h4>
-            <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-225px;">
-            <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-225px; box-shadow:none">
-        </section>
+        <section>
+          <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
+          <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
+          <h1 style="font-size: 200%; margin-top: 1.5cm;">Programmieren 2 (Python)</h1>
+          <h3>Kapitel 5: GUI-Entwicklung</h3>
+          <h4 style="text-align:center">&nbsp;</h4>
+          <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-225px;">
+          <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-225px; box-shadow:none">
+      </section>
+
+                
+
+                <section>
+                  <h3>GUI-Programmierung in Python</h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18</div>-->
+                  <ul class="small">
+                    <li>GUI: Graphical User Interface</li>
+                    <li>Python-Bibliotheken zur Entwicklung plattformübergreifender GUIs:
+                      <ul>
+                        <li><b>Tkinter</b> (+) In Python integriert (-) veraltetes Aussehen</li>
+                        <li><b>PyQt</b> (+) Modernes Aussehen (-) kommerzielle Lizenz kostenpflichtig</li>
+                        <li><b>PyGTK</b> (-) Eher für Linux-Anwendungen</li>
+                        <li><b>wxPython</b> (-) etwas umständlicher und weniger Widgets</li>
+                        <li><b>Kivy</b> (+) Besonders für mobile Anwendungen (-) schwerer anpassbar</li>
+                        <li><b>PySide</b> (+) Ähnlich PyQt, aber kostenlos (-) schlechter dokumentiert</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <img src="img/6/pyqt.png" class="noborder">
+                  <aside class="notes">Da Python-Anwendungen plattformübergreifend sind, wurde stets angestrebt, dass GUI-Anwendungen zum Erscheinungsbild des verwendeten Betriebssystems passen. Läuft ein Programm also auf MacOS, sieht beispielsweise ein Button anders aus als unter Windows.</aside>
+                </section>
+
+                <section>
+                  <h3>Qt</h3>
+
+                  <ul class="small">
+                    <li>C++-Bibliothek zur GUI-Entwicklung (mittels PyQt auch in Python nutzbar)</li>
+                    <li>Plattformübergreifend (Windows, MacOS, Linux, Android, iOS)</li>
+                    <li>Open Source (LGPL) sowie kommerziell nutzbar (Lizenzkosten)</li>
+                  </ul>
+
+                  <img style="position: absolute; top: 6cm; left: 3cm; width:10cm; max-height: 18cm;" src="img/6/virtualbox.png" class="noborder">
+
+                  <img style="position: absolute; top: 7.5cm; left: 6cm; width:10cm; max-height: 18cm;" src="img/6/vlc.png" class="noborder">
+
+                  <img style="position: absolute; top: 9cm; left: 9cm; width:10cm; max-height: 18cm;" src="img/6/telegram.jpg" class="noborder">
+
+                  <aside class="notes">Qt kommt bei vielen grafischen Anwendungen zum Einsatz, z. B. VirtualBox, VLC Player oder der Desktop-Version des Telegram-Messengers.</aside>
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 5.1</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="360" autostart="no" /></div>
+                    
+                    <p class="small">Überlegen Sie sich eine Idee für eine (simple!) grafische Anwendung, die Sie entwickeln möchten. Zeichnen Sie das Aussehen der App auf Papier.</p>
+                    <ul class="small">
+                      <li>Sie können <input value="Texteingabefelder">, <input type="button" value="Buttons"> und <b>Labels</b> verwenden.</li>
+                      <li>Beschränken Sie sich am besten auf diese drei Widget-Typen.<br>Optional können Sie aber auch <input type="checkbox" checked> Checkboxen, <input type="radio" checked> Radio-Buttons, <select><option>ComboBoxen</option></select>, <select size="2"><option>Auswahl-</option><option>listen</option></select> oder <textarea>mehrzeilige
+Textfelder</textarea> verwenden.</li>
+                      <li>Am besten besteht Ihre App nur aus einem Fenster.</li>
+                    </ul>
+
+                    <p class="small">Beispiele:<br>Taschenrechner, Zinsrechner, Wie viele Wörter/Zeichen hat ein eingegebener Text?, Quiz, Vokabeltrainer-Lernprogramm, Währungsumrechner, Einheitenumrechner, BMI-Rechner, ...</p>
+                </section>
+
+                <section>
+                  <h3>PyQT</h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.1</div>-->
+                  <p class="small">Installation von PyQT:</p>
+                  <pre><code class="bash">pip install pyqt6       # Windows
+pip3 install pyqt6      # MacOS, Linux</code></pre>
+
+                  <p class="small">PyQT-Klassen:</p>
+                  <ul class="small">
+                    <li><code>QApplication</code> - Repräsentiert die GUI-Anwendung</li>
+                    <li><code>QWidget</code> - Fenster oder Anwendungskomponente</li>
+                    <li><code>QLabel</code> - Text, der angezeigt werden soll</li>
+                    <li><code>QLineEdit</code> - Text-Eingabefeld</li>
+                    <li><code>QPushButton</code> - Button, den man klicken kann</li>
+                    <li>...</li>
+                  </ul>
+
+                  <img style="position: absolute; left:3cm; top: 12.8cm; width:15cm; z-index: -1;" uml='@startuml
+                  class QWidget {
+                    + show()
+                  }
+
+                  class QLabel {
+                    + setText(text: str)
+                    + text() : str
+                  }
+
+                  class QLineEdit {
+                    + setText(text: str)
+                    + text() : str
+                  }
+
+                  class QPushButton {
+                    + clicked.connect(slot: callable)
+                  }
+
+                  class "..." as etc {
+                    ...
+                  }
+
+                  QLabel -u-|> QWidget
+                  QLineEdit -u-|> QWidget
+                  QPushButton -u-|> QWidget
+                  etc -u-|> QWidget
+                  @enduml                  
+                  '/>
+                  <img style="position: absolute; right:5mm; max-height: 10cm; top:8.5cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
+                </section>
                 
                 <section>
-                    <h2>Vererbung</h2>
-                    <div class="trackinfo"><i class="fas fa-book"></i> 11.7</div>
-                    <p class="small">Subklasse erweitert die Superklasse und erbt alle deren Attribute und Methoden</p>
-                    <pre style="position: absolute; width:18.5cm; left:0px; font-size: 50%"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#classes' data-sample-indent="keep"></code></pre>
-                    <img style="position: absolute; right:-0.5cm; max-height: 9cm; top:4.7cm; width:7.25cm" uml="class Person {
-                      +name : str
-                      +alter : int
-                      +Person(name : str)
-                      +erhoehe_alter()
-                    }
-            
-                    class Studierender {
-                      +matrikelnr : int
-                      +Studierender(name : str, matrikelnr : int)
-                    }
-            
-            
-                    Person <|-- Studierender
-                    "/>
-                    <aside class="notes">Die Klasse <code>Person</code> ist die Superklasse (oder Basisklasse) der hier erstellten Klasse <code>Studierender</code>. Zusätzlich zu den geerbten Attributen <code>name</code> und <code>alter</code> hat ein Studierender eine <code>matrikelnr</code>. Dadurch, dass <code>matrikelnr</code> private ist und es keinen Setter gibt, kann der Wert dieser Member-Variable nur im Konstruktor gesetzt werden. Das hier gezeigte Vorgehen, eine neue speziellere Klasse einer existierenden Klasse zu entwickeln heißt <em>Spezialisierung</em>. Die Umkehrung heißt <em>Generalisierung</em>.</aside>
-                  </section>
-            
-                  <section>
-                    <h2>Vererbung</h2>
-                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
-                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#print'></code></pre>  
-                    
-                    <aside class="notes">Die Variable <code>s</code> ist sowohl vom Typ <code>Studierender</code> als auch vom Typ <code>Person</code>, daher kann auf die Attribute <code>s.name</code> und <code>s.matrikelnr</code> zugegriffen werden. Wäre <code>s</code> gar kein <code>Studierender</code>, würde ein Fehler zur Laufzeit auftreten.</aside>
-                  </section>
-            
-                  <section>
-                    <h2>Polymorphie</h2>
-                    <p class="small">Polymorphie (Vielgestaltigkeit) bedeutet, dass ein und die selbe Variable zur Laufzeit von unterschiedlichen Datentypen sein kann.</p>
-                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#objects'></code></pre>  
-                    <div class="fragment">
-                    <h4><code>isinstance(x, C)</code></h4>
-                    <p class="small">Ist wahr, wenn <code>x</code> von der Klasse <code>C</code> oder einer (auch indirekten) Subklasse von <code>C</code> ist.</p>
-                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample-indent="keep" data-sample='code/5/studierender.py#isinstance'></code></pre>
-                    </div>
+                  <h3>QApplication und QWidget</h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.1</div>-->
+                  <pre style="width: 18.5cm; left: -2cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/6/qwidget.py' data-sample-indent="keep"></code></pre>
+                  <img style="position: absolute; right:1cm; top:2cm; width:4cm; z-index: 1;" uml="@startuml
+                  class QWidget {
+                    + show()
+                  }
 
-                    <div class="poll fragment" style="bottom:-50px">
-                      <h1>Was wird hier ausgegeben?</h1>
-                        <ul>
-                          <li>Ute studiert.</li>
-                          <li>Ute lebt.</li>
-                          <li data-poll="correct">beides</li>
-                          <li>gar nichts</li>
-                        </ul>
-                      <h2>https://frage.space</h2>
-                     </div>
+                  class Hauptfenster {
+                  }
 
-                    <aside class="notes">Ist die Typhierarchie Lebewesen &#8702; Person &#8702; Studierender, sind beide <code>instanceof</code>-Überprüfungen auf dieser Folie wahr.</aside>
-                  </section>
-            
-                  <section>
-                    <h2>Polymorphie</h2>
-                    <p class="small">Sei B eine Subklasse von A.<br>Wo ein <code>A</code>-Objekt erwartet wird, wird auch ein <code>B</code>-Objekt akzeptiert.</p>
-                    <img style="position: absolute; right:-0.5cm; max-height: 9cm; top:4.7cm" uml="
-                    class A { }
-                    class B { }
-                    A <|-- B
-                    "/>
-                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/studierender.py#wer_ist_aelter' data-sample-indent="keep"></code></pre>
-                    <aside class="notes">Die hier gezeigte Funktion <code>wer_ist_aelter</code> erwartet zwei Objekte der Klasse <code>Person</code>, jedoch ist <code>s</code> von der Klasse <code>Studierender</code>. Da <code>Studierender</code> eine Subklasse von <code>Person</code> ist und damit alles von ihr erbt, kann die gezeigte Funktion erfolgreich mit <code>s</code> aufgerufen werden.</aside>
-                  </section>
-            
-                  <section>
-                    <h2>Method Overriding</h2>
-                    <p class="small">Neuimplementieren einer Methode einer Superklasse</p>
-                    <p class="small"><code class="python">Person</code></p>
-                    <pre style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#pers_details'></code></pre>
-                    <p class="fragment small" data-fragment-index="1"><code class="python">Studierender(Person)</code></p>
-                    <pre class="fragment" data-fragment-index="1" style="left:-1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#stud_details'></code></pre>
+                  Hauptfenster -u-|> QWidget
+                  @enduml                  
+                  "/>
+                  <img style="position: absolute; top:8.5cm; right:1.5cm" src="img/6/QWidget.png" class="noborder">
+                  <aside class="notes">Im Hauptteil des Programms (unten) wird eine <code>QApplication</code> angelegt und mit <code>exec</code> gestartet. Man übergibt ihr üblicherweise die Konsolenparameter (<code>sys.argv</code>) und wenn sich die Applikation beendet, liefert sie einen Errorcode zurück (0 kein Fehler, >0 Fehler), den man dann an <code>sys.exit</code> weitergibt. Für das Programmfenster legen wir eine Klasse <code>Hauptfenster</code> an, die von <code>QWidget</code> erbt. Im Konstruktor wird der Konstruktor der Superklasse <code>QWidget</code> aufgerufen und der Titel, die Größe, das Aussehen und der Inhalt des Fensters festgelegt. Ein Aufruf der <code>show</code>-Methode zeigt das Fenster an.</aside>
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 5.2</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="360" autostart="no" /></div>
                     
-                    <div class="poll fragment" style="bottom:50px; right:-1cm">
-                      <h1>Wie sieht der Rückgabewert von s.details() aus?</h1>
-                        <ul>
-                          <li>555123 Ute</li>
-                          <li>555123 / Ute / 19</li>
-                          <li>555123 Ute (19)</li>
-                          <li data-poll="correct">555123 / Ute (19)</li>
-                        </ul>
-                      <h2>https://frage.space</h2>
-                     </div>
-                    
-                    <aside class="notes">Overriding bedeutet, dass eine in einer Superklasse vorhandene Methode überschrieben wird. Die Methoden-Signatur (Name, Parameter) muss mit dem der zu überschreibenden Methode übereinstimmen.</aside>
-                  </section>
-            
-                  <section>
-                      <h2>Objektreferenz <code>super()</code></h2>
+                    <ul class="small">
+                      <li>Installieren Sie PyQT: <code>pip install pyqt6</code> (für Mac und Linux: <code>pip3</code>)</li>
+                      <li>Schreiben Sie den folgenden Code ab und probieren Sie die App aus.</li>
+                      <li>Passen Sie den Fenstertitel und die Größe so an, damit es für Ihre Anwendung aus Übung 5.1 geeignet ist.</li>
+                    </ul>
+
+                    <pre style="width: 18.5cm; left: -2cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/6/qwidget.py' data-sample-indent="keep"></code></pre>
+                </section>
+
+                <section>
+                  <h3>Layouts</h3>
+                  <p class="small">Layouts legen fest, wie die Widgets angeordnet werden sollen.</p>
+
+                  <img style="width:100%" uml="@startuml
+
+class QLayout {
+  +addWidget(widget: QWidget)
+  +addLayout(layout: QLayout)
+}
+
+class QBoxLayout {
+}
+
+class QHBoxLayout {
+}
+
+class QVBoxLayout {
+}
+
+class QFormLayout {
+  +addRow(label: QLabel, field: QLayoutItem)
+  +addRow(labelText: QString, field: QLayoutItem)
+}
+
+class QGridLayout {
+  +addWidget(widget: QWidget, row: int, column: int)
+}
+
+class QStackedLayout {
+  +setCurrentIndex(i: int)
+}
+
+QLayout <|-- QBoxLayout
+QLayout <|-- QFormLayout
+QLayout <|-- QGridLayout
+QLayout <|-- QStackedLayout
+
+QBoxLayout <|-- QHBoxLayout
+QBoxLayout <|-- QVBoxLayout
+
+                  @enduml                  
+                  "/>
+                  <p style="font-size: 50%; position: absolute; right:1cm; top:10cm">(UML-Diagramm nicht vollständig)</p>
+
+                  <div class="poll fragment fade-in-then-out" style="bottom:-30px; z-index:999;">
+                    <h1>Wofür könnte HBox und VBox stehen?</h1>
                       <ul>
-                        <li><code>self</code> referenziert das aktuelle Objekt</li>
-                        <li><code>super()</code> referenziert das Objekt der Superklasse</li>
+                        <li>Hardware und Virtuell</li>
+                        <li>Haptisch und Visuell</li>
+                        <li>Hidden und Visible</li>
+                        <li data-poll="correct">Horizontal und Vertikal</li>
                       </ul>
-                      <div class="fragment">
-                      <p class="small"><code class="python">class Studierender(Person)</code></p>
-                      <pre><code class="python" contenteditable data-sample='code/5/overriding.py#super_beispiel'></code></pre>
-                      </div>
-                      <aside class="notes">Wenn Attribute oder Methoden der Superklasse überschrieben wurden, lässt sich mit <code>super</code> immer noch auf diese zugreifen.</aside>
-                    </section>
+                    <h2>https://frage.space</h2>
+                   </div>
 
-                  <section>
-                    <h3 style="font-size: 135%;">Konstruktoren-Aufruf: <code>super().__init__</code></h3>
-                    <p class="small">In einem Konstruktor lässt sich ein Konstruktor der Superklasse aufrufen.</p>
-                    <pre><code class="python" contenteditable data-sample='code/5/overriding.py#stud_init' data-sample-indent=""></code></pre>
-                    <aside class="notes">Mittels <code>super().__init__</code> lässt sich der Konstruktor der Superklasse aufrufen.</aside>
-                  </section>
-            
-                  <section>
-                    <h2>Method Overriding</h2>
-                    <p class="small">Zur Laufzeit wird die Methode von der tatsächlichen Klasse eines Objekts gewählt.</p>
-                    <pre><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/overriding.py#objects' data-sample-indent="keep"></code></pre>
-                    <p class="fragment small" data-fragment-index="2"><code>Peter (20)<br>555123 / Ute (19)</code></p>
+                  <ul class="small fragment">
+                    <li><code>QHBoxLayout</code> / <code>QVBoxLayout</code>: Horizontale / vertikale Anordnung</li>
+                    <li><code>QFormLayout</code>: je Zeile ein Label und ein Formelement</li>
+                    <li><code>QGridLayout</code>: jedes Element hat Spalten- und Zeilennummer</li>
+                    <li><code>QStackedLayout</code>: nur ein Element aktiv, andere versteckt</li>
+                  </ul>
+                </section>
 
-                    <div class="poll fragment" data-fragment-index="1" style="bottom:-150px; right:-3cm">
-                      <h1>Was wird hier ausgegeben?</h1>
-                        <ul>
-                          <li>Peter (20)<br>Ute (19)</li>
-                          <li data-poll="correct">Peter (20)<br>555123 / Ute (19)</li>
-                          <li>20 / Peter (20)<br>555123 / Ute (19)</li>
-                        </ul>
-                      <h2>https://frage.space</h2>
-                     </div>
-                  </section>
-
-                  <section>
-                    <h2>Übung 5.1</h2>
-                      <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="2700" autostart="no" /></div>
-                      
-                      <p class="small">Erstellen Sie zunächst ein UML-Diagramm und entwickeln Sie dann die Klassen und testen Sie sie, indem Sie Objekte erstellen. Suchen Sie im Internet, wie Sie am besten mit Dezimalzahlen und Datumswerten in Python arbeiten. Für den Preis brauchen Sie nämlich die Klasse <code>Decimal</code> und für das Datum <code>datetime</code>.</p>
-                      <ul class="small">
-                        <li>Erstellen Sie eine Klasse Fahrkarte und deren Subklasse Zeitkarte.</li>
-                        <li>Eine Fahrkarte hat eine Zone und einen Preis, eine Zeitkarte hat zusätzlich die Info von wann bis wann sie gültig ist.</li>
-                        <li>Der Konstruktor für Fahrkarte und Zeitkarte nimmt jeweils nur die Zone entgegen.</li>
-                        <li>Beim Erstellen eines neuen Zeitkarten-Objekts soll deren Gültigkeit immer heute beginnen und das Ende unbegrenzt (<code>None</code>) sein.</li>
-                        <li>Eine Zeitkarte hat die Methode <code>kuendigen()</code>, die beim Aufruf die Gültigkeit auf den Ende des aktuellen Monats setzt.</li>
-                        <li>In Fahrkarte und Zeitkarte gibt es jeweils die Methode <code>rabatt()</code>, die beim Aufruf den Preis der Karte um 25% bzw. für Zeitkarten um 10% reduziert.</li>
-                      </ul>  
-                  </section>
-
-                  <section>
-                    <h3>Die Klasse <code>object</code></h3>
-                    <p class="small">Jede Klasse ist Subklasse der Klasse <code>object</code>.</p>
-                    <img style="max-height:9cm" uml="class object {
-                      --
-                      +__init__()
-                      +__str__() : str
-                      +__eq__(other: object) : bool
-                      +__repr__(): str
-                      +__hash__(): int
-                      ...
-                    }
-            
-                    class Person {}
-                    class str {}
-                    class int {}
-            
-                    object <|-- Person
-                    object <|-- str
-                    object <|-- int
-                    "/>
-
-                    <aside class="notes">Wenn wir in unseren Klassen die Methoden <code>__init__</code>, <code>__eq__</code> usw. erstellen, überschreiben wir damit die entsprechenden Methoden in der Superklasse <code>object</code>.</aside>
-                  </section>
-
-                  <section>
-                    <h3>Abstrakte Klassen und Methoden</h3>
-                    <div class="trackinfo"><i class="fas fa-headphones"></i> 52-53</div>
-                    <h4>Abstrakte Klassen</h4>
-                    <p class="small" style="margin-top: -20px;">... können nicht instanziiert werden und sind nur zum Vererben da.</p>
-                    <pre style="width: 14cm; margin-left: 1cm;"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_class' data-sample-indent="keep"></code></pre>
-                    
-                    <p style="position: absolute; top:4.5cm; right:5mm" class="small"><del><code>p = Lebewesen()</code></del></p>
-
-                    <div class="fragment">
-                      <h4>Abstrakte Methoden</h4>
-                      <p class="small" style="margin-top: -20px;">...gibt es nur in abstrakten Klassen und sind unimplementiert.</p>
-                      <pre style="margin-top: -5px; margin-left: 1cm; width: 14cm"><code style="max-height: 1000px;" class="python" contenteditable data-sample='code/5/abstract.py#abstract_method'></code></pre>
-                      <p class="small" style="margin-top: -5px;">Jede (nicht abstrakte) Subklasse muss diese abstrakte Methode überschreiben.</p>
+                
+                <section>
+                  <h3><code>QHBoxLayout</code> / <code>QVBoxLayout</code></h3>
+                  <div class="columns">
+                    <div>
+                      <img src="img/6/hbox.png" class="noborder">
                     </div>
-
-                    <img style="position: absolute; right:-0.5cm; max-height: 3cm; top:6cm" uml="abstract class Lebewesen { 
-                      {abstract}+getDetails() : str  
-                    } "/>
-                    <aside class="notes">Um abstrakte Klassen in Python zu erstellen, wird das Paket abc benötigt (Abstract Base Class) und von ABC geerbt. Von abstrakten Klassen lassen sich keine direkten Objekte erzeugen. Eine nicht abstrakte Subklasse kann von der abstrakten Klasse erben und ist dann instanziierbar. Diese Subklasse muss alle abstrakten Methoden überschreiben. Es darf in der abstrakten Klasse auch nicht-abstrakte Methoden geben. Im UML-Diagramm werden Namen von abstrakten Klassen und Methoden <em>kursiv</em>  geschrieben.</aside>
-                  </section>
-
-                  <section>
-                    <h3>Mehrfachvererbung</h3>
-                    <p class="small">In Python ist es erlaubt, dass eine Klasse mehrere Superklassen hat.</p>
-                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung.py#classes' data-sample-indent="keep"></code></pre>
-                  </section>
-
-                  <section>
-                    <h3>Mehrfachvererbung</h3>
-                    <img style="width:70%" uml="
-                    class Schiff {
-                      + name: str
-                      + max_geschwindigkeit: int
-                      + Schiff(name: str, max_geschwindigkeit: int)
-                      + fahre()
-                    }
-                    
-                    class Haus {
-                      + anzahl_zimmer: int
-                      + Haus(anzahl_zimmer: int)
-                    }
-                    
-                    class Hausboot {
-                      + Hausboot(name: str, max_geschwindigkeit: int, anzahl_zimmer: int)
-                    }
-                    
-                    Schiff --|> Hausboot
-                    Haus --|> Hausboot
-                    "/>
-
-                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung.py#objects' data-sample-indent="keep"></code></pre>
-                    <aside class="notes">Die Klasse Hausboot erbt von Schiff die Attribute <code>name</code> und <code>max_geschwindigkeit</code> sowie die Methode <code>fahre()</code>. Von der anderen Superklasse Haus wird das Attribut <code>anzahl_zimmer</code> geerbt.</aside>
-                  </section>
-
-                  <section>
-                    <h3>Mehrfachvererbung</h3>
-                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung2.py#classes' data-sample-indent="keep"></code></pre>
-                    <pre style="margin-top: -3mm; width:98%"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung2.py#objects' data-sample-indent="keep"></code></pre>
-                    <aside class="notes">Problematisch wird es, wenn es nicht mehr eindeutig ist, welche Methode ausgeführt werden soll. Python wählt in einem solchen Fall die Methode in der erstgenannten Klasse.</aside>
-                  </section>
-
-                  <section>
-                    <h3>Method Resolution Order (MRU)</h3>
-                    <!-- http://www.srikanthtechnologies.com/blog/python/mro.aspx -->
-                    <p class="small">Welche Methode wird in einer Vererbungshierarchie gewählt?</p>
-                    <ol class="small">
-                      <li>Eine Subklasse hat immer Vorrang zu seiner Superklasse</li>
-                      <li>Bei mehreren Superklassen: Tiefensuche von links nach rechts</li>
-                      <li>Wenn sich 1. und 2. widersprechen, wird eine Exception (TypeError) geworfen.</li>
-                    </ol>
-                    <div class="columns">
-                      <div>
-                        <img style="height:7cm; margin-bottom: -5mm;" uml="
-                        class A {}
-                        class B {}
-                        class C {}
-                        
-                        C -u-|> B
-                        C -u-|> A"><br>
-                        <span class="small">C &rightarrow; A &rightarrow; B</span>
-                      </div>
-                      <div>
-                        <img style="height:7cm; margin-bottom: -5mm;" uml="
-                        class A {}
-                        class B {}
-                        class C {}
-                        class D {}
-                        
-                        C -u-|> A
-                        C -u-|> B
-                        D -u-|> C
-                        D -u-|> B"><br>
-                        <span class="small">D &rightarrow; C &rightarrow; A &rightarrow; B &rightarrow; B</span>
-                      </div>
-                      <div>
-                        <img style="height:7cm; margin-bottom: -5mm;" uml="
-                        class A {}
-                        class B {}
-                        class C {}
-                        class D {}
-                        
-                        B -u-|> A
-                        C -u-|> A
-                        D -u-|> C
-                        D -u-|> B"><br>
-                        <span class="small">D &rightarrow; B &rightarrow; <span style="position: relative;">A<span style="position: absolute; top: -6px; left: -3px; color: red; font-size: 150%;">X</span></span> &rightarrow; C &rightarrow; A</span>
-                      </div>
+                    <div>
+                      <img src="img/6/vbox.png" class="noborder">
                     </div>
-                    <aside class="notes">Im dritten Beispiel wurde A gestrichen, weil A eine Superklasse von C ist und daher nicht vor C kommen darf (Regel 1).</aside>
-                  </section>
+                  </div>
 
-                  <section>
-                    <h3>Method Resolution Order (MRU)</h3>
-                    <!-- http://www.srikanthtechnologies.com/blog/python/mro.aspx -->
-                    <p class="small">Welche Methode wird in einer Vererbungshierarchie gewählt?</p>
-                    <ol class="small">
-                      <li>Eine Subklasse hat immer Vorrang zu seiner Superklasse</li>
-                      <li>Bei mehreren Superklassen: Tiefensuche von links nach rechts</li>
-                      <li>Wenn sich 1. und 2. widersprechen, wird eine Exception (TypeError) geworfen.</li>
-                    </ol>
-                    <img style="height:7cm; margin-bottom: -5mm;" uml="
-                        class C {}
-                        class B {}
-                        class A {}
-                        class D {}
-                        
-                        D -[hidden]r-> B
-                        C -u-|> B
-                        C -u-|> A
-                        hide D
-                        
-                        B -u-|> A"><br>
-                        <span class="small">C &rightarrow; <span style="position: relative;">A<span style="position: absolute; top: -6px; left: -3px; color: red; font-size: 150%;">X</span></span> &rightarrow; B &rightarrow; A &#8623;</span>
+                  <pre style="width: 98%; margin-top: -1.5cm;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#vbox'></code></pre>
+                </section>
 
-                        <p class="small" style="width:110%">Da aber <code>C(A,B)</code>, wäre diese Ordnung ein Widerspruch &#8623; <br>
-                        <span style="color:red;">TypeError: Cannot create a consistent method resolution order (MRO) for bases A, B</span></p>
-                  </section>
+                <section>
+                  <h3><code>QFormLayout</code> / <code>QGridLayout</code></h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.3</div>-->
+                  <div class="columns">
+                    <div>
+                      <img src="img/6/form.png" class="noborder">
+                      <pre style="width: 13cm; position: absolute; top:8cm; left:0cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#form'></code></pre>
+                    </div>
+                    <div>
+                      <img src="img/6/grid.png" class="noborder">
+                      <pre style="width: 14.5cm; position: absolute; top:11cm; right:0cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#grid'></code></pre>
+                    </div>
+                  </div>
+                </section>
 
-                  <section>
-                    <h3>Mehrfachvererbung</h3>
-                    <pre style="margin-top: -3mm; width:15.5cm; margin-left: 1cm;"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung3.py#classes' data-sample-indent="keep"></code></pre>
-                    <img style="height:11cm; position: absolute; top:2cm; right:1mm" uml="
-                        class Kleinanzeige {
-                          +verkaufswert()
-                        }
-                        class Schiff {}
-                        class Haus {
-                          +verkaufswert()
-                        }
-                        class Hausboot {}
-                        
-                        Schiff -u-|> Kleinanzeige
-                        Schiff -[hidden]r-> Haus
-                        Haus -u-|> Kleinanzeige
-                        Hausboot -u-|> Schiff
-                        Hausboot -u-|> Haus">
+                <section>
+                  <h3>QStackedLayout</h3>
+                  <p class="small"><code>layout.setCurrentIndex(i)</code> macht Widget i sichtbar.</p>
+                  <img style="position: absolute; top:1cm; right:5mm; width: 7cm; max-height: 7cm;" src="img/6/stacked.png" class="noborder">
+                  <pre style="width: 98%; margin-top: 2.5cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/layouts.py#stacked'></code></pre>
+                  <aside class="notes">Ein Stacked Layout wird verwendet, um zwischen verschiedenen &quot;Seiten&quot; hin- und herzuschalten, z. B. für Tab-Wechsel oder einen Wizard (Schritt 1, Schritt 2, usw.). Über einen Klick auf Tab-Buttons bzw. einen Weiter- und einen Zurück-Button kann dann der Inhalt des Layouts entsprechend ausgewechselt werden.</aside>
+                </section>
 
-                        <pre style="margin-top: -3mm; width:15.5cm; margin-left: 1cm;"><code style="max-height: 1000px; " class="python" contenteditable data-sample='code/5/mehrfachvererbung3.py#objects' data-sample-indent="keep"></code></pre>
+                <section>
+                  <h3 style="font-size: 140%;"><code>QLabel</code> / <code>QLineEdit</code> / <code>QPushButton</code></h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.2, 18.3</div>-->
+                  <img style="position: absolute; left:5mm; width:15cm; margin-top: -5mm; max-height: 10cm" uml='@startuml
+                  class QWidget {
+                    + show()
+                  }
 
-                        <div class="poll fragment" style="bottom:-50px">
-                          <h1>Welcher Verkaufswert wird für unser Hausboot ausgegeben?</h1>
-                            <ul>
-                              <li>0</li>
-                              <li>70</li>
-                              <li data-poll="correct">150000</li>
-                              <li>TypeError</li>
-                            </ul>
-                          <h2>https://frage.space</h2>
-                         </div>
+                  class QLabel {
+                    + setText(text: str)
+                    + text() : str
+                  }
 
-                         <aside class="notes">Diese Vererbungshierarchie entspricht dem Diamanten (drittes Beispiel) vor zwei Folien. Die MRO ist: Hausboot &rightarrow; Schiff &rightarrow; <del>Kleinanzeige</del> &rightarrow; Haus &rightarrow; Kleinanzeige. Da es die Methode <code>verkaufswert()</code> in Hausboot und Schiff nicht gibt, wird die in Haus befindliche Methode ausgeführt. Ausgabe: 150000</aside>
-                  </section>
+                  class QLineEdit {
+                    + setText(text: str)
+                    + text() : str
+                  }
 
-                  <section>
-                    <h3>Mehrfachvererbung</h3>
-                    <p class="small">Beispiel: <code>Combobox(TextBox, DropDownList)</code></p>
-                    <p class="small"><input name="land" list="land" />
-                        <datalist id="land">
-                        <option value="Deutschland"></option>
-                        <option value="Österreich"></option>
-                        <option value="Schweiz"></option>
-                        </datalist>
-                      </p>
-                      <img src="img/4/combobox.png" alt="Combobox" class="noborder" style="position: absolute; right: 1cm; top: 3cm; width:8cm">
-                      <img style="height:10cm; margin-top: -15mm;" uml="
-                        class Control {
-                          +click()
-                        }
-                        class TextBox {
-                          +value: str
-                          +onKeyRelease(key)
-                        }
-                        class DropDownList {
-                          +value: str
-                          +options: list
-                          +onKeyRelease(key)
-                        }
-                        class ComboxBox {
-                          +onKeyRelease(key)
-                        }
-                        
-                        DropDownList -u-|> Control
-                        TextBox -[hidden]r-> DropDownList
-                        TextBox -u-|> Control
-                        ComboxBox -u-|> TextBox
-                        ComboxBox -u-|> DropDownList">
+                  class QPushButton {
+                    + clicked.connect(slot: callable)
+                  }
 
-                        <aside class="notes">In der GUI-Entwicklung ist eine ComboBox gleichzeitig ein Textfeld, in das man etwas eingeben kann, und eine Auswahlliste. Die Methode <code>click()</code> bestimmt, was passieren soll, wenn man auf ein Element klickt, <code>onKeyReleased</code>, wenn man eine Taste auf der Tastatur gedrückt hat, <code>value</code> ist der eingegebene / ausgewählte Wert und <code>options</code> die zur Auswahl stehenden Werte. Dieses Beispiel ist konstruiert und vereinfacht und entspricht nicht der wirklichen ComboBox-Klasse in Python-GUI-Bibliotheken.</aside>
-                  </section>
+                  class "..." as etc {
+                    ...
+                  }
 
-                  <section>
-                    <h2>Übung 5.2</h2>
-                      <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
-                      
-                      <p class="small">
-                        Erstellen Sie ein UML-Diagramm für ein soziales Netzwerk. Es gibt Benutzer, die einen Namen und eine E-Mail-Adresse haben. Als Subklasse von Benutzer gibt es Werbepartner, die Anzeigen schalten können. Eine Anzeige hat einen Text, die Anzahl an Einblendungen und Anzahl der Klicks. Außerdem gibt es Beiträge. Ein Beitrag hat einen Text und eine Anzahl an Likes. Ein Beitrag wird immer von genau einem Benutzer verfasst. Subklassen von Beitrag sind Bildbeitrag, Video (beide jeweils mit einer URL zum Bild bzw. Video) und die eben erwähnte Werbeanzeige. Eine Werbeanzeige soll noch ein privates Attribut beinhalten, in der die Menge der Benutzer gespeichert werden, die bereits auf die Anzeige geklickt haben. Außerdem soll es bei Werbeanzeigen eine klick-Methode geben, die einen Benutzer entgegennimmt, der auf die Werbeanzeige geklickt hat. Führen Sie auch sinnvolle Konstruktoren in Ihre Klassen ein. 
-                      </p>  
-                  </section>
+                  QLabel -u-|> QWidget
+                  QLineEdit -u-|> QWidget
+                  QPushButton -u-|> QWidget
+                  etc -u-|> QWidget
+                  @enduml                  
+                  '/>
+                  <img style="position: absolute; right:5mm; max-height: 10cm; top:1.5cm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
 
-                  <section>
-                      <h2>Kapitelzusammenfassung</h2>
-                      <ul>
-                        <li>Vererbung (<code>Subklasse(Superklasse)</code>)</li>
-                        <li><code>isinstance</code></li>
-                        <li>Method-Overriding, <code>super()</code></li>
-                        <li>UML</li>
-                        <li>Mehrfachvererbung, MRU</li>
-                      </ul>
+                  <pre style="width: 98%; margin-top: 5.5cm"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/6/name_eingeben.py#name_eingeben'></code></pre>
+                </section>
+
+                <section>
+                  <h3>Layouts verschachteln</h3>
+                  <pre style="width: 14cm; left:-4cm"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/nesting.py#layout'></code></pre>
+                  <img style="position: absolute; right: 3mm; top: 1.75cm; width:7cm; max-height: 7cm;" src="img/6/nesting.png" class="noborder">
+                  <img style="position: absolute; right: 3mm; top: 5.25cm; width:7cm" uml="
+
+class QLayout {
+  +addWidget(widget: QWidget)
+  +addLayout(layout: QLayout)
+}">
+
+<img style="position: absolute; right: 3mm; top: 8cm; width:7cm" uml='
+                  hide empty members
+                  class HauptFenster
+                  class QVBoxLayout
+                  class QLineEdit
+                  class QHBoxLayout
+                  class "QPushButton" as b1
+                  class "QPushButton" as b2
+
+                  HauptFenster -d- QVBoxLayout
+                  QVBoxLayout -d- QLineEdit
+                  QVBoxLayout -d- QHBoxLayout
+                  QHBoxLayout -d- b1
+                  QHBoxLayout -d- b2                  
+                  '>
+
+                <aside class="notes">In einem Layout lassen sich nicht nur Widgets (Buttons, Textfelder, ...) hinzufügen, sondern auch weitere Layouts verschachteln. In diesem Beispiel haben wir eine VBox, die zum einen ein Textfeld enthält und darunter eine HBox in der zwei Buttons nebeneinander angeordnet sind.</aside>
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 5.3</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="1800" autostart="no" /></div>
+                    
+                    <p class="small">Entwickeln Sie nun Ihre GUI-Anwendung aus den Übungen 6.1 und 6.2 weiter. Konzentrieren Sie sich nur auf das Layout, also auf die Platzierung der Widgets (Textfelder, Buttons, ...). Die eigentliche Programmlogik (Was passiert, wenn man den Button klickt? ...) kommt erst in der nächsten Übung.</p>
+                    <ul class="small">
+                      <li>Welches Layout verwenden Sie (VBox, HBox, Form, Grid, Stacked)? Eine Verschachtelung von Layouts ist möglich (z. B. HBox in einer VBox).</li>
+                      <li>Erzeugen Sie die Widgets und fügen Sie sie Ihrem Layout hinzu.</li>
+                      <li>Falls Sie Checkboxen, Radio-Buttons, mehrzeilige Textfelder einsetzen, nutzen Sie eine Suchmaschine, um herauszufinden, wie Sie sie in PyQT erstellen.</li>
+                      <li>Falls Ihre App aus mehreren Fenstern besteht, entwickeln Sie zunächst nur das Hauptfenster, dann die anderen, die sich dann einfach alle gleichzeitig bei Programmstart öffnen sollen.</li>
+                    </ul>
+                </section>
+
+                <section>
+                  <h3>Listener-Konzept</h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.2</div>-->
+                  <img style="position: absolute; right:-5mm; max-height: 10cm; top:8mm; width: 9.5cm;" src="img/6/pyqt.png" class="noborder">
+                  <p class="small" style="width:18cm">In einer Listener-Methode definieren wir, was bei einem bestimmten Event (z. B. Buttonklick) passieren soll.</p>
+                  <pre style="width: 98%; margin-top: 12mm;"><code class="python" contenteditable>class HauptFenster(QWidget):
+    def __init__(self):
+        # ...
+        self.button.clicked.connect(self.on_button_click)
+        # ...
+  </code></pre>
+                  <pre style="width: 98%; margin-top: -1cm;"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/6/name_eingeben.py#button_click'></code></pre>
+
+                  <aside class="notes">Für einzelne Widget-typische Events lassen sich Listener-Methoden verbinden. Für Buttons gibt es z. B. das Event <code>clicked</code>, welches die Methode, die wir mittels <code>connect</code> übergeben, immer dann aufruft, wenn der Button geklickt wird. Wie jede Methode in Python haben Listener-Methoden als ersten Parameter <code>self</code>. Darüber können wir auf Member-Variablen (im Beispiel: <code>self.result_label</code>) und andere Methoden zugreifen. Anderen Listener-Methoden können wir optional noch weitere Parameter geben, z. B. beim <code>textChanged</code>-Event einer <code>QLineEdit</code>: <code>def text_geaendert(self, text)</code>. Somit kommen wir direkt an den Inhalt des Textfelds als String, ohne über die <code>text()</code>-Methode darauf zugreifen zu müssen.</aside>
+                </section>
+
+                <section>
+                  <h3>QMessageBox</h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.3, 18.4</div>-->
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#info'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#critical'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#question'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/message_datei.py#datei'></code></pre>
+
+                  <img style="position: absolute; top: 10.3cm; left:-1cm; width: 8cm" src="img/6/info.png" class="noborder">
+                  <img style="position: absolute; top: 10.3cm; left:5.5cm; width: 8cm" src="img/6/fehler.png" class="noborder">
+                  <img style="position: absolute; top: 10.3cm; left:12cm; width: 8cm" src="img/6/frage.png" class="noborder">
+                  <img style="position: absolute; top: 10.3cm; left:16.5cm; width: 10cm; z-index: -1;" src="img/6/datei.png" class="noborder">
+                </section>
+
+                <section>
+                  <h3><code>QComboBox</code> / <code>QListWidget</code></h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.5</div>-->
+                  <img style="position: absolute; top: 1.5cm; right:5.5cm; width: 4.7cm; max-height: 8cm; z-index: 10;" src="img/6/combobox.png" class="noborder">
+                  <img style="position: absolute; top: 1.5cm; right:0.5cm; width: 4.7cm; max-height: 8cm; z-index: 10;" src="img/6/listwidget.png" class="noborder">
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/combobox.py#combobox'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/combobox.py#combo_change'></code></pre>
+
+                  <img style="height:7cm; position: absolute; top: 9.6cm; left:0cm" uml="@startuml
+                  class QComboBox {
+                    --
+                    +addItem(item: str)
+                    +addItems(items: Iterable[str])
+                    +insertItem(index: int, item: str)
+                    +clear()
+                    +count(): int
+                    +currentIndex(): int
+                    +currentText(): str
+                    +itemText(index: int): str
+                    +setItemText(index: int, text: str)
+                    +currentIndexChanged.connect(method: PYQT_SLOT)
+                    +currentTextChanged.connect(method: PYQT_SLOT)
+                    ...
+                  }
+                  @enduml
+                  "/>
+
+                  <img style="height:7cm; position: absolute; top: 9.6cm; right:0cm" uml="@startuml
+                  @startuml
+                  class QListWidget {
+                    --
+                    +addItem(item: str)
+                    +addItems(items: Iterable[str])
+                    +clear()
+                    +count(): int
+                    +currentItem(): str
+                    +currentRow(): int
+                    +item(row: int): str
+                    +currentRowChanged.connect(method: PYQT_SLOT)
+                    +currentItemChanged.connect(method: PYQT_SLOT)
+                    +itemClicked.connect(method: PYQT_SLOT)
+                    +itemDoubleClicked.connect(method: PYQT_SLOT)
+                    ...
+                  }
+                  @enduml
+
+                  @enduml
+                  "/>
+                  <aside class="notes">Würde im obigen Beispiel das Event <code>currentTextChanged</code> statt <code>currentIndexChanged</code> überwacht werden, stände im zweiten Parameter der Listener-Methode (hier: <code>idx</code>) der ausgewählte Text.</aside>
+                </section>
+
+
+                <section data-hide-from="2V">
+                  <h2>Übung 5.4</h2>
+                    <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="1200" autostart="no" /></div>
+                    
+                    <p class="small">Entwickeln Sie Ihre GUI-Anwendung aus Übung 5.1 zuende.</p>
+
+                    <ul class="small">
+                      <li>Entwickeln Sie Listener-Methoden und verbinden Sie sie mit Ihren Widgets.</li>
+                    </ul>
+                    
+                    <pre style="width: 98%;"><code class="python" contenteditable>class HauptFenster(QWidget):
+    def __init__(self):
+        # ...
+        self.button.clicked.connect(self.on_button_click)
+        # ...
+                    </code></pre>
+                                    <pre style="width: 98%; margin-top: -1cm;"><code class="python" contenteditable data-sample-indent="keep" data-sample='code/6/name_eingeben.py#button_click'></code></pre>
+
+                    <ul class="small">
+                      <li>Geben Sie Ihren Methoden möglichst aussagekräftige Namen (z. B. <code>klick_berechnen</code> oder <code>eingabe_textfeld</code>).</li>
+                      <li>Je nach Widget gibt es unterschiedliche Events (<code>clicked</code>, <code>textChanged</code>, <code>stateChanged</code>, ...). Details darüber können Sie online herausfinden.</li>
+                    </ul>
+                </section>
+
+                <section>
+                  <h3><code>QTimer</code></h3>
+                  <!--<div class="trackinfo"><i class="fas fa-book"></i> 18.6</div>-->
+                  <img style="position: absolute; top: 1.5cm; right:0.5cm; width: 4.7cm; max-height: 8cm; z-index: 10;" src="img/6/timer.png" class="noborder">
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/timer.py#timer'></code></pre>
+                  <pre style="width: 98%;"><code class="python" contenteditable data-sample-indent="" data-sample='code/6/timer.py#on_timer'></code></pre>
+
+                  <img style="height:4cm; position: absolute; top: 8.6cm; right:0cm" uml="@startuml
+                  class QTimer {
+                    --
+                    +start(msec: int)
+                    +stop()
+                    +isActive(): bool
+                    +timeout.connect(method: PYQT_SLOT)
+                    ...
+                  }
+                  @enduml
+                  "/>
+                  <div class="fragment" data-hide-from="2V">
+                  <h4>Übung 5.5</h4>
+                  <div style="position: absolute; top:11cm; right: 9.5cm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="1200" autostart="no" /></div>
+                  <p class="small">Sie finden den kompletten Quellcode der hier gezeigten Stoppuhr-App im ELO. Peppen Sie die App auf, sodass man die Stoppuhr pausieren, fortsetzen und zurücksetzen kann. Sie soll bei Programmstart nicht automatisch starten.</p>
+                </div>
+                <aside class="notes">Der <code>QTimer</code> sorgt dafür, dass kontinuierlich in einem bestimmten Intervall (hier: jede Sekunde) eine Methode aufgerufen wird.</aside>
+                </section>
+
+              <section>
+                <h3>Zusammenfassung</h3>
+                <ul class="small">
+                  <li>PyQT</li>
+                  <li><code>QApplication</code>, <code>QWidget</code>: <code>show()</code>, <code>exec()</code></li>
+                  <li>Layouts: HBox, VBox, Form, Grid, Stacked</li>
+                  <li>Labels, Buttons, Textfelder</li>
+                  <li>Listener-Konzept: <code>widget.event.connect(...)</code></li>
+                  <li>Message-Box</li>
+                  <li>Combobox, Liste</li>
+                  <li><code>QTimer</code></li>
+                </ul>
               </section>
-        
+
               </div>
             </div>
         
-            <script src="reveal.js/dist/reveal.js"></script>
-		<script src="reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="reveal.js/plugin/highlight/highlight.js"></script>
-		<script src="reveal.js/plugin/zoom/zoom.js"></script>
-		<script src="reveal.js/plugin/math/math.js"></script>
-		<script src="reveal.js/plugin/notes/notes.js"></script>
-		<script src="reveal.js/plugin/search/search.js"></script>
+     <script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/dist/plugin/markdown.js"></script>
+		<script src="reveal.js/dist/plugin/highlight.js"></script>
+		<script src="reveal.js/dist/plugin/zoom.js"></script>
+		<script src="reveal.js/dist/plugin/math.js"></script>
+		<script src="reveal.js/dist/plugin/notes.js"></script>
+		<script src="reveal.js/dist/plugin/search.js"></script>
         <script src="lib/jquery.js"></script>
         <script src="lib/lodash.js"></script>
         <script src="lib/backbone.js"></script>

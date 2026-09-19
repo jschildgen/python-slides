@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Programmieren 2 - Kapitel 3 - Exception-Handling</title>
+		<title>Programmieren 2 - Kapitel 3 - Arbeit mit Dateien</title>
 
 		<link rel="stylesheet" href="reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
@@ -38,7 +38,7 @@
                     <h4 style="text-align:center"><b>Prof. Dr.-Ing. Johannes Schildgen</b><br>
                     <a href="mailto:johannes.schildgen@h-da.de">johannes.schildgen@oth-regensburg.de</a></h4>
                     <h1 style="font-size: 200%; margin-top: 1.5cm;">Programmieren 2 (Python)</h1>
-                    <h3>Kapitel 3: Exception-Handling</h3>
+                    <h3>Kapitel 3: Arbeit mit Dateien</h3>
                     <h4 style="text-align:center">&nbsp;</h4>
                     <img src="img/ccby.png" height="60px" style="position: absolute; left:0px; border:0; bottom:-225px;">
                     <img src="img/oth.png" height="60px" style="position: absolute; right:0px; border:0; bottom:-225px; box-shadow:none">
@@ -46,7 +46,7 @@
                 
                 <section>
                   <h2>Exceptions</h2>
-                  <div class="trackinfo"><i class="fas fa-headphones"></i> 21 <i class="fas fa-book"></i> 10</div>
+                  <div class="trackinfo"><i class="fas fa-headphones"></i> 21 <i class="fas fa-book"></i> 4.5</div>
                   <p class="small">Exceptions werden geworfen, wenn eine Ausnahmesituation auftritt.</p>
                   <pre style="width: 95%;"><code class="python" contenteditable data-sample='code/3/valueerror.py'></code></pre>
                   <p class="fragment small red">Traceback (most recent call last):<br>
@@ -76,13 +76,12 @@
 
                 <section>
                   <h3><code>try: ... except ...: ...</code></h3>
-                  <div class="trackinfo"><i class="fas fa-book"></i> 10.1</div>
                   <p class="small">Tritt zur Laufzeit innerhalb des <code>try</code>-Blocks die unter <code>except</code> genannte Exception auf, wird sofort in ebendiesen <code>except</code>-Block gesprungen.</p>
                   <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/3/try_loop.py'></code></pre>
                   <aside class="notes">Ohne <code>try</code> würde unser Programm abstürzen, wenn der Benutzer einen ungültigen Wert eingibt. Nun wird er oder sie einfach so oft erneut gefragt, eine Zahl einzugeben, bis es eine gültige Zahl ist. Wird ein ungültiger Wert eingegeben, tritt in Zeile 4 (<code>int</code>-Funktion) ein <code>ValueError</code> auf. Dieser wird in Zeile 6 (<code>except</code>) abgefangen. Das Programm springt also sofort von Zeile 4 in Zeile 7.</aside>
                 </section>
 
-                <section>
+                <section data-hide-from="2V">
                   <h2>Übung 3.1</h2>
                   <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="540" autostart="no" /></div>
                     <p class="small">Entwickeln Sie einen Taschenrechner, der den Benutzer bittet, zwei Zahlen einzugeben, und daraufhin den Quotienten der Zahl ausgibt. Fangen Sie mit <code>try</code> sowohl den Fall ab, dass ungültige Zahlen eingegeben werden, als auch ein Teilen durch 0. Eine ungültige Zahl soll als eine 0 behandelt werden. Wird durch 0 geteilt, soll eine entsprechende Meldung ausgegeben werden.<br>&nbsp;</p>
@@ -90,15 +89,22 @@
 
                 <section>
                   <h3>Abfangen verschiedener Exceptions</h3>
-                  <div class="trackinfo"><i class="fas fa-headphones"></i> 22 <i class="fas fa-book"></i> 10.1</div>
+                  <div class="trackinfo"><i class="fas fa-headphones"></i> 22</div>
                   <pre style="width: 98%;"><code style="min-height: 10.7cm;" class="python" data-sample-indent="keep" data-sample='code/3/try_mehrere.py'></code></pre>
                   <p class="small">Hier wurden Exceptions mittels <code>as err</code> einen Namen gegeben. Informationen zur Exception stehen nun in der Variable <code>err</code> zur Verfügung.</p>
+                  <div class="poll fragment" style="bottom:-80px">
+  <h1>Ist die Reihenfolge der except relevant?</h1>
+    <ul>
+      <li data-poll="correct">ja</li>
+      <li>nein, ist egal</li>
+    </ul>
+  <h2>https://fraage.de</h2>
+ </div>
                 </section>
 
                 <section>
                   <h3>Typische Exceptions</h3>
-                  <div class="trackinfo"><i class="fas fa-book"></i> 10.1</div>
-                  <div style="position: absolute; top:13cm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="600" autostart="no" /></div>
+                  <div style="position: absolute; top:13cm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="600" autostart="no" data-hide-from="2V" /></div>
                   <ul class="small">
                     <li><code>FileNotFoundException</code> - Datei existiert nicht</li>
                     <li><code>IndexError</code> - Die angegebene Position in Liste oder String gibt es nicht</li>
@@ -113,13 +119,14 @@
                   </ul>
 
                   <p class="small"></p>
-                  <h4>Übung 3.2</h4>
-                  <p class="small">Erzeugen Sie auf der interaktiven Python-Konsole oder in einzelnen Python-Scripts einmal jede dieser Exceptions.</p>
+                  <div data-hide-from="2V">
+                    <h4>Übung 3.2</h4>
+                    <p class="small">Erzeugen Sie auf der interaktiven Python-Konsole oder in einzelnen Python-Scripts einmal jede dieser Exceptions.</p>
+                  </div>
                 </section>
 
                 <section>
                   <h3><code>finally</code></h3>
-                  <div class="trackinfo"><i class="fas fa-book"></i> 10.1</div>
                   <p class="small">Der <code>finally</code>-Block wird in jedem Falle aufgerufen, egal ob der <code>try</code>-Block mit oder ohne Exception durchlaufen wurde.</p>
                   <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/3/finally.py'></code></pre>
                   <p class="small"><code>locals()</code> liefert ein Dictionary mit allen lokalen Variablen.</p>
@@ -128,7 +135,6 @@
 
                 <section>
                   <h3><code>with ... as</code></h3>
-                  <div class="trackinfo"><i class="fas fa-book"></i> 14.2</div>
                   <p class="small"><code>with ... as</code> öffnet eine Ressource, die nach Beendigung des <code>with</code>-Blocks von Python automatisch wieder geschlossen wird. Dies ist der empfohlene Weg.</p>
                   <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/3/with.py#with'></code></pre>
                   <p class="small">In Kombination mit <code>try:</code></p>
@@ -136,7 +142,7 @@
                   <aside class="notes">Bei der Verwendung von <code>with</code> muss man sich nicht um das Schließen der Ressourcen (hier: Datei) kümmern und man braucht kein <code>finally</code>. Python ruft nach Beendigung des Blocks die <code>__exit__</code>-Methode auf der angegebenen Variable auf, die in unserem Fall für <code>f.close()</code> sorgt.</aside>
                 </section>
 
-                <section>
+                <section data-hide-from="2V">
                   <h2>Übung 3.3</h2>
                   <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
                     <ol class="small">
@@ -165,14 +171,13 @@
 
                 <section>
                   <h3><code>raise</code> - Selbst Exceptions werfen</h3>
-                  <div class="trackinfo"><i class="fas fa-book"></i> 10.2</div>
                   <pre style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/raise.py'></code></pre>
                   <p class="small red" style="margin-top: -3mm;">ValueError: Ungültiges Passwort</p>
                   <pre style="width: 98%;"><code class="python" data-sample-indent="keep" data-sample='code/3/raise_try.py#main'></code></pre>
                   <aside class="notes">Unsere Funktion <code>stars</code> wirft nun eine Exception, wenn man sie mit einem zu kurzen Passwort aufruft. Beim Werfen von Exceptions kann man sich einer passenden Exception (hier ValueError) bedienen. Alternativ kann man auch eigene Exception-Klassen entwickeln (siehe Kapitel über Objektorientierung).</aside>
                 </section>
 
-                <section>
+                <section data-hide-from="2V">
                   <h2>Übung 3.4</h2>
                   <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="720" autostart="no" /></div>
                     <ol class="small">
@@ -181,13 +186,144 @@
                 </section>
 
                 <section>
+                  <h3>Textdateien</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 4.1</div>
+                  <h4>Textdatei lesen</h4>
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#text-lesen'></code></pre>
+
+                  <h4 class="fragment" data-fragment-index="1">Textdatei schreiben</h4>
+                  <pre class="fragment" data-fragment-index="1" style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#text-schreiben'></code></pre>
+                </section>
+
+                <section>
+                  <h3>CSV: Comma-separated Values</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 4.2</div>
+
+                  <h4>CSV-Datei lesen</h4>
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#csv-lesen'></code></pre>
+
+                  <h4 class="fragment" data-fragment-index="1">CSV-Datei schreiben</h4>
+                  <pre class="fragment" data-fragment-index="1" style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#csv-schreiben'></code></pre>
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 3.5</h2>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="900" autostart="no" /></div>
+                    <ol class="small">
+                      <li>Laden Sie den <a href="https://stwno.de/de/gastronomie/speiseplan/oth-regensburg/seybothstrasse-mittags" target="_blank">Mensaplan der OTH-Mensa</a> als CSV-Datei herunter. Erstellen Sie ein Jupyter Notebook, in dem mittels Python diese Datei eingelesen und alle Hauptgerichte zusammen mit dem jeweiligen Datum, an dem es das Essen gibt, auf der Konsole ausgegeben wird.<br>Hinweis: Verwenden Sie bei <code>open</code> die Option <code>encoding='cp1252'</code> und setzen Sie beim <code>DictReader</code> den richtigen <code>delimiter</code>.</li>
+                      <li>Erweitern Sie Ihr Jupyter Notebook so, dass in einer separaten Code-Zelle eine neue CSV-Datei angelegt wird, die die gleichen Spalten hat, wie die Original-Datei. Lediglich die preis-Spalte soll es in der neuen Datei nicht geben. In diese Datei sollen nur die die Hauptgerichte aus der Original-Datei gespeichert werden. Außerdem sollen alle Preise in USD umgewandelt werden. Verwenden Sie als Umrechnungsfaktor der Einfachheit halber 1 EUR = 1.15 USD.</li>
+                    </ol>
+                </section>
+
+                <section>
+                  <h3>Dateien verwalten</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 4.3</div>
+                  <h4>Datei anlegen</h4>
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#datei-anlegen'></code></pre>
+
+                  <h4 class="fragment" data-fragment-index="1">Datei auf Existenz prüfen und löschen</h4>
+                  <pre class="fragment" data-fragment-index="1" style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#datei-loeschen'></code></pre>
+                </section>
+
+                <section>
+                  <h3>Dateien verwalten</h3>
+                  <h4>Datei verschieben, umbenennen und kopieren</h4>
+                  <pre style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#datei-verschieben'></code></pre>
+
+                  <h4 class="fragment" data-fragment-index="1">Über Dateien in einem Ordner iterieren</h4>
+                  <pre class="fragment" data-fragment-index="1" style="width: 98%; margin-top: -3mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#datei-schleife'></code></pre>
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 3.6</h2>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="900" autostart="no" /></div>
+                    <ol class="small">
+                      <li>Über den CSV-Link auf der <a href="https://stwno.de/de/gastronomie/speiseplan/oth-regensburg/seybothstrasse-mittags" target="_blank">OTH-Mensa-Webseite</a> kommen Sie an eine Datei mit dem Namen <code>kalenderwoche.csv</code> (z. B. <code>15.csv</code>). Verändern Sie diesen Link, um noch ein Paar weitere CSV-Dateien mit den Mensaplänen aus der Vergangenheit herunterzuladen. Legen Sie einen neuen Ordner an und speichern Sie die CSV-Dateien in dem Ordner.</li>
+                      <li>Schreiben Sie ein Python-Script, was sich die einzelnen CSV-Dateien anschaut und die Tage ausgibt, an denen es etwas in der Mensa gab (jedes Datum nur einmal). Gerne auch wieder als Jupyter Notebook.</li>
+                    </ol>
+                </section>
+
+                <section>
+                  <h3>JSON-Dateien</h3>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 4.7</div>
+                  <p class="small"><code>json.loads</code> wandelt einen JSON-String (Javascript Object Notation) in das Äquivalent in Python um:</p>
+                    <table class="small" style="border: none;">
+                    <tr>
+                      <td><code>{"key": "value"}</code></td>
+                      <td>JSON-Object &Rightarrow; Python-Dictionary</td>
+                    </tr>
+                    <tr>
+                      <td><code>["item1", "item2"]</code></td>
+                      <td>JSON-Array &Rightarrow; Python-List</td>
+                    </tr>
+                    <tr>
+                      <td><code>"text"</code></td>
+                      <td>JSON-String &Rightarrow; Python-String</td>
+                    </tr>
+                    <tr>
+                      <td><code>123</code></td>
+                      <td>JSON-Number &Rightarrow; Python-int/float</td>
+                    </tr>
+                    <tr>
+                      <td><code>true/false</code></td>
+                      <td>JSON-Boolean &Rightarrow; Python-bool</td>
+                    </tr>
+                    <tr>
+                      <td><code>null</code></td>
+                      <td>JSON-null &Rightarrow; Python-None</td>
+                    </tr>
+                    </table>
+                  <pre style="width: 98%; margin-top: 1mm;"><code class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#json'></code></pre>
+
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 3.7</h2>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="900" autostart="no" /></div>
+                    <ol class="small">
+                      <li>Laden Sie sich die pokedex.json herunter: <a href="https://github.com/Purukitto/pokemon-data.json" target="_blank">https://github.com/Purukitto/pokemon-data.json</a></li>
+                      <li>Erstellen Sie ein Jupyter Notebook, in dem Sie die JSON-Datei einlesen und die englischen Namen aller Pokemons ausgeben.</li>
+                      <li>Nun soll eine CSV-Datei angelegt werden, die zwei Spalten hat: <code>en</code> (darin stehen die englischen Pokemon-Namen) und <code>de</code> (darin steht nichts). Diese Datei wird für die nächste Übungsaufgabe benötigt.</li>
+                    </ol>
+                </section>
+
+                <section>
+                  <h3>JSON-Dateien</h3>
+                  <h4>JSON-Datei lesen, ändern und wieder schreiben</h4>
+                  <pre style="width: 98%; margin-top: -3mm;"><code style="max-height: 15cm;" class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#json-edit'></code></pre>
+                </section>
+
+                <section data-hide-from="2V">
+                  <h2>Übung 3.8</h2>
+                  <div class="trackinfo"><i class="fas fa-book"></i> 4.9</div>
+                  <div style="position: absolute; top:1mm; right: 1mm; font-weight: bold; font-size: 150%; color:#b9a93e"><countdown time="900" autostart="no" /></div>
+                    <ol class="small">
+                      <li>Öffnen Sie in die CSV-Datei aus der vorherigen Übung mit Excel oder Libreoffice und tragen Sie für ein Paar der Pokemons die deutschen Namen ein.</li>
+                      <li>Erweitern Sie Ihr Jupyter Notebook aus der vorherigen Übung, um die CSV-Datei einzulesen und die darin befindlichen deutschen Namen zurück in die Original-JSON zu schreiben.</li>
+                    </ol>
+                </section>
+
+                <section>
+                  <h3>Konfigurationsdateien</h3>
+                  <h4>config.ini</h4>
+                  <pre style="width: 98%; margin-top: -3mm;"><code style="max-height: 15cm;" class="ini" data-sample-indent="keep" data-sample='code/3/config.ini'></code></pre>
+                  <p class="small">Sinnvoll für sensible Daten (Passwörter, Zugangsdaten, API-Keys, ...) und individuelle Einstellungen, damit diese nicht direkt im Code, sondern in einer zentralen Konfigurationsdatei stehen.</p>
+                  <pre style="width: 98%; margin-top: -3mm;"><code style="max-height: 15cm;" class="python" data-sample-indent="keep" data-sample='code/3/dateien.py#config'></code></pre>
+                </section>
+
+                <section>
                   <h2>Kapitelzusammenfassung</h2>
                   <ul>
-                    <li>Exceptions</li>
+                    <li>Exceptions<ul>
                     <li><code>try: ... except ...: ...</code></li>
                     <li><code>try: ... finally: ...</code></li>
                     <li><code>with ... as ...:</code></li>
-                    <li><code>raise</code></li>
+                    <li><code>raise</code></li></ul></li>
+                    <li>Dateien<ul>
+                    <li>Text: <code>datei.read()</code> / <code>datei.write(...)</code></li>
+                    <li>CSV: <code>csv.DictReader</code>, <code>csv.writer</code></li>
+                    <li>JSON, Konfigurationsdateien</li>
+                    <li>Dateien verwalten</li></ul></li>
                   </ul>
           </section>
 
@@ -195,12 +331,12 @@
             </div>
         
             <script src="reveal.js/dist/reveal.js"></script>
-		<script src="reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="reveal.js/plugin/highlight/highlight.js"></script>
-		<script src="reveal.js/plugin/zoom/zoom.js"></script>
-		<script src="reveal.js/plugin/math/math.js"></script>
-		<script src="reveal.js/plugin/notes/notes.js"></script>
-		<script src="reveal.js/plugin/search/search.js"></script>
+		<script src="reveal.js/dist/plugin/markdown.js"></script>
+		<script src="reveal.js/dist/plugin/highlight.js"></script>
+		<script src="reveal.js/dist/plugin/zoom.js"></script>
+		<script src="reveal.js/dist/plugin/math.js"></script>
+		<script src="reveal.js/dist/plugin/notes.js"></script>
+		<script src="reveal.js/dist/plugin/search.js"></script>
         <script src="lib/jquery.js"></script>
         <script src="lib/lodash.js"></script>
         <script src="lib/backbone.js"></script>

@@ -1,0 +1,69 @@
+[
+    {
+        "titel": "Ein Buch",
+        "isbn": "978-123456789X",
+        "autoren": [
+            "Anita A.",
+            "Bob B."
+        ],
+        "verlag": {
+            "name": "Rheinwerk Verlag",
+            "ort": "Bonn"
+        }
+    },
+    {
+        "titel": "Einführung in Python",
+        "isbn": "978-1111111111",
+        "autoren": [
+            "Eva Beispiel"
+        ],
+        "verlag": {
+            "name": "Rheinwerk Verlag",
+            "ort": "Bonn"
+        }
+    },
+    {
+        "titel": "Einführung in Python",
+        "isbn": "978-1111111111",
+        "autoren": [
+            "Eva Beispiel"
+        ],
+        "verlag": {
+            "name": "Rheinwerk Verlag",
+            "ort": "Bonn"
+        }
+    },
+    {
+        "titel": "Einführung in Python",
+        "isbn": "978-1111111111",
+        "autoren": [
+            "Eva Beispiel"
+        ],
+        "verlag": {
+            "name": "Rheinwerk Verlag",
+            "ort": "Bonn"
+        }
+    },
+    {
+        "titel": "Einführung in Python",
+        "isbn": "978-1111111111",
+        "autoren": [
+            "Eva Beispiel"
+        ],
+        "verlag": {
+            "name": "Rheinwerk Verlag",
+            "ort": "Bonn"
+        }
+    },
+    {
+        "titel": "Einführung in Python",
+        "isbn": "978-1111111111",
+        "autoren": [
+            "Eva Beispiel"
+        ],
+        "verlag": {
+            "name": "Rheinwerk Verlag",
+            "ort": "Bonn"
+        }
+    }
+]
